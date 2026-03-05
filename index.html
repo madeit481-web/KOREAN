@@ -12,6 +12,9 @@
 <body>
   <div class="ambient ambient-left" aria-hidden="true"></div>
   <div class="ambient ambient-right" aria-hidden="true"></div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode">
+    <span class="theme-toggle-label" id="themeLabel">Light</span>
+  </button>
 
   <main class="hero">
     <p class="tagline">Identity Playground</p>
@@ -57,5 +60,39 @@
       </form>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const storageKey = "landing-theme";
+      const body = document.body;
+      const toggle = document.getElementById("themeToggle");
+      const label = document.getElementById("themeLabel");
+
+      if (!toggle || !label) return;
+
+      const getInitialTheme = () => {
+        const saved = localStorage.getItem(storageKey);
+        if (saved === "dark" || saved === "light") return saved;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      const applyTheme = (theme) => {
+        body.setAttribute("data-theme", theme);
+        const isDark = theme === "dark";
+        label.textContent = isDark ? "Light" : "Dark";
+        toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      };
+
+      const initialTheme = getInitialTheme();
+      applyTheme(initialTheme);
+
+      toggle.addEventListener("click", () => {
+        const current = body.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        const next = current === "dark" ? "light" : "dark";
+        applyTheme(next);
+        localStorage.setItem(storageKey, next);
+      });
+    })();
+  </script>
 </body>
 </html>
