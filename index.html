@@ -80,7 +80,7 @@
       box-shadow: 0 10px 30px -10px rgba(165, 243, 252, 0.3);
     }
   </style>
-<style data-purpose="layout-utilities">
+  <style data-purpose="layout-utilities">
     .glass-card {
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(12px);
@@ -132,6 +132,21 @@
     .sparkle-sm {
       width: 3px;
       height: 3px;
+    }
+
+    .draggable-nav-card {
+      cursor: grab;
+      -webkit-user-drag: element;
+    }
+
+    .draggable-nav-card:active,
+    .draggable-nav-card.is-dragging {
+      cursor: grabbing;
+    }
+
+    .draggable-nav-card:focus-visible {
+      outline: 3px solid rgba(229, 142, 169, 0.35);
+      outline-offset: 6px;
     }
   </style>
 <!-- Unified Mesh Background & Sparkles -->
@@ -235,8 +250,8 @@
 <p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">From neon highlights to surgical-precision cuts, get the trendiest idol hairstyles instantly.</p>
 </div>
 </div>
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-pink transition-all duration-500 border border-white/30">
-<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
+<a aria-label="Open detailed K-POP makeup styling page" class="group draggable-nav-card relative block aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-pink transition-all duration-500 border border-white/30 focus:outline-none" data-target-page="code.html" draggable="true" href="code.html" id="featured-detail-card">
+<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" draggable="false" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
 <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
 <div class="absolute inset-x-0 bottom-0 p-10">
 <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-rose shadow-lg border border-kpop-pink/5">
@@ -245,7 +260,7 @@
 <h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Stage Glow</h3>
 <p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">Professional stage makeup filters that enhance your features with high-precision AI contouring.</p>
 </div>
-</div>
+</a>
 <div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm shadow-xl shadow-pink-100/10 transition-all duration-500 border border-white/30">
 <img alt="K-POP Fashion Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsX8eBYEDYyF8h7Eydhtq3u04e0100YKrX2lRiHkNYkehkR_06VrVZMNg76O03iyEWSCs3mppkjeT8KykEltbTyeaXvg_sq5S3681eDtEetwY3leYEH960AXfNS8X8AntXRX87h0fW-KNkTvWO6rKpaVNlxCeEhjGSokPagMcjTkDeWxg5sCchkRQXXdVUzLiaxVMzQCqVgDGaIJGgD3mpcfQTyxmkGVGoMPFPjaK0zWHTLHxiCuDsQhJGfu0k-8txszeAAg7BZB0" style="">
 <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
@@ -287,4 +302,47 @@
 </div>
 </div>
 </footer>
+<script>
+    const featuredDetailCard = document.getElementById('featured-detail-card');
+
+    if (featuredDetailCard) {
+      const targetPage = featuredDetailCard.dataset.targetPage;
+      let isDraggingCard = false;
+
+      const navigateToDetail = () => {
+        if (targetPage) {
+          window.location.href = targetPage;
+        }
+      };
+
+      featuredDetailCard.addEventListener('dragstart', (event) => {
+        isDraggingCard = true;
+        featuredDetailCard.classList.add('is-dragging', 'scale-[1.02]');
+        if (event.dataTransfer) {
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', targetPage);
+        }
+      });
+
+      featuredDetailCard.addEventListener('dragend', () => {
+        featuredDetailCard.classList.remove('is-dragging', 'scale-[1.02]');
+        if (!isDraggingCard) {
+          return;
+        }
+        isDraggingCard = false;
+        navigateToDetail();
+      });
+
+      featuredDetailCard.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          navigateToDetail();
+        }
+      });
+
+      featuredDetailCard.addEventListener('touchend', () => {
+        navigateToDetail();
+      });
+    }
+</script>
 </body></html>
