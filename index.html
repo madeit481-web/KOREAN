@@ -154,6 +154,16 @@
       -webkit-user-drag: element;
       user-select: none;
     }
+
+    .upload-dropzone {
+      cursor: pointer;
+    }
+
+    .upload-dropzone.is-over {
+      border-color: rgba(229, 142, 169, 0.65);
+      box-shadow: 0 0 50px rgba(255, 183, 206, 0.45);
+      transform: scale(1.01);
+    }
   </style>
 <!-- Unified Mesh Background & Sparkles -->
 <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none min-h-full w-full">
@@ -213,7 +223,8 @@
         Upload your selfie and let our neural engine redesign your hair, makeup, and fashion into a global K-POP sensation.
       </p>
 <div class="w-full max-w-2xl mx-auto" id="transform">
-<div class="rounded-[2.5rem] p-10 md:p-14 bg-white/40 backdrop-blur-md transition-all duration-700 group relative overflow-hidden text-center border-4 border-transparent bg-origin-border relative [background-clip:padding-box,_border-box] [background-image:linear-gradient(to_bottom_right,#ffffff,#ffffff),linear-gradient(to_bottom_right,#ffb7ce,#d8b4fe)] hover:shadow-[0_0_50px_rgba(255,183,206,0.4)] shadow-2xl shadow-pink-100/30">
+<input accept="image/png,image/jpeg,image/jpg" class="hidden" id="selfie-upload-input" type="file">
+<div class="upload-dropzone rounded-[2.5rem] p-10 md:p-14 bg-white/40 backdrop-blur-md transition-all duration-700 group relative overflow-hidden text-center border-4 border-transparent bg-origin-border relative [background-clip:padding-box,_border-box] [background-image:linear-gradient(to_bottom_right,#ffffff,#ffffff),linear-gradient(to_bottom_right,#ffb7ce,#d8b4fe)] hover:shadow-[0_0_50px_rgba(255,183,206,0.4)] shadow-2xl shadow-pink-100/30" id="selfie-dropzone" role="button" tabindex="0" aria-describedby="upload-feedback">
 <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 pointer-events-none"></div>
 <div class="relative z-10 flex flex-col items-center gap-6">
 <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-kpop-rose group-hover:bg-kpop-rose group-hover:text-white transition-all duration-500 shadow-sm w-20 h-20 bg-gradient-to-tr from-kpop-rose to-kpop-purple text-white shadow-lg"><span class="material-symbols-outlined text-4xl" style="">add_a_photo</span></div>
@@ -221,9 +232,10 @@
 <p class="font-bold tracking-wider brand-font text-kpop-black text-2xl" style="">Drop Your Selfie</p>
 <p class="text-kpop-rose/50 text-xs font-bold uppercase tracking-widest text-kpop-rose/80" style="">PNG or JPG ??High Resolution</p>
 </div>
-<button class="bg-gradient-to-r from-[#ff1493] via-[#ff69b4] to-[#e11d48] text-white px-20 py-7 rounded-full font-black text-xl tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 shadow-xl uppercase" style="">
+<button class="bg-gradient-to-r from-[#ff1493] via-[#ff69b4] to-[#e11d48] text-white px-20 py-7 rounded-full font-black text-xl tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 shadow-xl uppercase" id="transform-now-button" type="button" style="">
             Transform Now
           </button>
+<p class="text-sm font-semibold text-kpop-rose/70 min-h-6" id="upload-feedback">사진을 여기에 드래그 앤 드랍하거나 버튼을 눌러 선택하세요.</p>
 </div>
 </div>
 <div class="mt-8 flex justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.2em] text-kpop-rose/60 uppercase">
@@ -309,8 +321,89 @@
 </div>
 </footer>
 <script>
+    const selfieDropzone = document.getElementById('selfie-dropzone');
+    const selfieUploadInput = document.getElementById('selfie-upload-input');
+    const transformNowButton = document.getElementById('transform-now-button');
+    const uploadFeedback = document.getElementById('upload-feedback');
     const featuredDetailCard = document.getElementById('featured-detail-card');
     const featuredDetailImage = document.getElementById('featured-detail-image');
+
+    if (selfieDropzone && selfieUploadInput && transformNowButton && uploadFeedback) {
+      const openUploadedResult = (file) => {
+        if (!file) {
+          uploadFeedback.textContent = '사진을 선택해 주세요.';
+          return;
+        }
+
+        if (!file.type.startsWith('image/')) {
+          uploadFeedback.textContent = 'PNG 또는 JPG 이미지 파일만 업로드할 수 있습니다.';
+          return;
+        }
+
+        const reader = new FileReader();
+        uploadFeedback.textContent = `업로드 중: ${file.name}`;
+
+        reader.onload = (loadEvent) => {
+          sessionStorage.setItem('idolai-upload-image', loadEvent.target.result);
+          sessionStorage.setItem('idolai-upload-name', file.name);
+          window.location.href = 'code.html';
+        };
+
+        reader.readAsDataURL(file);
+      };
+
+      const updateUploadFeedback = (file) => {
+        if (!file) {
+          uploadFeedback.textContent = '사진을 여기에 드래그 앤 드랍하거나 버튼을 눌러 선택하세요.';
+          return;
+        }
+
+        if (!file.type.startsWith('image/')) {
+          uploadFeedback.textContent = 'PNG 또는 JPG 이미지 파일만 업로드할 수 있습니다.';
+          return;
+        }
+
+        uploadFeedback.textContent = `선택된 파일: ${file.name}`;
+      };
+
+      transformNowButton.addEventListener('click', () => {
+        selfieUploadInput.click();
+      });
+
+      selfieUploadInput.addEventListener('change', () => {
+        const selectedFile = selfieUploadInput.files[0];
+        updateUploadFeedback(selectedFile);
+        openUploadedResult(selectedFile);
+      });
+
+      ['dragenter', 'dragover'].forEach((eventName) => {
+        selfieDropzone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          selfieDropzone.classList.add('is-over');
+          uploadFeedback.textContent = '여기에 사진을 놓으면 결과 페이지로 이동합니다.';
+        });
+      });
+
+      ['dragleave', 'drop'].forEach((eventName) => {
+        selfieDropzone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          selfieDropzone.classList.remove('is-over');
+        });
+      });
+
+      selfieDropzone.addEventListener('drop', (event) => {
+        const file = event.dataTransfer && event.dataTransfer.files ? event.dataTransfer.files[0] : null;
+        updateUploadFeedback(file);
+        openUploadedResult(file);
+      });
+
+      selfieDropzone.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selfieUploadInput.click();
+        }
+      });
+    }
 
     if (featuredDetailCard) {
       const targetPage = featuredDetailCard.dataset.targetPage;

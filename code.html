@@ -83,12 +83,12 @@
 
   <section class="relative mt-10 mb-10">
     <div class="overflow-hidden rounded-[1.8rem] border-4 border-white shadow-2xl shadow-slate-300/30">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn1ALHDpfagPidTzyLmloQfePagRzRBlrmviysS7qlHSYimqLs4YQUrK2vvXKHDQlWxtdkqqYA9FCmXgNeiltv41dVc6joAgslKR-u5bMz821Qlv0vGudFkwa1o3BqTsngHqf-yOtsECoXOyv6foA3-M_GxIXwzE2JZ4bc613979dDQ1tvsOcBmuyEsYvqzY1S-9G6VvEI_cnW4AeHUcLZTOXWgbNAoMupVm6cHF57gAUhObzhHnLf-8vkSJ9BbMOs829Z59b59z8" alt="Jennie inspired analysis result portrait" class="w-full object-cover">
+      <img id="analysis-result-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn1ALHDpfagPidTzyLmloQfePagRzRBlrmviysS7qlHSYimqLs4YQUrK2vvXKHDQlWxtdkqqYA9FCmXgNeiltv41dVc6joAgslKR-u5bMz821Qlv0vGudFkwa1o3BqTsngHqf-yOtsECoXOyv6foA3-M_GxIXwzE2JZ4bc613979dDQ1tvsOcBmuyEsYvqzY1S-9G6VvEI_cnW4AeHUcLZTOXWgbNAoMupVm6cHF57gAUhObzhHnLf-8vkSJ9BbMOs829Z59b59z8" alt="Jennie inspired analysis result portrait" class="w-full object-cover">
     </div>
     <div class="-mt-12 mx-auto max-w-2xl px-6">
       <div class="soft-card rounded-2xl px-6 py-5 text-center shadow-xl">
         <p class="text-[10px] font-bold uppercase tracking-[0.34em] text-orange-500">Analysis Result</p>
-        <h2 class="mt-2 text-3xl font-black text-fuchsia-500 md:text-5xl">당신은 제니입니다!</h2>
+        <h2 id="analysis-result-title" class="mt-2 text-3xl font-black text-fuchsia-500 md:text-5xl">당신은 제니입니다!</h2>
         <p class="mt-1 text-sm italic text-slate-500">"The Human Chanel: Chic &amp; Iconic Global Star"</p>
       </div>
     </div>
@@ -136,5 +136,20 @@
     <a href="#" class="hover:text-pink-500 transition">Contact</a>
   </div>
 </footer>
+<script>
+  const uploadedImage = sessionStorage.getItem('idolai-upload-image');
+  const uploadedName = sessionStorage.getItem('idolai-upload-name');
+  const analysisResultImage = document.getElementById('analysis-result-image');
+  const analysisResultTitle = document.getElementById('analysis-result-title');
+
+  if (uploadedImage && analysisResultImage) {
+    analysisResultImage.src = uploadedImage;
+    analysisResultImage.alt = uploadedName ? `${uploadedName} analysis preview` : 'Uploaded selfie analysis preview';
+  }
+
+  if (uploadedName && analysisResultTitle) {
+    analysisResultTitle.textContent = '당신의 스타일 분석 결과입니다!';
+  }
+</script>
 </body>
 </html>
