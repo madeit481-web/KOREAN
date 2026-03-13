@@ -1,506 +1,320 @@
-<!DOCTYPE html><html lang="en"><head></head><body class="text-kpop-black min-h-screen relative bg-white">
-
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>AI K-POP Transformation | IDOL.AI</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script data-purpose="tailwind-config">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI K-POP Transformation | IDOL.AI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             kpop: {
-              black: '#2d2327',
-              white: '#ffffff',
-              offwhite: '#fffafb',
-              pink: '#ffb7ce',
-              rose: '#e58ea9',
-              lightpink: '#fff0f3',
-              purple: '#d8b4fe',
-              cyan: '#a5f3fc',
-              gray: '#94a3b8',
-              gold: '#fbbf24'
-            }
-          },
-          animation: {
-            'glow-pulse': 'glow 3s infinite alternate',
-            'infinite-scroll': 'scroll 40s linear infinite',
-            'float': 'float 20s ease-in-out infinite',
-            'float-delayed': 'float 25s ease-in-out infinite 2s',
-            'float-slow': 'float 30s ease-in-out infinite 5s',
-            'twinkle': 'twinkle 4s ease-in-out infinite',
-            'twinkle-delayed': 'twinkle 5s ease-in-out infinite 1.5s',
-            'twinkle-slow': 'twinkle 6s ease-in-out infinite 3s',
-            'twinkle-fast': 'twinkle 3s ease-in-out infinite 0.5s',
-          },
-          keyframes: {
-            glow: {
-              '0%': { 'text-shadow': '0 0 5px rgba(255, 183, 206, 0.4)' },
-              '100%': { 'text-shadow': '0 0 10px rgba(255, 183, 206, 0.6)' },
-            },
-            scroll: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' }
-            },
-            float: {
-              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-              '33%': { transform: 'translate(10%, 15%) scale(1.1)' },
-              '66%': { transform: 'translate(-5%, 10%) scale(0.9)' }
-            },
-            twinkle: {
-              '0%, 100%': { opacity: 0.2, transform: 'scale(0.8)' },
-              '50%': { opacity: 1, transform: 'scale(1.2)' }
+              black: "#2d2327",
+              white: "#ffffff",
+              pink: "#ffb7ce",
+              rose: "#e58ea9",
+              lightpink: "#fff0f3",
+              purple: "#d8b4fe",
+              cyan: "#a5f3fc"
             }
           }
         }
       }
-    }
+    };
   </script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<style data-purpose="typography">
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&display=swap');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&family=Montserrat:wght@600;700;800;900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
     body {
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
       color: #2d2327;
       overflow-x: hidden;
-      background-color: #ffffff;
+      background:
+        radial-gradient(circle at top left, rgba(255, 183, 206, 0.35), transparent 30%),
+        radial-gradient(circle at top right, rgba(216, 180, 254, 0.25), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(165, 243, 252, 0.22), transparent 24%),
+        linear-gradient(180deg, #fffafb 0%, #ffffff 100%);
     }
-    h1, h2, h3, .brand-font {
-      font-family: 'Montserrat', sans-serif;
+
+    .brand-font {
+      font-family: "Montserrat", sans-serif;
       text-transform: uppercase;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
-    .minimalist-border {
-      border: 1px solid rgba(229, 142, 169, 0.1);
-    }
-    .accent-shadow-pink {
-      box-shadow: 0 10px 30px -10px rgba(255, 183, 206, 0.3);
-    }
-    .accent-shadow-cyan {
-      box-shadow: 0 10px 30px -10px rgba(165, 243, 252, 0.3);
-    }
-  </style>
-  <style data-purpose="layout-utilities">
-    .glass-card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 183, 206, 0.1);
-    }
+
     .hero-gradient {
-      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.55) 100%);
     }
-    .shimmer {
-      background: linear-gradient(90deg, transparent, rgba(255, 183, 206, 0.1), transparent);
-      background-size: 200% 100%;
-      animation: shimmer-effect 3s infinite;
-    }
-    @keyframes shimmer-effect {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    
-    /* Mesh Background Elements */
+
     .mesh-blob {
       position: absolute;
-      filter: blur(80px);
+      filter: blur(90px);
       z-index: -1;
-      opacity: 0.4;
-      border-radius: 50%;
+      opacity: 0.42;
+      border-radius: 999px;
     }
 
     .sparkle {
       position: absolute;
+      border-radius: 999px;
       background: white;
-      border-radius: 50%;
-      z-index: -15;
       pointer-events: none;
-    }
-    .sparkle-pink { box-shadow: 0 0 10px 2px rgba(255, 183, 206, 0.8); }
-    .sparkle-cyan { box-shadow: 0 0 10px 2px rgba(165, 243, 252, 0.8); }
-    .sparkle-purple { box-shadow: 0 0 10px 2px rgba(216, 180, 254, 0.8); }
-    .sparkle-gold { box-shadow: 0 0 10px 2px rgba(251, 191, 36, 0.8); }
-    .sparkle-white { box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.9); }
-    
-    .sparkle-lg {
-      width: 8px;
-      height: 8px;
-    }
-    .sparkle-md {
-      width: 5px;
-      height: 5px;
-    }
-    .sparkle-sm {
-      width: 3px;
-      height: 3px;
+      box-shadow: 0 0 12px rgba(255, 183, 206, 0.65);
     }
 
-    .draggable-nav-card {
-      cursor: grab;
-      -webkit-user-drag: element;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px);
     }
 
-    .draggable-nav-card:active,
-    .draggable-nav-card.is-dragging {
-      cursor: grabbing;
+    .upload-shell {
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
+      border: 3px solid transparent;
     }
 
-    .draggable-nav-card:focus-visible {
-      outline: 3px solid rgba(229, 142, 169, 0.35);
-      outline-offset: 6px;
-    }
-
-    .draggable-nav-card img {
-      cursor: grab;
-      -webkit-user-drag: element;
-      user-select: none;
-    }
-
-    .upload-dropzone {
-      cursor: pointer;
-    }
-
-    .upload-dropzone.is-over {
-      border-color: rgba(229, 142, 169, 0.65);
-      box-shadow: 0 0 50px rgba(255, 183, 206, 0.45);
+    .upload-shell.drag-active {
       transform: scale(1.01);
+      box-shadow: 0 0 55px rgba(255, 105, 180, 0.28);
     }
   </style>
-<!-- Unified Mesh Background & Sparkles -->
-<div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none min-h-full w-full">
-<div class="mesh-blob animate-float bg-kpop-pink w-[600px] h-[600px] -top-[5%] -left-[10%]"></div>
-<div class="mesh-blob animate-float-delayed bg-kpop-purple w-[500px] h-[500px] top-[15%] -right-[5%]"></div>
-<div class="mesh-blob animate-float-slow bg-kpop-cyan w-[400px] h-[400px] top-[40%] left-[20%] opacity-20"></div>
-<div class="mesh-blob animate-float bg-kpop-lightpink w-[700px] h-[700px] bottom-[20%] -right-[10%]"></div>
-<div class="mesh-blob animate-float-delayed bg-[#ffd9e6] w-[450px] h-[450px] top-[60%] left-[5%] opacity-30"></div>
-<div class="mesh-blob animate-float-slow bg-kpop-purple w-[600px] h-[600px] -bottom-[10%] left-[10%] opacity-25"></div>
-<!-- Background Sparkles -->
-<div class="sparkle sparkle-pink sparkle-sm animate-twinkle top-[10%] left-[12%]"></div>
-<div class="sparkle sparkle-pink sparkle-lg animate-twinkle-delayed top-[35%] left-[8%]"></div>
-<div class="sparkle sparkle-pink sparkle-md animate-twinkle-slow top-[65%] left-[15%]"></div>
-<div class="sparkle sparkle-cyan sparkle-lg animate-twinkle-fast top-[5%] right-[15%]"></div>
-<div class="sparkle sparkle-cyan sparkle-sm animate-twinkle-delayed top-[25%] right-[20%]"></div>
-<div class="sparkle sparkle-cyan sparkle-lg animate-twinkle-slow top-[85%] left-[5%]"></div>
-<div class="sparkle sparkle-purple sparkle-md animate-twinkle-delayed top-[75%] left-[40%]"></div>
-<div class="sparkle sparkle-purple sparkle-lg animate-twinkle top-[45%] left-[50%]"></div>
-<div class="sparkle sparkle-purple sparkle-md animate-twinkle-slow top-[80%] left-[70%]"></div>
-<div class="sparkle sparkle-gold sparkle-md animate-twinkle-slow top-[20%] left-[50%]"></div>
-<div class="sparkle sparkle-gold sparkle-lg animate-twinkle-slow top-[60%] right-[12%]"></div>
-<div class="sparkle sparkle-gold sparkle-sm animate-twinkle-delayed top-[85%] right-[45%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle top-[2%] left-[30%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-delayed top-[15%] left-[80%]"></div>
-<div class="sparkle sparkle-white sparkle-md animate-twinkle-slow top-[70%] right-[40%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-fast top-[90%] right-[25%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-fast top-[95%] left-[10%]"></div>
-</div>
-<nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur-md border-b border-kpop-pink/10" data-purpose="main-navigation">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-kpop-rose rounded-full flex items-center justify-center">
-<span class="text-white text-xs font-bold" style="">??/span>
-</div>
-<span class="brand-font tracking-tighter text-lg font-black text-kpop-black" style="">K-POP&nbsp;</span>
-</div>
-<div class="hidden md:flex space-x-8 text-[11px] font-bold tracking-widest uppercase text-kpop-rose/70">
-<a class="hover:text-kpop-rose transition-colors" href="#transform" style="">Transform</a>
-<a class="hover:text-kpop-rose transition-colors" href="#stylist" style="">Stylist</a>
-</div>
-<button class="bg-kpop-black text-white px-6 py-2 rounded-full font-bold text-[11px] tracking-widest hover:bg-kpop-rose transition-all duration-300" style="">
-      GET THE LOOK
-    </button>
-</nav>
-<section class="relative min-h-screen flex items-center justify-center pt-24 pb-16" data-purpose="hero-section" id="hero">
-<div class="absolute inset-0 z-0">
-<img alt="K-POP Style Background" class="w-full h-full object-cover opacity-[0.03] grayscale-[0.5] contrast-[0.8]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vPvUT-xcpbFb4OyNwrvFfdxHeGz7xEVH2T7ivH4hZKjtlqwFRaq5QHYHdGlo2aPFls8bhjP1N-WzqH2yHL3vU7KXW7usOL8sTTvAzyYBC5pBt0Wa5oiJNkGWYKyrqvLOIZZm1XaKtjHhBVtQvJ3h75vVaCFzIrNK73ADSjP7U0qOTT4jtYNFhg_NlGRnqiuSNzE0OA_AYjL6twar92R_H7vw7SjyxcU42cCCZJ4QZsuWNT6dro58UZnd0-QbyAN2tvqjBshlRjg" style="">
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-<div class="relative z-10 text-center px-4 max-w-6xl w-full flex flex-col items-center">
-<span class="inline-block px-4 py-1 border border-kpop-rose/20 text-kpop-rose text-[10px] font-bold tracking-[0.4em] mb-6 uppercase bg-white/40 backdrop-blur-sm" style="">
-        AI POWERED STYLE ENGINE
-      </span>
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tighter text-kpop-black" style="">
-        WHAT IF I WERE A<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-kpop-rose via-kpop-pink to-kpop-rose" style="">K-POP STAR?</span>
-</h1>
-<p class="text-kpop-rose/70 text-base md:text-lg max-w-xl mx-auto mb-10 font-medium leading-relaxed" style="">
-        Upload your selfie and let our neural engine redesign your hair, makeup, and fashion into a global K-POP sensation.
-      </p>
-<div class="w-full max-w-2xl mx-auto" id="transform">
-<input accept="image/png,image/jpeg,image/jpg" class="hidden" id="selfie-upload-input" type="file">
-<div class="upload-dropzone rounded-[2.5rem] p-10 md:p-14 bg-white/40 backdrop-blur-md transition-all duration-700 group relative overflow-hidden text-center border-4 border-transparent bg-origin-border relative [background-clip:padding-box,_border-box] [background-image:linear-gradient(to_bottom_right,#ffffff,#ffffff),linear-gradient(to_bottom_right,#ffb7ce,#d8b4fe)] hover:shadow-[0_0_50px_rgba(255,183,206,0.4)] shadow-2xl shadow-pink-100/30" id="selfie-dropzone" role="button" tabindex="0" aria-describedby="upload-feedback">
-<div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 pointer-events-none"></div>
-<div class="relative z-10 flex flex-col items-center gap-6">
-<div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-kpop-rose group-hover:bg-kpop-rose group-hover:text-white transition-all duration-500 shadow-sm w-20 h-20 bg-gradient-to-tr from-kpop-rose to-kpop-purple text-white shadow-lg"><span class="material-symbols-outlined text-4xl" style="">add_a_photo</span></div>
-<div class="space-y-2">
-<p class="font-bold tracking-wider brand-font text-kpop-black text-2xl" style="">Drop Your Selfie</p>
-<p class="text-kpop-rose/50 text-xs font-bold uppercase tracking-widest text-kpop-rose/80" style="">PNG or JPG ??High Resolution</p>
-</div>
-<button class="bg-gradient-to-r from-[#ff1493] via-[#ff69b4] to-[#e11d48] text-white px-20 py-7 rounded-full font-black text-xl tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 shadow-xl uppercase" id="transform-now-button" type="button" style="">
-            Transform Now
-          </button>
-<p class="text-sm font-semibold text-kpop-rose/70 min-h-6" id="upload-feedback">사진을 여기에 드래그 앤 드랍하거나 버튼을 눌러 선택하세요.</p>
-</div>
-</div>
-<div class="mt-8 flex justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.2em] text-kpop-rose/60 uppercase">
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-rose rounded-full"></span> Secure</span>
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-cyan rounded-full"></span> HD Result</span>
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-purple rounded-full"></span> No Watermark</span>
-</div>
-</div>
-</div>
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-20">
-<div class="w-[1px] h-8 bg-gradient-to-b from-kpop-rose to-transparent"></div>
-</div>
-</section>
-<section class="py-32 px-6 relative" data-purpose="stylist-section" id="stylist">
-<div class="max-w-7xl mx-auto relative z-10">
-<div class="text-center mb-24 space-y-6">
-<h2 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-kpop-black" style="">Your AI <span class="text-kpop-rose italic font-medium" style="">Stylist</span></h2>
-<div class="h-1 w-24 bg-kpop-pink/50 mx-auto rounded-full"></div>
-<p class="text-kpop-rose/70 text-lg max-w-2xl mx-auto font-semibold" style="">Our advanced AI mirrors the techniques of professional K-POP visual directors across three key pillars.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-cyan transition-all duration-500 border border-white/30">
-<img alt="K-POP Hair Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zyw0LiEjcCwO0GhfGoH_1cthDuDIeLHBYunb3OnOBhaoMWYgMD9BzU9p8r35YAiaQvx6u4dgmE9GRqu3CACTflZrQbLfC0Uy2E709pBO5WExdMZSyTu0VSnzqTkPLGNiZM_-9T3gtpy_CsltrPhEVRclcELK800A7ytA95jO_nWG48fsvsjW1z3PTqyCudOrEtZDLNaPZZOn32ZWrPfazO80QZKSZux3bWQuIGA_HxaRr6wVkD3WbxTV3dKmE11u7OnkQ6y3lvI" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-cyan shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">content_cut</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Iconic Hair</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">From neon highlights to surgical-precision cuts, get the trendiest idol hairstyles instantly.</p>
-</div>
-</div>
-<a aria-label="Open detailed K-POP makeup styling page" class="group draggable-nav-card relative block aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-pink transition-all duration-500 border border-white/30 focus:outline-none" data-target-page="code.html" draggable="true" href="code.html" id="featured-detail-card">
-<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" draggable="true" id="featured-detail-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-rose shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">face</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Stage Glow</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">Professional stage makeup filters that enhance your features with high-precision AI contouring.</p>
-</div>
-</a>
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm shadow-xl shadow-pink-100/10 transition-all duration-500 border border-white/30">
-<img alt="K-POP Fashion Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsX8eBYEDYyF8h7Eydhtq3u04e0100YKrX2lRiHkNYkehkR_06VrVZMNg76O03iyEWSCs3mppkjeT8KykEltbTyeaXvg_sq5S3681eDtEetwY3leYEH960AXfNS8X8AntXRX87h0fW-KNkTvWO6rKpaVNlxCeEhjGSokPagMcjTkDeWxg5sCchkRQXXdVUzLiaxVMzQCqVgDGaIJGgD3mpcfQTyxmkGVGoMPFPjaK0zWHTLHxiCuDsQhJGfu0k-8txszeAAg7BZB0" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-purple shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">checkroom</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Viral Fashion</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">Digital couture inspired by world tours and music videos. Curated to match your aura.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class="py-16 px-6 bg-white/30 backdrop-blur-md" data-purpose="main-footer">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 bg-kpop-rose rounded-full flex items-center justify-center">
-<span class="text-[8px] text-white font-bold" style="">??/span>
-</div>
-<span class="brand-font tracking-tighter text-sm font-black text-kpop-black" style="">IDOL.AI 2024</span>
-</div>
-<div class="flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-kpop-rose/50 uppercase">
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Privacy</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Terms</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Press</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Styling API</a>
-</div>
-<div class="flex space-x-5">
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">IG</span>
-</a>
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">YT</span>
-</a>
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">TK</span>
-</a>
-</div>
-</div>
-</footer>
-<script>
-    const selfieDropzone = document.getElementById('selfie-dropzone');
-    const selfieUploadInput = document.getElementById('selfie-upload-input');
-    const transformNowButton = document.getElementById('transform-now-button');
-    const uploadFeedback = document.getElementById('upload-feedback');
-    const featuredDetailCard = document.getElementById('featured-detail-card');
-    const featuredDetailImage = document.getElementById('featured-detail-image');
+</head>
+<body class="min-h-screen relative bg-white text-kpop-black">
+  <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+    <div class="mesh-blob h-[34rem] w-[34rem] -left-24 -top-20 bg-kpop-pink"></div>
+    <div class="mesh-blob h-[28rem] w-[28rem] right-0 top-24 bg-kpop-purple"></div>
+    <div class="mesh-blob h-[24rem] w-[24rem] bottom-16 left-12 bg-kpop-cyan opacity-25"></div>
+    <div class="mesh-blob h-[30rem] w-[30rem] -right-16 bottom-8 bg-kpop-lightpink"></div>
+    <span class="sparkle left-[9%] top-[12%] h-2 w-2"></span>
+    <span class="sparkle left-[14%] top-[30%] h-1.5 w-1.5"></span>
+    <span class="sparkle left-[18%] top-[76%] h-1.5 w-1.5"></span>
+    <span class="sparkle right-[12%] top-[16%] h-2 w-2"></span>
+    <span class="sparkle right-[18%] top-[58%] h-1.5 w-1.5"></span>
+    <span class="sparkle right-[10%] top-[82%] h-2 w-2"></span>
+  </div>
 
-    if (selfieDropzone && selfieUploadInput && transformNowButton && uploadFeedback) {
-      const openUploadedResult = (file) => {
-        if (!file) {
-          uploadFeedback.textContent = '사진을 선택해 주세요.';
-          return;
-        }
+  <nav class="fixed left-0 right-0 top-0 z-50 border-b border-kpop-pink/10 bg-white/70 px-6 py-4 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-kpop-rose text-xs font-bold text-white">K</div>
+        <span class="brand-font text-lg font-black text-kpop-black">K-POP</span>
+      </div>
+      <div class="hidden space-x-8 text-[11px] font-bold uppercase tracking-[0.28em] text-kpop-rose/70 md:flex">
+        <a class="transition-colors hover:text-kpop-rose" href="#transform">Transform</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#stylist">Stylist</a>
+      </div>
+      <button class="rounded-full bg-kpop-black px-6 py-2 text-[11px] font-bold tracking-[0.24em] text-white transition-all duration-300 hover:bg-kpop-rose">
+        GET THE LOOK
+      </button>
+    </div>
+  </nav>
 
-        if (!file.type.startsWith('image/')) {
-          uploadFeedback.textContent = 'PNG 또는 JPG 이미지 파일만 업로드할 수 있습니다.';
-          return;
-        }
+  <main>
+    <section class="relative flex min-h-screen items-center justify-center px-4 pb-16 pt-28" id="hero">
+      <div class="absolute inset-0 z-0">
+        <img alt="Soft K-POP background" class="h-full w-full object-cover opacity-[0.03] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vPvUT-xcpbFb4OyNwrvFfdxHeGz7xEVH2T7ivH4hZKjtlqwFRaq5QHYHdGlo2aPFls8bhjP1N-WzqH2yHL3vU7KXW7usOL8sTTvAzyYBC5pBt0Wa5oiJNkGWYKyrqvLOIZZm1XaKtjHhBVtQvJ3h75vVaCFzIrNK73ADSjP7U0qOTT4jtYNFhg_NlGRnqiuSNzE0OA_AYjL6twar92R_H7vw7SjyxcU42cCCZJ4QZsuWNT6dro58UZnd0-QbyAN2tvqjBshlRjg">
+        <div class="hero-gradient absolute inset-0"></div>
+      </div>
 
-        const reader = new FileReader();
-        uploadFeedback.textContent = `업로드 중: ${file.name}`;
+      <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+        <span class="inline-block border border-kpop-rose/20 bg-white/40 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.4em] text-kpop-rose backdrop-blur-sm">
+          AI POWERED STYLE ENGINE
+        </span>
+        <h1 class="brand-font mb-6 mt-6 text-4xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-6xl lg:text-7xl">
+          WHAT IF I WERE A<br>
+          <span class="bg-gradient-to-r from-kpop-rose via-kpop-pink to-kpop-rose bg-clip-text text-transparent">K-POP STAR?</span>
+        </h1>
+        <p class="mb-10 max-w-xl text-base font-medium leading-relaxed text-kpop-rose/70 md:text-lg">
+          Upload your selfie and let our neural engine redesign your hair, makeup, and fashion into a global K-POP sensation.
+        </p>
 
-        reader.onload = (loadEvent) => {
-          sessionStorage.setItem('idolai-upload-image', loadEvent.target.result);
-          sessionStorage.setItem('idolai-upload-name', file.name);
-          window.location.href = 'code.html';
-        };
+        <div class="w-full max-w-2xl" id="transform">
+          <div id="uploadZone" class="upload-shell glass-card relative overflow-hidden rounded-[2.5rem] px-8 py-10 text-center shadow-2xl shadow-pink-100/40 transition-all duration-300 md:px-14 md:py-14">
+            <input id="fileInput" class="hidden" type="file" accept="image/png,image/jpeg,image/jpg,image/webp">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent opacity-70"></div>
 
-        reader.readAsDataURL(file);
-      };
+            <div class="relative z-10 flex flex-col items-center gap-6">
+              <div id="uploadIcon" class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-kpop-rose to-kpop-purple text-white shadow-lg">
+                <span class="material-symbols-outlined text-4xl">add_a_photo</span>
+              </div>
 
-      const updateUploadFeedback = (file) => {
-        if (!file) {
-          uploadFeedback.textContent = '사진을 여기에 드래그 앤 드랍하거나 버튼을 눌러 선택하세요.';
-          return;
-        }
+              <div id="previewWrapper" class="hidden w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-kpop-rose/20 bg-white/70 shadow-lg">
+                <img id="previewImage" class="h-64 w-full object-cover" alt="Uploaded selfie preview">
+              </div>
 
-        if (!file.type.startsWith('image/')) {
-          uploadFeedback.textContent = 'PNG 또는 JPG 이미지 파일만 업로드할 수 있습니다.';
-          return;
-        }
+              <div class="space-y-2">
+                <p class="brand-font text-2xl font-black text-kpop-black">Drop Your Selfie</p>
+                <p id="uploadHint" class="text-xs font-bold uppercase tracking-[0.28em] text-kpop-rose/70">PNG or JPG • High Resolution</p>
+              </div>
 
-        uploadFeedback.textContent = `선택된 파일: ${file.name}`;
-      };
+              <div class="flex flex-wrap items-center justify-center gap-3">
+                <button id="browseButton" class="rounded-full border border-kpop-rose/20 bg-white/80 px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-kpop-rose transition hover:bg-kpop-lightpink">
+                  Choose Photo
+                </button>
+                <button id="transformButton" class="rounded-full bg-gradient-to-r from-[#ff1493] via-[#ff69b4] to-[#e11d48] px-10 py-5 text-sm font-black uppercase tracking-[0.24em] text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] md:px-16 md:text-xl">
+                  Transform Now
+                </button>
+              </div>
 
-      transformNowButton.addEventListener('click', () => {
-        selfieUploadInput.click();
-      });
+              <p id="uploadStatus" class="min-h-[1.25rem] text-sm font-semibold text-kpop-rose/80"></p>
+            </div>
+          </div>
 
-      selfieUploadInput.addEventListener('change', () => {
-        const selectedFile = selfieUploadInput.files[0];
-        updateUploadFeedback(selectedFile);
-        openUploadedResult(selectedFile);
-      });
+          <div class="mt-8 flex justify-center gap-6 text-[9px] font-bold uppercase tracking-[0.2em] text-kpop-rose/60 md:gap-10">
+            <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-rose"></span> Secure</span>
+            <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-cyan"></span> HD Result</span>
+            <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-purple"></span> No Watermark</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      ['dragenter', 'dragover'].forEach((eventName) => {
-        selfieDropzone.addEventListener(eventName, (event) => {
-          event.preventDefault();
-          selfieDropzone.classList.add('is-over');
-          uploadFeedback.textContent = '여기에 사진을 놓으면 결과 페이지로 이동합니다.';
-        });
-      });
+    <section class="relative px-6 py-32" id="stylist">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-24 space-y-6 text-center">
+          <h2 class="text-4xl font-black leading-tight tracking-tight text-kpop-black md:text-6xl">Your AI <span class="font-medium italic text-kpop-rose">Stylist</span></h2>
+          <div class="mx-auto h-1 w-24 rounded-full bg-kpop-pink/50"></div>
+          <p class="mx-auto max-w-2xl text-lg font-semibold text-kpop-rose/70">Our advanced AI mirrors the techniques of professional K-POP visual directors across three key pillars.</p>
+        </div>
 
-      ['dragleave', 'drop'].forEach((eventName) => {
-        selfieDropzone.addEventListener(eventName, (event) => {
-          event.preventDefault();
-          selfieDropzone.classList.remove('is-over');
-        });
-      });
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-cyan-100/20 backdrop-blur-sm">
+            <img alt="K-POP Hair Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zyw0LiEjcCwO0GhfGoH_1cthDuDIeLHBYunb3OnOBhaoMWYgMD9BzU9p8r35YAiaQvx6u4dgmE9GRqu3CACTflZrQbLfC0Uy2E709pBO5WExdMZSyTu0VSnzqTkPLGNiZM_-9T3gtpy_CsltrPhEVRclcELK800A7ytA95jO_nWG48fsvsjW1z3PTqyCudOrEtZDLNaPZZOn32ZWrPfazO80QZKSZux3bWQuIGA_HxaRr6wVkD3WbxTV3dKmE11u7OnkQ6y3lvI">
+            <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-10">
+              <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-kpop-cyan shadow-lg">
+                <span class="material-symbols-outlined font-bold">content_cut</span>
+              </div>
+              <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Iconic Hair</h3>
+              <p class="text-sm font-semibold leading-relaxed text-kpop-rose/80">From neon highlights to surgical-precision cuts, get the trendiest idol hairstyles instantly.</p>
+            </div>
+          </article>
 
-      selfieDropzone.addEventListener('drop', (event) => {
-        const file = event.dataTransfer && event.dataTransfer.files ? event.dataTransfer.files[0] : null;
-        updateUploadFeedback(file);
-        openUploadedResult(file);
-      });
+          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-pink-100/20 backdrop-blur-sm">
+            <img alt="K-POP Makeup Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY">
+            <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-10">
+              <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-kpop-rose shadow-lg">
+                <span class="material-symbols-outlined font-bold">face</span>
+              </div>
+              <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Stage Glow</h3>
+              <p class="text-sm font-semibold leading-relaxed text-kpop-rose/80">Professional stage makeup filters that enhance your features with high-precision AI contouring.</p>
+            </div>
+          </article>
 
-      selfieDropzone.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          selfieUploadInput.click();
-        }
-      });
+          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-purple-100/20 backdrop-blur-sm">
+            <img alt="K-POP Fashion Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsX8eBYEDYyF8h7Eydhtq3u04e0100YKrX2lRiHkNYkehkR_06VrVZMNg76O03iyEWSCs3mppkjeT8KykEltbTyeaXvg_sq5S3681eDtEetwY3leYEH960AXfNS8X8AntXRX87h0fW-KNkTvWO6rKpaVNlxCeEhjGSokPagMcjTkDeWxg5sCchkRQXXdVUzLiaxVMzQCqVgDGaIJGgD3mpcfQTyxmkGVGoMPFPjaK0zWHTLHxiCuDsQhJGfu0k-8txszeAAg7BZB0">
+            <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-10">
+              <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-kpop-purple shadow-lg">
+                <span class="material-symbols-outlined font-bold">checkroom</span>
+              </div>
+              <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Viral Fashion</h3>
+              <p class="text-sm font-semibold leading-relaxed text-kpop-rose/80">Digital couture inspired by world tours and music videos. Curated to match your aura.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white/30 px-6 py-16 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
+      <div class="flex items-center gap-2">
+        <div class="flex h-6 w-6 items-center justify-center rounded-full bg-kpop-rose text-[8px] font-bold text-white">K</div>
+        <span class="brand-font text-sm font-black text-kpop-black">IDOL.AI 2024</span>
+      </div>
+      <div class="flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
+        <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Press</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Styling API</a>
+      </div>
+      <div class="flex space-x-5">
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">IG</a>
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">YT</a>
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">TK</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const uploadZone = document.getElementById("uploadZone");
+    const fileInput = document.getElementById("fileInput");
+    const browseButton = document.getElementById("browseButton");
+    const transformButton = document.getElementById("transformButton");
+    const previewWrapper = document.getElementById("previewWrapper");
+    const previewImage = document.getElementById("previewImage");
+    const uploadStatus = document.getElementById("uploadStatus");
+    const uploadHint = document.getElementById("uploadHint");
+    const uploadIcon = document.getElementById("uploadIcon");
+
+    let selectedImageData = "";
+
+    function setStatus(message, isError) {
+      uploadStatus.textContent = message;
+      uploadStatus.className = "min-h-[1.25rem] text-sm font-semibold " + (isError ? "text-red-500" : "text-kpop-rose/80");
     }
 
-    if (featuredDetailCard) {
-      const targetPage = featuredDetailCard.dataset.targetPage;
-      let isDraggingCard = false;
-      let touchMoved = false;
-      let touchStartX = 0;
-      let touchStartY = 0;
-
-      const navigateToDetail = () => {
-        if (targetPage) {
-          window.location.href = targetPage;
-        }
-      };
-
-      featuredDetailCard.addEventListener('dragstart', (event) => {
-        isDraggingCard = true;
-        featuredDetailCard.classList.add('is-dragging', 'scale-[1.02]');
-        if (event.dataTransfer) {
-          event.dataTransfer.effectAllowed = 'move';
-          event.dataTransfer.setData('text/plain', targetPage);
-          event.dataTransfer.setDragImage(featuredDetailImage || featuredDetailCard, 24, 24);
-        }
-      });
-
-      if (featuredDetailImage) {
-        featuredDetailImage.addEventListener('dragstart', (event) => {
-          isDraggingCard = true;
-          featuredDetailCard.classList.add('is-dragging', 'scale-[1.02]');
-          if (event.dataTransfer) {
-            event.dataTransfer.effectAllowed = 'move';
-            event.dataTransfer.setData('text/plain', targetPage);
-            event.dataTransfer.setDragImage(featuredDetailImage, 24, 24);
-          }
-        });
+    function readFile(file) {
+      if (!file || !file.type.startsWith("image/")) {
+        setStatus("Please upload a PNG, JPG, or other image file.", true);
+        return;
       }
 
-      document.addEventListener('dragover', (event) => {
-        if (!isDraggingCard) {
-          return;
-        }
-        event.preventDefault();
-        if (event.dataTransfer) {
-          event.dataTransfer.dropEffect = 'move';
-        }
-      });
-
-      document.addEventListener('drop', (event) => {
-        if (!isDraggingCard) {
-          return;
-        }
-        event.preventDefault();
-        featuredDetailCard.classList.remove('is-dragging', 'scale-[1.02]');
-        isDraggingCard = false;
-        navigateToDetail();
-      });
-
-      featuredDetailCard.addEventListener('dragend', () => {
-        featuredDetailCard.classList.remove('is-dragging', 'scale-[1.02]');
-        if (!isDraggingCard) {
-          return;
-        }
-        isDraggingCard = false;
-        navigateToDetail();
-      });
-
-      featuredDetailCard.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          navigateToDetail();
-        }
-      });
-
-      featuredDetailCard.addEventListener('touchstart', (event) => {
-        if (!event.changedTouches[0]) {
-          return;
-        }
-        touchMoved = false;
-        touchStartX = event.changedTouches[0].clientX;
-        touchStartY = event.changedTouches[0].clientY;
-      }, { passive: true });
-
-      featuredDetailCard.addEventListener('touchmove', (event) => {
-        if (!event.changedTouches[0]) {
-          return;
-        }
-        const deltaX = Math.abs(event.changedTouches[0].clientX - touchStartX);
-        const deltaY = Math.abs(event.changedTouches[0].clientY - touchStartY);
-        if (deltaX > 8 || deltaY > 8) {
-          touchMoved = true;
-        }
-      }, { passive: true });
-
-      featuredDetailCard.addEventListener('touchend', () => {
-        if (touchMoved) {
-          navigateToDetail();
-        }
-      });
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        selectedImageData = event.target.result;
+        previewImage.src = selectedImageData;
+        previewWrapper.classList.remove("hidden");
+        uploadIcon.classList.add("hidden");
+        uploadHint.textContent = file.name;
+        setStatus("Photo uploaded. Click Transform Now to continue.", false);
+        sessionStorage.setItem("uploadedSelfie", selectedImageData);
+        sessionStorage.setItem("uploadedSelfieName", file.name);
+      };
+      reader.readAsDataURL(file);
     }
-</script>
-</body></html>
+
+    browseButton.addEventListener("click", function () {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function () {
+      readFile(fileInput.files[0]);
+    });
+
+    ["dragenter", "dragover"].forEach(function (eventName) {
+      uploadZone.addEventListener(eventName, function (event) {
+        event.preventDefault();
+        uploadZone.classList.add("drag-active");
+      });
+    });
+
+    ["dragleave", "drop"].forEach(function (eventName) {
+      uploadZone.addEventListener(eventName, function (event) {
+        event.preventDefault();
+        uploadZone.classList.remove("drag-active");
+      });
+    });
+
+    uploadZone.addEventListener("drop", function (event) {
+      const file = event.dataTransfer.files[0];
+      readFile(file);
+    });
+
+    transformButton.addEventListener("click", function () {
+      if (!selectedImageData) {
+        setStatus("Upload a photo first, then click Transform Now.", true);
+        return;
+      }
+
+      window.location.href = "code.html";
+    });
+  </script>
+</body>
+</html>

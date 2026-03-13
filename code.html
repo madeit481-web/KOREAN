@@ -1,155 +1,208 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IDOLAI | K-POP Style Analysis</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: "Inter", "Noto Sans KR", sans-serif;
-    background:
-      radial-gradient(circle at 0% 100%, rgba(255, 210, 230, 0.65), transparent 24%),
-      radial-gradient(circle at 100% 100%, rgba(220, 239, 255, 0.65), transparent 20%),
-      linear-gradient(180deg, #f9f9f9 0%, #fff8fb 58%, #f6eefb 100%);
-    color: #2d2327;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish K-POP Star Analysis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            peach: "#f7dccc",
+            peachDark: "#f58f43",
+            lavender: "#dfb5ea",
+            blush: "#f7edf4",
+            lilac: "#e6ddfb",
+            ink: "#30343f",
+            muted: "#8b8f9d",
+            panel: "#f7f2f7"
+          },
+          fontFamily: {
+            display: ["Montserrat", "sans-serif"],
+            body: ["Noto Sans KR", "sans-serif"]
+          },
+          boxShadow: {
+            soft: "0 24px 50px rgba(74, 45, 78, 0.12)",
+            card: "0 18px 35px rgba(83, 69, 89, 0.14)"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: linear-gradient(180deg, #fbfbfc 0 57%, #f6dce6 57% 100%);
+      color: #30343f;
+    }
 
-  .editorial-title {
-    font-family: "Anton", sans-serif;
-    font-size: clamp(4rem, 15vw, 8.5rem);
-    line-height: 0.8;
-    letter-spacing: -0.02em;
-    color: rgba(223, 152, 215, 0.7);
-  }
+    .brand-font {
+      font-family: "Montserrat", sans-serif;
+    }
 
-  .soft-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-  }
+    .hero-word {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.82;
+      color: #dfb5ea;
+    }
 
-  .sparkle {
-    position: absolute;
-    border-radius: 9999px;
-    opacity: 0.45;
-    box-shadow: 0 0 14px currentColor;
-  }
-  .drag-back-link {
-    cursor: pointer;
-  }
-</style>
+    .character-bg {
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.38), transparent 28%),
+        linear-gradient(180deg, #efd5c7 0%, #edd1c1 100%);
+    }
+
+    .result-card {
+      background: rgba(237, 244, 247, 0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .analysis-panel {
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(12px);
+    }
+
+    .confetti {
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.55;
+      filter: blur(0.2px);
+    }
+  </style>
 </head>
-<body class="min-h-screen overflow-x-hidden text-slate-900">
-<div class="fixed inset-0 -z-10 overflow-hidden">
-  <div class="absolute -left-20 top-10 h-72 w-72 rounded-full bg-pink-200/80 blur-3xl"></div>
-  <div class="absolute right-0 top-24 h-80 w-80 rounded-full bg-purple-200/60 blur-3xl"></div>
-  <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-cyan-100/70 blur-3xl"></div>
-  <span class="sparkle left-[7%] top-[72%] h-3 w-3 text-pink-200"></span>
-  <span class="sparkle left-[12%] top-[82%] h-2 w-2 text-orange-200"></span>
-  <span class="sparkle right-[10%] top-[70%] h-2 w-2 text-violet-200"></span>
-  <span class="sparkle right-[18%] top-[86%] h-3 w-3 text-cyan-100"></span>
-</div>
+<body class="min-h-screen overflow-x-hidden">
+  <div class="relative mx-auto min-h-screen max-w-[820px] bg-transparent">
+    <header class="px-6 pt-5">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="h-4 w-4 rounded-full bg-orange-500"></span>
+          <span class="brand-font text-[15px] font-extrabold uppercase tracking-tight text-ink">IDOLAI</span>
+        </div>
+        <div class="hidden items-center gap-7 md:flex">
+          <a href="index.html" class="text-[10px] font-semibold text-muted">Home</a>
+          <a href="index.html#transform" class="text-[10px] font-semibold text-muted">AI Styling</a>
+          <a href="code.html" class="text-[10px] font-semibold text-muted">Gallery</a>
+          <a href="#" class="text-[10px] font-semibold text-muted">Community</a>
+        </div>
+        <div class="flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 text-slate-400">
+          <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 fill-current" aria-hidden="true">
+            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.33 0-6 1.79-6 4v1h12v-1c0-2.21-2.67-4-6-4Z"></path>
+          </svg>
+        </div>
+      </nav>
+    </header>
 
-<header class="sticky top-0 z-50 border-b border-white/50 bg-white/65 backdrop-blur-md">
-  <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-xs font-black text-white">ID</span>
-      <span class="text-lg font-black tracking-tight">IDOLAI</span>
-    </a>
-    <div class="hidden items-center gap-8 text-xs font-medium text-slate-500 md:flex">
-      <a href="index.html" class="hover:text-pink-500 transition">Home</a>
-      <a href="index.html#transform" class="hover:text-pink-500 transition">AI Styling</a>
-      <a href="code.html" class="hover:text-pink-500 transition">Gallery</a>
-      <a href="#analysis" class="hover:text-pink-500 transition">Community</a>
-    </div>
-    <a href="index.html" class="rounded-full bg-white/70 p-2 text-slate-400 transition hover:text-slate-600" aria-label="Back to home">
-      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-      </svg>
-    </a>
-  </nav>
-</header>
+    <main class="px-6 pb-20 pt-3">
+      <section class="text-center">
+        <div class="hero-word mx-auto text-[7rem] sm:text-[8.7rem]">STYLISH</div>
+        <h1 class="-mt-2 brand-font text-[2.35rem] font-black leading-none tracking-[-0.06em] text-ink sm:text-[3.2rem]">
+          What if I were a <span class="text-orange-500">K-POP STAR?</span>
+        </h1>
+        <p class="mt-3 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
+          AI-powered celebrity style analysis
+        </p>
+      </section>
 
-<main class="mx-auto max-w-4xl px-4 py-12">
-  <section class="text-center">
-    <h2 class="editorial-title">STYLISH</h2>
-    <h1 class="mt-2 text-4xl font-black md:text-6xl">What if I were a <span class="text-orange-500">K-POP STAR?</span></h1>
-    <p class="mt-3 text-[11px] font-bold uppercase tracking-[0.35em] text-slate-500">AI-powered celebrity style analysis</p>
-  </section>
+      <section class="mx-auto mt-7 max-w-[530px]">
+        <div class="character-bg relative overflow-hidden rounded-[10px] shadow-soft">
+          <img
+            id="resultImage"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+            alt="여성 캐릭터 스타일 초상화"
+            class="h-[520px] w-full object-cover object-center"
+          >
+        </div>
 
-  <section class="relative mt-10 mb-10">
-    <div class="overflow-hidden rounded-[1.8rem] border-4 border-white shadow-2xl shadow-slate-300/30">
-      <img id="analysis-result-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn1ALHDpfagPidTzyLmloQfePagRzRBlrmviysS7qlHSYimqLs4YQUrK2vvXKHDQlWxtdkqqYA9FCmXgNeiltv41dVc6joAgslKR-u5bMz821Qlv0vGudFkwa1o3BqTsngHqf-yOtsECoXOyv6foA3-M_GxIXwzE2JZ4bc613979dDQ1tvsOcBmuyEsYvqzY1S-9G6VvEI_cnW4AeHUcLZTOXWgbNAoMupVm6cHF57gAUhObzhHnLf-8vkSJ9BbMOs829Z59b59z8" alt="Jennie inspired analysis result portrait" class="w-full object-cover">
-    </div>
-    <div class="-mt-12 mx-auto max-w-2xl px-6">
-      <div class="soft-card rounded-2xl px-6 py-5 text-center shadow-xl">
-        <p class="text-[10px] font-bold uppercase tracking-[0.34em] text-orange-500">Analysis Result</p>
-        <h2 id="analysis-result-title" class="mt-2 text-3xl font-black text-fuchsia-500 md:text-5xl">당신은 제니입니다!</h2>
-        <p class="mt-1 text-sm italic text-slate-500">"The Human Chanel: Chic &amp; Iconic Global Star"</p>
-      </div>
-    </div>
-  </section>
+        <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 py-4 text-center shadow-card">
+          <p class="text-[2rem] font-extrabold leading-none tracking-[-0.06em] text-fuchsia-500 sm:text-[2.4rem]">
+            당신은 제니입니다!
+          </p>
+          <p class="mt-1 text-[10px] font-semibold italic text-slate-500">
+            "The Human Chanel" chic &amp; iconic global star
+          </p>
+        </div>
+      </section>
 
-  <section id="analysis" class="mb-12">
-    <div class="soft-card rounded-[1.8rem] p-8 md:p-10">
-      <div class="mb-6 flex items-center gap-3">
-        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-100 text-pink-500">✦</span>
-        <h3 class="text-xl font-bold">Detailed Style Analysis</h3>
-      </div>
-      <div class="space-y-5 text-[15px] leading-8 text-slate-700">
-        <p>당신의 스타일 분석 결과는 제니 특유의 세련되고 절제된 무드를 강하게 보여줍니다. 맑은 피부 표현과 또렷한 눈매가 중심을 잡아 주며, 전체적인 인상은 도회적이면서도 부담 없이 고급스럽습니다.</p>
-        <p>헤어는 자연스럽게 흐르는 긴 레이어가 가장 잘 어울립니다. 색감은 너무 밝지 않은 다크 브라운 계열이 안정적이고, 앞머리 없이 얼굴선을 드러내는 구성이 지금의 분위기를 가장 깔끔하게 살립니다.</p>
-        <p>메이크업은 얇고 깨끗한 피부 표현 위에 로즈 또는 피치 브릭 계열 립으로 포인트를 주는 편이 좋습니다. 이 조합은 무대 메이크업과 데일리 무드 사이를 자연스럽게 연결합니다.</p>
-        <p>패션은 블랙, 아이보리, 베이지처럼 힘을 뺀 듯 세련된 팔레트가 잘 맞습니다. 정돈된 재킷, 슬립 드레스, 미니멀 액세서리를 더하면 결과 이미지와 가장 가까운 완성도를 만들 수 있습니다.</p>
-      </div>
-    </div>
-  </section>
+      <section class="relative mt-14 rounded-[18px] bg-white/12 px-0 py-0">
+        <div class="pointer-events-none absolute inset-0 overflow-hidden rounded-[18px]">
+          <span class="confetti left-[4%] top-[8%] h-3 w-3 bg-yellow-200"></span>
+          <span class="confetti left-[13%] top-[34%] h-2.5 w-2.5 bg-pink-200"></span>
+          <span class="confetti left-[8%] top-[72%] h-3 w-3 bg-cyan-200"></span>
+          <span class="confetti left-[19%] top-[88%] h-2.5 w-2.5 bg-lilac"></span>
+          <span class="confetti right-[8%] top-[10%] h-2.5 w-2.5 bg-pink-200"></span>
+          <span class="confetti right-[14%] top-[28%] h-3 w-3 bg-yellow-100"></span>
+          <span class="confetti right-[7%] top-[64%] h-3 w-3 bg-cyan-100"></span>
+          <span class="confetti right-[16%] top-[84%] h-2.5 w-2.5 bg-violet-200"></span>
+          <span class="confetti left-[27%] top-[80%] h-2 w-2 bg-orange-200"></span>
+          <span class="confetti right-[29%] top-[76%] h-2 w-2 bg-pink-300"></span>
+        </div>
 
-  <section class="mb-20 flex flex-col items-center justify-center gap-4 sm:flex-row">
-    <button type="button" class="w-full rounded-2xl bg-gradient-to-r from-orange-500 to-pink-600 px-8 py-4 text-sm font-bold text-white shadow-lg transition hover:scale-105 sm:w-56">
-      <span class="inline-flex items-center gap-2">
-        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path>
-        </svg>
-        결과 공유하기
-      </span>
-    </button>
-    <a href="index.html" class="drag-back-link w-full rounded-2xl border-2 border-white bg-white/70 px-8 py-4 text-center text-sm font-bold text-slate-600 transition hover:bg-white/90 sm:w-56">
-      다시 시도하기
-    </a>
-  </section>
-</main>
+        <div class="relative px-6 pb-16 pt-8">
+          <div class="mx-auto max-w-[650px]">
+            <div class="mb-4 flex items-center gap-2 text-[15px] font-bold text-ink">
+              <span class="text-pink-400">♡</span>
+              <h2>Detailed Style Analysis</h2>
+            </div>
 
-<footer class="pb-10 text-center text-xs text-slate-400">
-  <div class="mb-4 flex items-center justify-center gap-2 opacity-60">
-    <span class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-400 text-[10px] font-black text-white">ID</span>
-    <span class="font-bold tracking-[0.3em]">IDOLAI</span>
+            <div class="analysis-panel rounded-[14px] px-6 py-6 text-[12px] leading-7 text-slate-600 shadow-card">
+              <p>
+                당신의 스타일 분석 결과, 제니의 독보적인 시크한 무드와 현대적인 도회미가 인상적으로 드러났습니다.
+                맑고 선명한 이목구비와 세련된 분위기 덕분에 무대 위에서도 시선을 끄는 강한 존재감을 자연스럽게 연출할 수 있습니다.
+              </p>
+              <p class="mt-4">
+                특히 얼굴 비율, 눈매의 선명도, 헤어와 어우러지는 전체 실루엣이 고급스러운 스타일링과 잘 맞아떨어집니다.
+                미니멀한 메이크업과 절제된 패션을 선택하더라도 충분히 강렬한 인상을 남길 수 있으며, 밝은 톤의 배경이나 플래시 조명 아래에서도
+                이미지의 균형이 무너지지 않는 것이 강점입니다.
+              </p>
+              <p class="mt-4">
+                이러한 스타일은 일상적인 데일리 룩부터 화보 같은 콘셉트 촬영까지 폭넓게 확장될 수 있습니다.
+                블랙, 아이보리, 피치 계열의 컬러 팔레트와 슬림한 액세서리를 매치하면 훨씬 더 완성도 높은 스타 무드를 구현할 수 있습니다.
+              </p>
+              <p class="mt-4">
+                마지막으로 전체적인 인상에서 느껴지는 자신감과 정제된 분위기는 단순한 외형 유사성을 넘어,
+                당신만의 스타일 서사를 만들어낼 수 있는 잠재력을 보여줍니다. 현재의 매력을 유지하면서도 과감한 콘셉트를 더하면 더욱 인상적인 결과를 얻을 수 있습니다.
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <button class="rounded-[8px] bg-gradient-to-r from-orange-500 to-pink-500 px-8 py-3 text-[11px] font-bold text-white shadow-lg shadow-orange-200/60">
+                &lt; 결과 공유하기
+              </button>
+              <a href="index.html" class="rounded-[8px] bg-white/70 px-8 py-3 text-[11px] font-bold text-slate-500 shadow">
+                다시 시도하기
+              </a>
+            </div>
+          </div>
+
+          <footer class="mt-14 text-center">
+            <div class="brand-font text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">IDOLAI</div>
+            <p class="mt-3 text-[9px] text-slate-400">© 2024 IDOLAI all rights reserved.</p>
+            <div class="mt-5 flex items-center justify-center gap-4 text-[9px] text-slate-400">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms</a>
+              <a href="#">Help</a>
+              <a href="#">Contact</a>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
   </div>
-  <p>© 2026 IDOLAI. All rights reserved.</p>
-  <div class="mt-4 flex justify-center gap-6">
-    <a href="#" class="hover:text-pink-500 transition">Privacy Policy</a>
-    <a href="#" class="hover:text-pink-500 transition">Terms of Service</a>
-    <a href="#" class="hover:text-pink-500 transition">Contact</a>
-  </div>
-</footer>
-<script>
-  const uploadedImage = sessionStorage.getItem('idolai-upload-image');
-  const uploadedName = sessionStorage.getItem('idolai-upload-name');
-  const analysisResultImage = document.getElementById('analysis-result-image');
-  const analysisResultTitle = document.getElementById('analysis-result-title');
+  <script>
+    const storedSelfie = sessionStorage.getItem("uploadedSelfie");
+    const resultImage = document.getElementById("resultImage");
 
-  if (uploadedImage && analysisResultImage) {
-    analysisResultImage.src = uploadedImage;
-    analysisResultImage.alt = uploadedName ? `${uploadedName} analysis preview` : 'Uploaded selfie analysis preview';
-  }
-
-  if (uploadedName && analysisResultTitle) {
-    analysisResultTitle.textContent = '당신의 스타일 분석 결과입니다!';
-  }
-</script>
+    if (storedSelfie && resultImage) {
+      resultImage.src = storedSelfie;
+      resultImage.alt = "Uploaded selfie result preview";
+    }
+  </script>
 </body>
 </html>
