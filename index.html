@@ -1,290 +1,233 @@
-<!DOCTYPE html><html lang="en"><head></head><body class="text-kpop-black min-h-screen relative bg-white">
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>AI K-POP Transformation | IDOL.AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDOL.AI | Home</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script data-purpose="tailwind-config">
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            kpop: {
-              black: '#2d2327',
-              white: '#ffffff',
-              offwhite: '#fffafb',
-              pink: '#ffb7ce',
-              rose: '#e58ea9',
-              lightpink: '#fff0f3',
-              purple: '#d8b4fe',
-              cyan: '#a5f3fc',
-              gray: '#94a3b8',
-              gold: '#fbbf24'
-            }
-          },
-          animation: {
-            'glow-pulse': 'glow 3s infinite alternate',
-            'infinite-scroll': 'scroll 40s linear infinite',
-            'float': 'float 20s ease-in-out infinite',
-            'float-delayed': 'float 25s ease-in-out infinite 2s',
-            'float-slow': 'float 30s ease-in-out infinite 5s',
-            'twinkle': 'twinkle 4s ease-in-out infinite',
-            'twinkle-delayed': 'twinkle 5s ease-in-out infinite 1.5s',
-            'twinkle-slow': 'twinkle 6s ease-in-out infinite 3s',
-            'twinkle-fast': 'twinkle 3s ease-in-out infinite 0.5s',
-          },
-          keyframes: {
-            glow: {
-              '0%': { 'text-shadow': '0 0 5px rgba(255, 183, 206, 0.4)' },
-              '100%': { 'text-shadow': '0 0 10px rgba(255, 183, 206, 0.6)' },
-            },
-            scroll: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' }
-            },
-            float: {
-              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-              '33%': { transform: 'translate(10%, 15%) scale(1.1)' },
-              '66%': { transform: 'translate(-5%, 10%) scale(0.9)' }
-            },
-            twinkle: {
-              '0%, 100%': { opacity: 0.2, transform: 'scale(0.8)' },
-              '50%': { opacity: 1, transform: 'scale(1.2)' }
-            }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          idol: {
+            ink: "#2b2228",
+            blush: "#ffbfd5",
+            rose: "#f36b21",
+            lilac: "#dfb7e7",
+            haze: "#f8ecf6",
+            sky: "#d8f3ff"
           }
+        },
+        fontFamily: {
+          display: ["Montserrat", "sans-serif"],
+          body: ["Noto Sans KR", "sans-serif"]
+        },
+        keyframes: {
+          floaty: {
+            "0%, 100%": { transform: "translateY(0px)" },
+            "50%": { transform: "translateY(-16px)" }
+          },
+          twinkle: {
+            "0%, 100%": { opacity: "0.2", transform: "scale(0.9)" },
+            "50%": { opacity: "1", transform: "scale(1.2)" }
+          }
+        },
+        animation: {
+          floaty: "floaty 9s ease-in-out infinite",
+          twinkle: "twinkle 4s ease-in-out infinite"
         }
       }
     }
-  </script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<style data-purpose="typography">
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Raleway', sans-serif;
-      color: #2d2327;
-      overflow-x: hidden;
-      background-color: #ffffff;
-    }
-    h1, h2, h3, .brand-font {
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-    }
-    .minimalist-border {
-      border: 1px solid rgba(229, 142, 169, 0.1);
-    }
-    .accent-shadow-pink {
-      box-shadow: 0 10px 30px -10px rgba(255, 183, 206, 0.3);
-    }
-    .accent-shadow-cyan {
-      box-shadow: 0 10px 30px -10px rgba(165, 243, 252, 0.3);
-    }
-  </style>
-<style data-purpose="layout-utilities">
-    .glass-card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 183, 206, 0.1);
-    }
-    .hero-gradient {
-      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
-    }
-    .shimmer {
-      background: linear-gradient(90deg, transparent, rgba(255, 183, 206, 0.1), transparent);
-      background-size: 200% 100%;
-      animation: shimmer-effect 3s infinite;
-    }
-    @keyframes shimmer-effect {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    
-    /* Mesh Background Elements */
-    .mesh-blob {
-      position: absolute;
-      filter: blur(80px);
-      z-index: -1;
-      opacity: 0.4;
-      border-radius: 50%;
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #2b2228;
+    background:
+      radial-gradient(circle at top left, rgba(255, 191, 213, 0.7), transparent 32%),
+      radial-gradient(circle at top right, rgba(223, 183, 231, 0.7), transparent 28%),
+      linear-gradient(180deg, #fffdfd 0%, #fff6fb 48%, #f7efff 100%);
+  }
+  .display-font {
+    font-family: "Montserrat", sans-serif;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(243, 107, 33, 0.08);
+  }
+  .hero-title {
+    font-size: clamp(4rem, 15vw, 9rem);
+    line-height: 0.84;
+    color: rgba(223, 183, 231, 0.92);
+  }
+  .spark {
+    position: absolute;
+    border-radius: 9999px;
+    opacity: 0.55;
+    pointer-events: none;
+    box-shadow: 0 0 18px currentColor;
+  }
+</style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+<div class="fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute -top-16 -left-16 h-72 w-72 rounded-full bg-idol-blush blur-3xl opacity-70 animate-floaty"></div>
+  <div class="absolute top-24 right-0 h-96 w-96 rounded-full bg-idol-lilac blur-3xl opacity-50 animate-floaty" style="animation-delay: 1.5s;"></div>
+  <div class="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-idol-sky blur-3xl opacity-40 animate-floaty" style="animation-delay: 3s;"></div>
+  <span class="spark h-2 w-2 text-pink-300 top-[12%] left-[10%] animate-twinkle"></span>
+  <span class="spark h-3 w-3 text-orange-200 top-[22%] right-[16%] animate-twinkle" style="animation-delay: 0.8s;"></span>
+  <span class="spark h-2 w-2 text-fuchsia-200 top-[60%] left-[14%] animate-twinkle" style="animation-delay: 1.4s;"></span>
+  <span class="spark h-3 w-3 text-cyan-100 top-[72%] right-[12%] animate-twinkle" style="animation-delay: 2.2s;"></span>
+</div>
+
+<header class="sticky top-0 z-50 border-b border-white/50 bg-white/70 backdrop-blur-xl">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="flex h-8 w-8 items-center justify-center rounded-full bg-idol-rose text-xs font-extrabold text-white">ID</span>
+      <span class="display-font text-lg font-black tracking-tight">IDOL.AI</span>
+    </a>
+    <div class="hidden items-center gap-8 text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500 md:flex">
+      <a href="index.html" class="text-idol-rose">Home</a>
+      <a href="styling.html" class="transition hover:text-idol-rose">AI Styling</a>
+      <a href="gallery.html" class="transition hover:text-idol-rose">Gallery</a>
+      <a href="community.html" class="transition hover:text-idol-rose">Community</a>
+    </div>
+    <a href="result.html" class="rounded-full bg-idol-ink px-5 py-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white transition hover:bg-idol-rose">Sample Result</a>
+  </nav>
+</header>
+
+<main>
+  <section class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col items-center justify-center gap-12 px-5 py-16 lg:flex-row lg:gap-16">
+    <div class="max-w-2xl text-center lg:text-left">
+      <p class="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-idol-rose">AI-powered style analysis</p>
+      <div class="display-font hero-title font-black">STYLISH</div>
+      <h1 class="display-font mt-2 text-4xl font-black leading-none text-idol-ink md:text-6xl">
+        What if I were a <span class="text-idol-rose">K-POP STAR?</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+        랜딩페이지에서 셀카를 드래그 앤 드랍하면 분석 페이지로 넘어가고, 이후 결과 리포트까지 이어지는 멀티페이지 흐름입니다.
+      </p>
+      <div id="dropzone" class="glass mt-8 max-w-xl rounded-[2rem] border-2 border-dashed border-orange-200 p-7 text-center transition duration-300 hover:border-orange-300 hover:bg-white/85 lg:text-left">
+        <input id="file-input" type="file" accept="image/*" class="hidden">
+        <p class="text-[11px] font-extrabold uppercase tracking-[0.32em] text-idol-rose">Drag & drop selfie</p>
+        <h2 class="display-font mt-3 text-2xl font-black">Drop your photo here</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-500">PNG, JPG 파일을 올리면 바로 다음 페이지로 이동해 분석 진행 상태를 보여줍니다.</p>
+        <div class="mt-5 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
+          <button id="choose-file" type="button" class="rounded-full bg-gradient-to-r from-orange-500 to-pink-500 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.24em] text-white shadow-lg shadow-orange-200 transition hover:scale-105">Select Photo</button>
+          <a href="result.html" class="rounded-full border border-slate-200 bg-white/80 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.24em] text-slate-700 transition hover:border-orange-300 hover:text-idol-rose">View Sample</a>
+        </div>
+        <p id="upload-status" class="mt-4 text-sm font-medium text-slate-500">사진을 올리면 `AI Styling` 페이지로 자동 이동합니다.</p>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-5 text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 lg:justify-start">
+        <span>Secure Upload</span>
+        <span>Instant Match</span>
+        <span>Editorial Report</span>
+      </div>
+    </div>
+
+    <div class="w-full max-w-md">
+      <div class="glass rounded-[2rem] p-4 shadow-2xl shadow-pink-100">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn1ALHDpfagPidTzyLmloQfePagRzRBlrmviysS7qlHSYimqLs4YQUrK2vvXKHDQlWxtdkqqYA9FCmXgNeiltv41dVc6joAgslKR-u5bMz821Qlv0vGudFkwa1o3BqTsngHqf-yOtsECoXOyv6foA3-M_GxIXwzE2JZ4bc613979dDQ1tvsOcBmuyEsYvqzY1S-9G6VvEI_cnW4AeHUcLZTOXWgbNAoMupVm6cHF57gAUhObzhHnLf-8vkSJ9BbMOs829Z59b59z8" alt="AI K-pop result preview" class="rounded-[1.5rem] object-cover shadow-xl">
+        <div class="-mt-10 mx-4 rounded-[1.5rem] bg-white/85 px-6 py-5 text-center shadow-xl backdrop-blur">
+          <p class="text-[10px] font-bold uppercase tracking-[0.35em] text-idol-rose">Preview match</p>
+          <p class="mt-2 text-3xl font-extrabold text-[#d065da]">당신은 제니입니다!</p>
+          <p class="mt-1 text-sm text-slate-500">Chic, polished, and camera-ready with minimal effort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20">
+    <div class="grid gap-6 md:grid-cols-3">
+      <article class="glass rounded-[2rem] p-8">
+        <p class="text-xs font-bold uppercase tracking-[0.34em] text-idol-rose">01</p>
+        <h2 class="display-font mt-4 text-2xl font-black">Upload</h2>
+        <p class="mt-4 leading-7 text-slate-600">정면 셀카를 업로드하면 얼굴형, 분위기, 스타일 키워드를 빠르게 인식합니다.</p>
+      </article>
+      <article class="glass rounded-[2rem] p-8">
+        <p class="text-xs font-bold uppercase tracking-[0.34em] text-idol-rose">02</p>
+        <h2 class="display-font mt-4 text-2xl font-black">Analyze</h2>
+        <p class="mt-4 leading-7 text-slate-600">헤어, 메이크업, 무드보드, 무대의상 무드를 조합해 가장 가까운 스타 이미지를 제안합니다.</p>
+      </article>
+      <article class="glass rounded-[2rem] p-8">
+        <p class="text-xs font-bold uppercase tracking-[0.34em] text-idol-rose">03</p>
+        <h2 class="display-font mt-4 text-2xl font-black">Reveal</h2>
+        <p class="mt-4 leading-7 text-slate-600">결과 페이지에서 상세 분석과 추천 포인트를 확인하고 공유용 카드까지 활용할 수 있습니다.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-white/50 bg-white/40 py-10 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-5 text-center md:flex-row md:text-left">
+    <div>
+      <p class="display-font text-sm font-black tracking-tight">IDOL.AI</p>
+      <p class="mt-1 text-sm text-slate-500">AI celebrity style analysis demo</p>
+    </div>
+    <div class="flex gap-6 text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500">
+      <a href="styling.html">Styling</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="community.html">Community</a>
+    </div>
+  </div>
+</footer>
+<script>
+  const dropzone = document.getElementById("dropzone");
+  const fileInput = document.getElementById("file-input");
+  const chooseFile = document.getElementById("choose-file");
+  const uploadStatus = document.getElementById("upload-status");
+
+  function goToStyling(file) {
+    if (!file || !file.type.startsWith("image/")) {
+      uploadStatus.textContent = "이미지 파일만 업로드할 수 있습니다.";
+      return;
     }
 
-    .sparkle {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      z-index: -15;
-      pointer-events: none;
-    }
-    .sparkle-pink { box-shadow: 0 0 10px 2px rgba(255, 183, 206, 0.8); }
-    .sparkle-cyan { box-shadow: 0 0 10px 2px rgba(165, 243, 252, 0.8); }
-    .sparkle-purple { box-shadow: 0 0 10px 2px rgba(216, 180, 254, 0.8); }
-    .sparkle-gold { box-shadow: 0 0 10px 2px rgba(251, 191, 36, 0.8); }
-    .sparkle-white { box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.9); }
-    
-    .sparkle-lg {
-      width: 8px;
-      height: 8px;
-    }
-    .sparkle-md {
-      width: 5px;
-      height: 5px;
-    }
-    .sparkle-sm {
-      width: 3px;
-      height: 3px;
-    }
-  </style>
-<!-- Unified Mesh Background & Sparkles -->
-<div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none min-h-full w-full">
-<div class="mesh-blob animate-float bg-kpop-pink w-[600px] h-[600px] -top-[5%] -left-[10%]"></div>
-<div class="mesh-blob animate-float-delayed bg-kpop-purple w-[500px] h-[500px] top-[15%] -right-[5%]"></div>
-<div class="mesh-blob animate-float-slow bg-kpop-cyan w-[400px] h-[400px] top-[40%] left-[20%] opacity-20"></div>
-<div class="mesh-blob animate-float bg-kpop-lightpink w-[700px] h-[700px] bottom-[20%] -right-[10%]"></div>
-<div class="mesh-blob animate-float-delayed bg-[#ffd9e6] w-[450px] h-[450px] top-[60%] left-[5%] opacity-30"></div>
-<div class="mesh-blob animate-float-slow bg-kpop-purple w-[600px] h-[600px] -bottom-[10%] left-[10%] opacity-25"></div>
-<!-- Background Sparkles -->
-<div class="sparkle sparkle-pink sparkle-sm animate-twinkle top-[10%] left-[12%]"></div>
-<div class="sparkle sparkle-pink sparkle-lg animate-twinkle-delayed top-[35%] left-[8%]"></div>
-<div class="sparkle sparkle-pink sparkle-md animate-twinkle-slow top-[65%] left-[15%]"></div>
-<div class="sparkle sparkle-cyan sparkle-lg animate-twinkle-fast top-[5%] right-[15%]"></div>
-<div class="sparkle sparkle-cyan sparkle-sm animate-twinkle-delayed top-[25%] right-[20%]"></div>
-<div class="sparkle sparkle-cyan sparkle-lg animate-twinkle-slow top-[85%] left-[5%]"></div>
-<div class="sparkle sparkle-purple sparkle-md animate-twinkle-delayed top-[75%] left-[40%]"></div>
-<div class="sparkle sparkle-purple sparkle-lg animate-twinkle top-[45%] left-[50%]"></div>
-<div class="sparkle sparkle-purple sparkle-md animate-twinkle-slow top-[80%] left-[70%]"></div>
-<div class="sparkle sparkle-gold sparkle-md animate-twinkle-slow top-[20%] left-[50%]"></div>
-<div class="sparkle sparkle-gold sparkle-lg animate-twinkle-slow top-[60%] right-[12%]"></div>
-<div class="sparkle sparkle-gold sparkle-sm animate-twinkle-delayed top-[85%] right-[45%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle top-[2%] left-[30%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-delayed top-[15%] left-[80%]"></div>
-<div class="sparkle sparkle-white sparkle-md animate-twinkle-slow top-[70%] right-[40%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-fast top-[90%] right-[25%]"></div>
-<div class="sparkle sparkle-white sparkle-sm animate-twinkle-fast top-[95%] left-[10%]"></div>
-</div>
-<nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur-md border-b border-kpop-pink/10" data-purpose="main-navigation">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-kpop-rose rounded-full flex items-center justify-center">
-<span class="text-white text-xs font-bold" style="">??/span>
-</div>
-<span class="brand-font tracking-tighter text-lg font-black text-kpop-black" style="">K-POP&nbsp;</span>
-</div>
-<div class="hidden md:flex space-x-8 text-[11px] font-bold tracking-widest uppercase text-kpop-rose/70">
-<a class="hover:text-kpop-rose transition-colors" href="#transform" style="">Transform</a>
-<a class="hover:text-kpop-rose transition-colors" href="#stylist" style="">Stylist</a>
-</div>
-<button class="bg-kpop-black text-white px-6 py-2 rounded-full font-bold text-[11px] tracking-widest hover:bg-kpop-rose transition-all duration-300" style="">
-      GET THE LOOK
-    </button>
-</nav>
-<section class="relative min-h-screen flex items-center justify-center pt-24 pb-16" data-purpose="hero-section" id="hero">
-<div class="absolute inset-0 z-0">
-<img alt="K-POP Style Background" class="w-full h-full object-cover opacity-[0.03] grayscale-[0.5] contrast-[0.8]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vPvUT-xcpbFb4OyNwrvFfdxHeGz7xEVH2T7ivH4hZKjtlqwFRaq5QHYHdGlo2aPFls8bhjP1N-WzqH2yHL3vU7KXW7usOL8sTTvAzyYBC5pBt0Wa5oiJNkGWYKyrqvLOIZZm1XaKtjHhBVtQvJ3h75vVaCFzIrNK73ADSjP7U0qOTT4jtYNFhg_NlGRnqiuSNzE0OA_AYjL6twar92R_H7vw7SjyxcU42cCCZJ4QZsuWNT6dro58UZnd0-QbyAN2tvqjBshlRjg" style="">
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-<div class="relative z-10 text-center px-4 max-w-6xl w-full flex flex-col items-center">
-<span class="inline-block px-4 py-1 border border-kpop-rose/20 text-kpop-rose text-[10px] font-bold tracking-[0.4em] mb-6 uppercase bg-white/40 backdrop-blur-sm" style="">
-        AI POWERED STYLE ENGINE
-      </span>
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tighter text-kpop-black" style="">
-        WHAT IF I WERE A<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-kpop-rose via-kpop-pink to-kpop-rose" style="">K-POP STAR?</span>
-</h1>
-<p class="text-kpop-rose/70 text-base md:text-lg max-w-xl mx-auto mb-10 font-medium leading-relaxed" style="">
-        Upload your selfie and let our neural engine redesign your hair, makeup, and fashion into a global K-POP sensation.
-      </p>
-<div class="w-full max-w-2xl mx-auto" id="transform">
-<div class="rounded-[2.5rem] p-10 md:p-14 bg-white/40 backdrop-blur-md transition-all duration-700 group relative overflow-hidden text-center border-4 border-transparent bg-origin-border relative [background-clip:padding-box,_border-box] [background-image:linear-gradient(to_bottom_right,#ffffff,#ffffff),linear-gradient(to_bottom_right,#ffb7ce,#d8b4fe)] hover:shadow-[0_0_50px_rgba(255,183,206,0.4)] shadow-2xl shadow-pink-100/30">
-<div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 pointer-events-none"></div>
-<div class="relative z-10 flex flex-col items-center gap-6">
-<div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-kpop-rose group-hover:bg-kpop-rose group-hover:text-white transition-all duration-500 shadow-sm w-20 h-20 bg-gradient-to-tr from-kpop-rose to-kpop-purple text-white shadow-lg"><span class="material-symbols-outlined text-4xl" style="">add_a_photo</span></div>
-<div class="space-y-2">
-<p class="font-bold tracking-wider brand-font text-kpop-black text-2xl" style="">Drop Your Selfie</p>
-<p class="text-kpop-rose/50 text-xs font-bold uppercase tracking-widest text-kpop-rose/80" style="">PNG or JPG ??High Resolution</p>
-</div>
-<button class="bg-gradient-to-r from-[#ff1493] via-[#ff69b4] to-[#e11d48] text-white px-20 py-7 rounded-full font-black text-xl tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 shadow-xl uppercase" style="">
-            Transform Now
-          </button>
-</div>
-</div>
-<div class="mt-8 flex justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.2em] text-kpop-rose/60 uppercase">
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-rose rounded-full"></span> Secure</span>
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-cyan rounded-full"></span> HD Result</span>
-<span class="flex items-center gap-2" style=""><span class="w-1.5 h-1.5 bg-kpop-purple rounded-full"></span> No Watermark</span>
-</div>
-</div>
-</div>
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-20">
-<div class="w-[1px] h-8 bg-gradient-to-b from-kpop-rose to-transparent"></div>
-</div>
-</section>
-<section class="py-32 px-6 relative" data-purpose="stylist-section" id="stylist">
-<div class="max-w-7xl mx-auto relative z-10">
-<div class="text-center mb-24 space-y-6">
-<h2 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-kpop-black" style="">Your AI <span class="text-kpop-rose italic font-medium" style="">Stylist</span></h2>
-<div class="h-1 w-24 bg-kpop-pink/50 mx-auto rounded-full"></div>
-<p class="text-kpop-rose/70 text-lg max-w-2xl mx-auto font-semibold" style="">Our advanced AI mirrors the techniques of professional K-POP visual directors across three key pillars.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-cyan transition-all duration-500 border border-white/30">
-<img alt="K-POP Hair Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zyw0LiEjcCwO0GhfGoH_1cthDuDIeLHBYunb3OnOBhaoMWYgMD9BzU9p8r35YAiaQvx6u4dgmE9GRqu3CACTflZrQbLfC0Uy2E709pBO5WExdMZSyTu0VSnzqTkPLGNiZM_-9T3gtpy_CsltrPhEVRclcELK800A7ytA95jO_nWG48fsvsjW1z3PTqyCudOrEtZDLNaPZZOn32ZWrPfazO80QZKSZux3bWQuIGA_HxaRr6wVkD3WbxTV3dKmE11u7OnkQ6y3lvI" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-cyan shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">content_cut</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Iconic Hair</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">From neon highlights to surgical-precision cuts, get the trendiest idol hairstyles instantly.</p>
-</div>
-</div>
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-pink transition-all duration-500 border border-white/30">
-<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-rose shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">face</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Stage Glow</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">Professional stage makeup filters that enhance your features with high-precision AI contouring.</p>
-</div>
-</div>
-<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm shadow-xl shadow-pink-100/10 transition-all duration-500 border border-white/30">
-<img alt="K-POP Fashion Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsX8eBYEDYyF8h7Eydhtq3u04e0100YKrX2lRiHkNYkehkR_06VrVZMNg76O03iyEWSCs3mppkjeT8KykEltbTyeaXvg_sq5S3681eDtEetwY3leYEH960AXfNS8X8AntXRX87h0fW-KNkTvWO6rKpaVNlxCeEhjGSokPagMcjTkDeWxg5sCchkRQXXdVUzLiaxVMzQCqVgDGaIJGgD3mpcfQTyxmkGVGoMPFPjaK0zWHTLHxiCuDsQhJGfu0k-8txszeAAg7BZB0" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
-<div class="absolute inset-x-0 bottom-0 p-10">
-<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-purple shadow-lg border border-kpop-pink/5">
-<span class="material-symbols-outlined font-bold" style="">checkroom</span>
-</div>
-<h3 class="brand-font text-2xl font-black mb-3 text-kpop-black" style="">Viral Fashion</h3>
-<p class="text-sm text-kpop-rose/80 font-semibold leading-relaxed" style="">Digital couture inspired by world tours and music videos. Curated to match your aura.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class="py-16 px-6 bg-white/30 backdrop-blur-md" data-purpose="main-footer">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 bg-kpop-rose rounded-full flex items-center justify-center">
-<span class="text-[8px] text-white font-bold" style="">??/span>
-</div>
-<span class="brand-font tracking-tighter text-sm font-black text-kpop-black" style="">IDOL.AI 2024</span>
-</div>
-<div class="flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-kpop-rose/50 uppercase">
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Privacy</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Terms</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Press</a>
-<a class="hover:text-kpop-rose transition-colors" href="#" style="">Styling API</a>
-</div>
-<div class="flex space-x-5">
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">IG</span>
-</a>
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">YT</span>
-</a>
-<a class="w-11 h-11 rounded-full border border-kpop-pink/10 flex items-center justify-center hover:bg-kpop-rose hover:text-white transition-all text-kpop-rose/40" href="#" style="">
-<span class="text-[10px] font-bold uppercase" style="">TK</span>
-</a>
-</div>
-</div>
-</footer>
-</body></html>
+    const reader = new FileReader();
+    uploadStatus.textContent = "업로드 중입니다. 분석 페이지로 이동합니다...";
+
+    reader.onload = function (event) {
+      sessionStorage.setItem("idolUploadImage", event.target.result);
+      sessionStorage.setItem("idolUploadName", file.name);
+      window.location.href = "styling.html";
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  chooseFile.addEventListener("click", function () {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener("change", function () {
+    goToStyling(fileInput.files[0]);
+  });
+
+  ["dragenter", "dragover"].forEach(function (eventName) {
+    dropzone.addEventListener(eventName, function (event) {
+      event.preventDefault();
+      dropzone.classList.add("border-orange-400", "scale-[1.01]");
+      uploadStatus.textContent = "여기에 놓으면 분석 페이지로 이동합니다.";
+    });
+  });
+
+  ["dragleave", "drop"].forEach(function (eventName) {
+    dropzone.addEventListener(eventName, function (event) {
+      event.preventDefault();
+      dropzone.classList.remove("border-orange-400", "scale-[1.01]");
+    });
+  });
+
+  dropzone.addEventListener("drop", function (event) {
+    const file = event.dataTransfer.files[0];
+    goToStyling(file);
+  });
+</script>
+</body>
+</html>
