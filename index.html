@@ -19,6 +19,20 @@
               purple: "#d8b4fe",
               cyan: "#a5f3fc"
             }
+          },
+          keyframes: {
+            sparklePulse: {
+              "0%, 100%": { opacity: "0.2", transform: "scale(0.75)" },
+              "50%": { opacity: "1", transform: "scale(1.25)" }
+            },
+            sparkleDrift: {
+              "0%, 100%": { transform: "translate3d(0, 0, 0)" },
+              "50%": { transform: "translate3d(0, -8px, 0)" }
+            }
+          },
+          animation: {
+            "sparkle-pulse": "sparklePulse 3.2s ease-in-out infinite",
+            "sparkle-drift": "sparkleDrift 6s ease-in-out infinite"
           }
         }
       }
@@ -60,9 +74,47 @@
     .sparkle {
       position: absolute;
       border-radius: 999px;
-      background: white;
       pointer-events: none;
-      box-shadow: 0 0 12px rgba(255, 183, 206, 0.65);
+      opacity: 0.75;
+      mix-blend-mode: screen;
+      filter: blur(0.2px);
+    }
+
+    .sparkle::before,
+    .sparkle::after {
+      content: "";
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .sparkle::before {
+      width: 100%;
+      height: 2px;
+    }
+
+    .sparkle::after {
+      width: 2px;
+      height: 100%;
+    }
+
+    .sparkle-dot {
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 0 20px currentColor;
+      opacity: 0.7;
+    }
+
+    .sparkle-halo {
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      background: radial-gradient(circle, currentColor 0%, rgba(255,255,255,0) 70%);
+      opacity: 0.45;
+      mix-blend-mode: screen;
+      filter: blur(1px);
     }
 
     .glass-card {
@@ -89,12 +141,23 @@
     <div class="mesh-blob h-[28rem] w-[28rem] right-0 top-24 bg-kpop-purple"></div>
     <div class="mesh-blob h-[24rem] w-[24rem] bottom-16 left-12 bg-kpop-cyan opacity-25"></div>
     <div class="mesh-blob h-[30rem] w-[30rem] -right-16 bottom-8 bg-kpop-lightpink"></div>
-    <span class="sparkle left-[9%] top-[12%] h-2 w-2"></span>
-    <span class="sparkle left-[14%] top-[30%] h-1.5 w-1.5"></span>
-    <span class="sparkle left-[18%] top-[76%] h-1.5 w-1.5"></span>
-    <span class="sparkle right-[12%] top-[16%] h-2 w-2"></span>
-    <span class="sparkle right-[18%] top-[58%] h-1.5 w-1.5"></span>
-    <span class="sparkle right-[10%] top-[82%] h-2 w-2"></span>
+    <span class="sparkle animate-sparkle-pulse animate-sparkle-drift left-[9%] top-[12%] h-5 w-5 text-kpop-pink"></span>
+    <span class="sparkle animate-sparkle-pulse left-[14%] top-[30%] h-4 w-4 text-kpop-purple" style="animation-delay: 0.6s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute left-[18%] top-[76%] h-2.5 w-2.5 text-kpop-cyan" style="animation-delay: 1.1s;"></span>
+    <span class="sparkle animate-sparkle-pulse animate-sparkle-drift right-[12%] top-[16%] h-5 w-5 text-[#ffd66b]" style="animation-delay: 0.9s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute right-[18%] top-[58%] h-3 w-3 text-kpop-pink" style="animation-delay: 1.6s;"></span>
+    <span class="sparkle animate-sparkle-pulse right-[10%] top-[82%] h-4 w-4 text-kpop-purple" style="animation-delay: 2.2s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute left-[31%] top-[20%] h-2.5 w-2.5 text-white" style="animation-delay: 1.4s;"></span>
+    <span class="sparkle animate-sparkle-pulse absolute left-[72%] top-[26%] h-4 w-4 text-kpop-cyan" style="animation-delay: 2.7s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute left-[64%] top-[74%] h-2.5 w-2.5 text-[#ffd66b]" style="animation-delay: 0.3s;"></span>
+    <span class="sparkle animate-sparkle-pulse absolute left-[24%] top-[14%] h-3.5 w-3.5 text-white" style="animation-delay: 1.9s;"></span>
+    <span class="sparkle animate-sparkle-pulse animate-sparkle-drift absolute right-[28%] top-[24%] h-5 w-5 text-[#ffc9de]" style="animation-delay: 0.4s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute left-[12%] top-[52%] h-2.5 w-2.5 text-[#ffd66b]" style="animation-delay: 2.4s;"></span>
+    <span class="sparkle-dot animate-sparkle-pulse absolute right-[24%] top-[68%] h-2.5 w-2.5 text-kpop-cyan" style="animation-delay: 1.2s;"></span>
+    <span class="sparkle-halo animate-sparkle-pulse absolute left-[6%] top-[22%] h-12 w-12 text-kpop-pink" style="animation-delay: 0.7s;"></span>
+    <span class="sparkle-halo animate-sparkle-pulse absolute right-[8%] top-[30%] h-14 w-14 text-kpop-purple" style="animation-delay: 1.5s;"></span>
+    <span class="sparkle-halo animate-sparkle-pulse absolute left-[16%] bottom-[10%] h-10 w-10 text-kpop-cyan" style="animation-delay: 2.1s;"></span>
+    <span class="sparkle-halo animate-sparkle-pulse absolute right-[18%] bottom-[16%] h-12 w-12 text-[#ffd66b]" style="animation-delay: 1.1s;"></span>
   </div>
 
   <nav class="fixed left-0 right-0 top-0 z-50 border-b border-kpop-pink/10 bg-white/70 px-6 py-4 backdrop-blur-md">
