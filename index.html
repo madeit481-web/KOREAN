@@ -148,6 +148,12 @@
       outline: 3px solid rgba(229, 142, 169, 0.35);
       outline-offset: 6px;
     }
+
+    .draggable-nav-card img {
+      cursor: grab;
+      -webkit-user-drag: element;
+      user-select: none;
+    }
   </style>
 <!-- Unified Mesh Background & Sparkles -->
 <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none min-h-full w-full">
@@ -251,7 +257,7 @@
 </div>
 </div>
 <a aria-label="Open detailed K-POP makeup styling page" class="group draggable-nav-card relative block aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm accent-shadow-pink transition-all duration-500 border border-white/30 focus:outline-none" data-target-page="code.html" draggable="true" href="code.html" id="featured-detail-card">
-<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" draggable="false" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
+<img alt="K-POP Makeup Styling" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000" draggable="true" id="featured-detail-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY" style="">
 <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
 <div class="absolute inset-x-0 bottom-0 p-10">
 <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-kpop-rose shadow-lg border border-kpop-pink/5">
@@ -304,10 +310,14 @@
 </footer>
 <script>
     const featuredDetailCard = document.getElementById('featured-detail-card');
+    const featuredDetailImage = document.getElementById('featured-detail-image');
 
     if (featuredDetailCard) {
       const targetPage = featuredDetailCard.dataset.targetPage;
       let isDraggingCard = false;
+      let touchMoved = false;
+      let touchStartX = 0;
+      let touchStartY = 0;
 
       const navigateToDetail = () => {
         if (targetPage) {
@@ -321,7 +331,40 @@
         if (event.dataTransfer) {
           event.dataTransfer.effectAllowed = 'move';
           event.dataTransfer.setData('text/plain', targetPage);
+          event.dataTransfer.setDragImage(featuredDetailImage || featuredDetailCard, 24, 24);
         }
+      });
+
+      if (featuredDetailImage) {
+        featuredDetailImage.addEventListener('dragstart', (event) => {
+          isDraggingCard = true;
+          featuredDetailCard.classList.add('is-dragging', 'scale-[1.02]');
+          if (event.dataTransfer) {
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/plain', targetPage);
+            event.dataTransfer.setDragImage(featuredDetailImage, 24, 24);
+          }
+        });
+      }
+
+      document.addEventListener('dragover', (event) => {
+        if (!isDraggingCard) {
+          return;
+        }
+        event.preventDefault();
+        if (event.dataTransfer) {
+          event.dataTransfer.dropEffect = 'move';
+        }
+      });
+
+      document.addEventListener('drop', (event) => {
+        if (!isDraggingCard) {
+          return;
+        }
+        event.preventDefault();
+        featuredDetailCard.classList.remove('is-dragging', 'scale-[1.02]');
+        isDraggingCard = false;
+        navigateToDetail();
       });
 
       featuredDetailCard.addEventListener('dragend', () => {
@@ -340,8 +383,30 @@
         }
       });
 
+      featuredDetailCard.addEventListener('touchstart', (event) => {
+        if (!event.changedTouches[0]) {
+          return;
+        }
+        touchMoved = false;
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+      }, { passive: true });
+
+      featuredDetailCard.addEventListener('touchmove', (event) => {
+        if (!event.changedTouches[0]) {
+          return;
+        }
+        const deltaX = Math.abs(event.changedTouches[0].clientX - touchStartX);
+        const deltaY = Math.abs(event.changedTouches[0].clientY - touchStartY);
+        if (deltaX > 8 || deltaY > 8) {
+          touchMoved = true;
+        }
+      }, { passive: true });
+
       featuredDetailCard.addEventListener('touchend', () => {
-        navigateToDetail();
+        if (touchMoved) {
+          navigateToDetail();
+        }
       });
     }
 </script>
