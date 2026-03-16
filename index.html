@@ -257,15 +257,15 @@
         </p>
 
         <div class="w-full max-w-2xl" id="transform">
-          <div id="uploadZone" class="upload-shell glass-card relative overflow-hidden rounded-[2.5rem] px-8 pb-6 pt-10 text-center shadow-2xl shadow-pink-100/40 transition-all duration-300 md:px-14 md:pb-8 md:pt-14">
+          <div id="uploadZone" class="upload-shell glass-card relative overflow-visible rounded-[2.5rem] px-8 pb-6 pt-10 text-center shadow-2xl shadow-pink-100/40 transition-all duration-300 md:overflow-hidden md:px-14 md:pb-8 md:pt-14">
             <input id="fileInput" class="hidden" type="file" accept="image/png,image/jpeg,image/jpg,image/webp">
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent opacity-70"></div>
 
             <div class="relative z-10 flex flex-col items-center gap-6">
-              <div class="relative flex w-full justify-center">
-                <div id="uploadCallout" class="upload-callout absolute left-[19%] top-[20%] hidden -translate-y-1/2 flex-col items-center text-center md:flex">
-                  <span class="-ml-16 mb-1 text-xl font-bold lowercase tracking-[0.06em] md:text-2xl">upload</span>
-                  <svg viewBox="0 0 170 120" class="h-20 w-34 text-kpop-rose" aria-hidden="true">
+              <div class="relative flex w-full flex-col items-center justify-center md:flex-row">
+                <div id="uploadCallout" class="upload-callout mb-3 flex flex-col items-center text-center md:absolute md:left-[19%] md:top-[20%] md:mb-0 md:-translate-y-1/2">
+                  <span class="mb-1 text-sm font-bold lowercase tracking-[0.06em] sm:text-base md:-ml-16 md:text-2xl">upload</span>
+                  <svg viewBox="0 0 170 120" class="h-12 w-24 text-kpop-rose sm:h-16 sm:w-28 md:h-20 md:w-34" aria-hidden="true">
                     <path d="M32 12C41 38 52 51 68 60C81 67 96 65 105 55C114 45 112 31 103 22C91 10 72 8 58 15C43 23 38 37 40 53C42 69 54 82 72 90C91 98 117 98 148 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
                     <path d="M134 84L148 96L132 108" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
                   </svg>
