@@ -105,7 +105,7 @@
       font-weight: 900;
       letter-spacing: -0.08em;
       line-height: 0.82;
-      color: #dfb5ea;
+      color: #2d2327;
     }
 
     .mesh-blob {
@@ -292,7 +292,7 @@
       <section class="text-center">
         <div class="hero-word mx-auto text-[7rem] sm:text-[8.7rem]">POV</div>
         <h1 class="-mt-2 brand-font text-[2.35rem] font-black leading-none tracking-[-0.06em] text-ink sm:text-[3.2rem]">
-          <span class="text-kpop-black">You're the Next </span><span class="bg-gradient-to-r from-[#ff4d8d] via-[#d8b4fe] to-[#7dd3fc] bg-clip-text text-transparent">K-POP Idol</span>
+          <span class="text-[#8b5cf6]">You're the Next </span><span class="bg-gradient-to-r from-[#ff4d8d] via-[#d8b4fe] to-[#7dd3fc] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(216,180,254,0.35)]">K-POP Idol</span>
         </h1>
         <p class="mt-3 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
           AI-powered celebrity style analysis
@@ -391,20 +391,31 @@
             </div>
           </div>
 
-          <footer class="mt-14 text-center">
-            <div class="brand-font text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">IDOLAI</div>
-            <p class="mt-3 text-[9px] text-slate-400">© 2024 IDOLAI all rights reserved.</p>
-            <div class="mt-5 flex items-center justify-center gap-4 text-[9px] text-slate-400">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms</a>
-              <a href="#">Help</a>
-              <a href="#">Contact</a>
-            </div>
-          </footer>
         </div>
       </section>
     </main>
   </div>
+  <footer class="bg-white/30 px-6 py-16 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
+      <div class="flex items-center gap-2">
+        <div class="brand-mark scale-[0.78]" aria-hidden="true">
+          <span class="brand-mark-orbit"></span>
+        </div>
+        <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
+      </div>
+      <div class="flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
+        <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Press</a>
+        <a class="transition-colors hover:text-kpop-rose" href="#">Styling API</a>
+      </div>
+      <div class="flex space-x-5">
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">IG</a>
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">YT</a>
+        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">TK</a>
+      </div>
+    </div>
+  </footer>
   <script>
     const storedSelfie = sessionStorage.getItem("uploadedSelfie");
     const resultImage = document.getElementById("resultImage");
