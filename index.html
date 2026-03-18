@@ -83,6 +83,8 @@
 
     .brand-mark {
       position: relative;
+      display: grid;
+      place-items: center;
       width: 2.25rem;
       height: 2.25rem;
       border-radius: 999px;
@@ -103,43 +105,7 @@
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.38);
       opacity: 0.8;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      left: 0.95rem;
-      top: 0.48rem;
-      width: 0.2rem;
-      height: 1.1rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-      transform: rotate(32deg);
-    }
-
-    .brand-mark-star,
-    .brand-mark-star::before {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 999px;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.85);
-      content: "";
-    }
-
-    .brand-mark-star {
-      width: 0.95rem;
-      height: 0.16rem;
-      right: 0.38rem;
-      top: 0.7rem;
-      transform: rotate(32deg);
-    }
-
-    .brand-mark-star::before {
-      width: 0.16rem;
-      height: 0.95rem;
-      left: 0.395rem;
-      top: -0.395rem;
+      z-index: 0;
     }
 
     .brand-mark-orbit {
@@ -153,6 +119,7 @@
       border-left-color: transparent;
       border-top-color: transparent;
       transform: rotate(-22deg);
+      z-index: 2;
     }
 
     .mesh-blob {
@@ -230,6 +197,7 @@
         linear-gradient(#ffffff, #ffffff) padding-box,
         linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
       border: 3px solid transparent;
+      scroll-margin-top: 8rem;
     }
 
     .upload-shell.drag-active {
@@ -314,21 +282,18 @@
   </div>
 
   <nav class="fixed left-0 right-0 top-0 z-50 border-b border-kpop-pink/10 bg-white/70 px-6 py-4 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl items-center justify-between">
-      <div class="flex items-center gap-2">
+    <div class="relative mx-auto flex max-w-7xl items-center">
+      <a class="flex items-center gap-2" href="">
         <div class="brand-mark" aria-hidden="true">
-          <span class="brand-mark-star"></span>
           <span class="brand-mark-orbit"></span>
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
+      </a>
+      <div class="hidden items-center gap-4 text-[11px] font-bold uppercase tracking-[0.28em] text-kpop-rose/70 md:absolute md:left-1/2 md:flex md:-translate-x-1/2">
+        <a class="transition-colors hover:text-kpop-rose" href="#uploadZone">See Your Aura</a>
+        <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
+        <a class="transition-colors hover:text-kpop-rose" href="#stylist">Example</a>
       </div>
-      <div class="hidden space-x-8 text-[11px] font-bold uppercase tracking-[0.28em] text-kpop-rose/70 md:flex">
-        <a class="transition-colors hover:text-kpop-rose" href="#transform">Transform</a>
-        <a class="transition-colors hover:text-kpop-rose" href="#stylist">Stylist</a>
-      </div>
-      <button class="rounded-full bg-kpop-black px-6 py-2 text-[11px] font-bold tracking-[0.24em] text-white transition-all duration-300 hover:bg-kpop-rose">
-        GET THE LOOK
-      </button>
     </div>
   </nav>
 
@@ -347,7 +312,7 @@
           k-pop <span class="hero-idol bg-clip-text text-transparent">idol</span><br>
           <span class="hero-highlight bg-clip-text text-transparent">aura check!</span>
         </h1>
-        <p class="mb-10 max-w-xl text-base font-medium leading-relaxed text-kpop-rose/70 md:text-lg">
+        <p class="mb-10 max-w-xl text-base font-medium leading-relaxed text-[#6f4a57] md:text-lg">
           Upload your selfie and let our neural engine redesign your hair, makeup, and fashion into a global K-POP sensation.
         </p>
 
@@ -449,13 +414,12 @@
 
   <footer class="bg-white/30 px-6 py-16 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
-      <div class="flex items-center gap-2">
+      <a class="flex items-center gap-2" href="">
         <div class="brand-mark scale-[0.78]" aria-hidden="true">
-          <span class="brand-mark-star"></span>
           <span class="brand-mark-orbit"></span>
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
-      </div>
+      </a>
       <div class="flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
         <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
         <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
