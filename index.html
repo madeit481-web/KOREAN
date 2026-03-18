@@ -81,6 +81,80 @@
       filter: drop-shadow(0 8px 18px rgba(192, 132, 252, 0.18));
     }
 
+    .brand-mark {
+      position: relative;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), transparent 28%),
+        linear-gradient(135deg, #ff4d8d 0%, #ff8fb1 35%, #d8b4fe 68%, #7dd3fc 100%);
+      box-shadow:
+        0 10px 24px rgba(255, 143, 177, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      inset: 0.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      opacity: 0.8;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 0.95rem;
+      top: 0.48rem;
+      width: 0.2rem;
+      height: 1.1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+      transform: rotate(32deg);
+    }
+
+    .brand-mark-star,
+    .brand-mark-star::before {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 999px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.85);
+      content: "";
+    }
+
+    .brand-mark-star {
+      width: 0.95rem;
+      height: 0.16rem;
+      right: 0.38rem;
+      top: 0.7rem;
+      transform: rotate(32deg);
+    }
+
+    .brand-mark-star::before {
+      width: 0.16rem;
+      height: 0.95rem;
+      left: 0.395rem;
+      top: -0.395rem;
+    }
+
+    .brand-mark-orbit {
+      position: absolute;
+      width: 1.05rem;
+      height: 1.05rem;
+      right: -0.1rem;
+      bottom: 0.08rem;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      border-left-color: transparent;
+      border-top-color: transparent;
+      transform: rotate(-22deg);
+    }
+
     .mesh-blob {
       position: absolute;
       filter: blur(90px);
@@ -242,8 +316,11 @@
   <nav class="fixed left-0 right-0 top-0 z-50 border-b border-kpop-pink/10 bg-white/70 px-6 py-4 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-kpop-rose text-xs font-bold text-white">K</div>
-        <span class="brand-font text-lg font-black text-kpop-black">K-POP</span>
+        <div class="brand-mark" aria-hidden="true">
+          <span class="brand-mark-star"></span>
+          <span class="brand-mark-orbit"></span>
+        </div>
+        <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
       <div class="hidden space-x-8 text-[11px] font-bold uppercase tracking-[0.28em] text-kpop-rose/70 md:flex">
         <a class="transition-colors hover:text-kpop-rose" href="#transform">Transform</a>
