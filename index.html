@@ -197,7 +197,7 @@
         linear-gradient(#ffffff, #ffffff) padding-box,
         linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
       border: 3px solid transparent;
-      scroll-margin-top: 8rem;
+      scroll-margin-top: 12rem;
     }
 
     .upload-shell.drag-active {
@@ -282,15 +282,15 @@
   </div>
 
   <nav class="fixed left-0 right-0 top-0 z-50 border-b border-kpop-pink/10 bg-white/70 px-6 py-4 backdrop-blur-md">
-    <div class="relative mx-auto flex max-w-7xl items-center">
+    <div class="relative mx-auto flex max-w-7xl flex-col items-center gap-3 md:flex-row md:gap-0">
       <a class="flex items-center gap-2" href="">
         <div class="brand-mark" aria-hidden="true">
           <span class="brand-mark-orbit"></span>
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </a>
-      <div class="hidden items-center gap-4 text-[11px] font-bold uppercase tracking-[0.28em] text-kpop-rose/70 md:absolute md:left-1/2 md:flex md:-translate-x-1/2">
-        <a class="transition-colors hover:text-kpop-rose" href="#uploadZone">See Your Aura</a>
+      <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.24em] text-kpop-rose/70 md:absolute md:left-1/2 md:text-[11px] md:tracking-[0.28em] md:-translate-x-1/2">
+        <a id="seeAuraLink" class="transition-colors hover:text-kpop-rose" href="#uploadZone">See Your Aura</a>
         <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
         <a class="transition-colors hover:text-kpop-rose" href="#stylist">Example</a>
       </div>
@@ -298,7 +298,7 @@
   </nav>
 
   <main>
-    <section class="relative flex min-h-screen items-center justify-center px-4 pb-16 pt-28" id="hero">
+    <section class="relative flex min-h-screen items-center justify-center px-4 pb-16 pt-36 md:pt-28" id="hero">
       <div class="absolute inset-0 z-0">
         <img alt="Soft K-POP background" class="h-full w-full object-cover opacity-[0.03] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vPvUT-xcpbFb4OyNwrvFfdxHeGz7xEVH2T7ivH4hZKjtlqwFRaq5QHYHdGlo2aPFls8bhjP1N-WzqH2yHL3vU7KXW7usOL8sTTvAzyYBC5pBt0Wa5oiJNkGWYKyrqvLOIZZm1XaKtjHhBVtQvJ3h75vVaCFzIrNK73ADSjP7U0qOTT4jtYNFhg_NlGRnqiuSNzE0OA_AYjL6twar92R_H7vw7SjyxcU42cCCZJ4QZsuWNT6dro58UZnd0-QbyAN2tvqjBshlRjg">
         <div class="hero-gradient absolute inset-0"></div>
@@ -308,7 +308,7 @@
         <span class="inline-block border border-kpop-rose/20 bg-white/40 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.4em] text-kpop-rose backdrop-blur-sm">
           AI POWERED STYLE ENGINE
         </span>
-        <h1 class="brand-font mb-6 mt-6 text-4xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-6xl lg:text-7xl">
+        <h1 id="auraHeading" class="brand-font mb-6 mt-6 text-4xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-6xl lg:text-7xl">
           k-pop <span class="hero-idol bg-clip-text text-transparent">idol</span><br>
           <span class="hero-highlight bg-clip-text text-transparent">aura check!</span>
         </h1>
@@ -444,6 +444,8 @@
     const uploadHint = document.getElementById("uploadHint");
     const uploadIcon = document.getElementById("uploadIcon");
     const uploadCallout = document.getElementById("uploadCallout");
+    const seeAuraLink = document.getElementById("seeAuraLink");
+    const auraHeading = document.getElementById("auraHeading");
 
     let selectedImageData = "";
 
@@ -502,6 +504,15 @@
       const file = event.dataTransfer.files[0];
       readFile(file);
     });
+
+    if (seeAuraLink && auraHeading) {
+      seeAuraLink.addEventListener("click", function (event) {
+        if (window.matchMedia("(min-width: 768px)").matches) {
+          event.preventDefault();
+          auraHeading.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      });
+    }
 
     transformButton.addEventListener("click", function () {
       if (!selectedImageData) {
