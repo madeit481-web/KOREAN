@@ -396,33 +396,37 @@
     </main>
   </div>
   <footer class="bg-white/30 px-6 py-16 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
-      <div class="flex items-center gap-2">
+    <div class="relative mx-auto flex max-w-7xl flex-col items-center gap-10 md:min-h-[2.75rem] md:justify-center">
+      <div class="flex items-center gap-2 md:absolute md:left-0">
         <div class="brand-mark scale-[0.78]" aria-hidden="true">
           <span class="brand-mark-orbit"></span>
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
-      <div class="flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
+      <div class="flex items-center justify-center space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
         <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
+        <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
         <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
-        <a class="transition-colors hover:text-kpop-rose" href="#">Press</a>
-        <a class="transition-colors hover:text-kpop-rose" href="#">Styling API</a>
-      </div>
-      <div class="flex space-x-5">
-        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">IG</a>
-        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">YT</a>
-        <a class="flex h-11 w-11 items-center justify-center rounded-full border border-kpop-pink/10 text-[10px] font-bold uppercase text-kpop-rose/40 transition-all hover:bg-kpop-rose hover:text-white" href="#">TK</a>
       </div>
     </div>
   </footer>
+  <button id="topButton" type="button" class="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-kpop-rose/40 bg-white/80 text-[10px] font-bold uppercase text-kpop-rose/70 shadow-lg backdrop-blur-md transition-all hover:bg-kpop-rose hover:text-white">
+    TOP
+  </button>
   <script>
     const storedSelfie = sessionStorage.getItem("uploadedSelfie");
     const resultImage = document.getElementById("resultImage");
+    const topButton = document.getElementById("topButton");
 
     if (storedSelfie && resultImage) {
       resultImage.src = storedSelfie;
       resultImage.alt = "Uploaded selfie result preview";
+    }
+
+    if (topButton) {
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
   </script>
 </body>
