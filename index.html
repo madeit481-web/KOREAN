@@ -335,6 +335,15 @@
       text-shadow: 0 3px 14px rgba(255, 183, 206, 0.35);
     }
 
+    .hero-title-shell {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-mobile-twinkle {
+      display: none;
+    }
+
     @media (max-width: 767px) {
       .mesh-blob:nth-of-type(n + 3) {
         display: none;
@@ -380,7 +389,7 @@
       }
 
       .hero-premium::after {
-        opacity: 0.14;
+        opacity: 0.12;
         animation: none;
         filter: none;
       }
@@ -389,6 +398,114 @@
       .hero-aura-ripple::after {
         animation: none;
         opacity: 0;
+      }
+
+      .hero-title-shell {
+        padding: 0.08em 0.18em 0.12em;
+      }
+
+      .hero-title-shell::after {
+        content: "";
+        position: absolute;
+        inset: 6% -10%;
+        pointer-events: none;
+        background: linear-gradient(108deg, transparent 18%, rgba(255,255,255,0.08) 36%, rgba(255,255,255,0.7) 48%, rgba(255,214,107,0.3) 56%, transparent 72%);
+        opacity: 0;
+        transform: translateX(-38%) skewX(-16deg);
+        animation: mobileHeroSweep 6.4s ease-in-out infinite;
+      }
+
+      .hero-mobile-twinkle {
+        display: block;
+        position: absolute;
+        width: 0.42rem;
+        height: 0.42rem;
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0.6);
+        animation: mobileHeroTwinkle 4.8s ease-in-out infinite;
+      }
+
+      .hero-mobile-twinkle::before,
+      .hero-mobile-twinkle::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .hero-mobile-twinkle::before {
+        width: 100%;
+        height: 2px;
+      }
+
+      .hero-mobile-twinkle::after {
+        width: 2px;
+        height: 100%;
+      }
+
+      .hero-mobile-twinkle.star-1 {
+        left: 4%;
+        top: 18%;
+        color: rgba(255, 214, 107, 0.92);
+        animation-delay: 0.6s;
+      }
+
+      .hero-mobile-twinkle.star-2 {
+        right: 6%;
+        top: 8%;
+        color: rgba(255, 255, 255, 0.96);
+        animation-delay: 2.1s;
+      }
+
+      .hero-mobile-twinkle.star-3 {
+        right: 10%;
+        bottom: 16%;
+        color: rgba(125, 211, 252, 0.9);
+        animation-delay: 3.4s;
+      }
+
+      @keyframes mobileHeroSweep {
+        0%, 100% {
+          opacity: 0;
+          transform: translateX(-38%) skewX(-16deg);
+        }
+        14% {
+          opacity: 0;
+        }
+        24% {
+          opacity: 0.82;
+        }
+        42% {
+          opacity: 0;
+          transform: translateX(36%) skewX(-16deg);
+        }
+      }
+
+      @keyframes mobileHeroTwinkle {
+        0%, 100% {
+          opacity: 0;
+          transform: scale(0.55);
+        }
+        16% {
+          opacity: 0;
+          transform: scale(0.55);
+        }
+        24% {
+          opacity: 0.95;
+          transform: scale(1);
+        }
+        34% {
+          opacity: 0.18;
+          transform: scale(0.72);
+        }
+        40% {
+          opacity: 0;
+          transform: scale(0.55);
+        }
       }
 
       #uploadZone {
@@ -490,10 +607,15 @@
       </div>
 
       <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-        <h1 id="auraHeading" class="brand-font mb-6 mt-6 text-5xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-7xl lg:text-8xl">
-          <span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent">idol</span><br>
-          <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>
-        </h1>
+        <div class="hero-title-shell mb-6 mt-6">
+          <span class="hero-mobile-twinkle star-1" aria-hidden="true"></span>
+          <span class="hero-mobile-twinkle star-2" aria-hidden="true"></span>
+          <span class="hero-mobile-twinkle star-3" aria-hidden="true"></span>
+          <h1 id="auraHeading" class="brand-font text-5xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-7xl lg:text-8xl">
+            <span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent">idol</span><br>
+            <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>
+          </h1>
+        </div>
         <p class="mb-10 max-w-[20rem] text-center text-base font-medium leading-relaxed text-[#6f4a57] sm:max-w-xl md:text-lg">
           <span class="md:hidden text-center">
             Let our AI engine redesign<br>
