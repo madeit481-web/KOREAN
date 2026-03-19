@@ -376,25 +376,21 @@
       .hero-highlight,
       .hero-idol,
       .hero-subhighlight {
-        text-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+        filter: none;
+        text-shadow: none;
       }
 
-      /* Mobile: restore the desktop-like glitter shine on the title text,
-         but keep heavier ripple/twinkle overlays disabled. */
       .hero-premium {
-        text-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.28),
-          0 0 6px rgba(255, 255, 255, 0.14),
-          0 0 12px rgba(255, 143, 177, 0.08);
-        filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.05));
-        animation: heroPremiumTwinkle 3.2s ease-in-out infinite;
+        animation: none;
+        text-shadow: none;
+        filter: none;
       }
 
       .hero-premium::after {
-        content: "";
-        opacity: 0.24;
-        filter: blur(0.15px) drop-shadow(0 0 3px rgba(255,255,255,0.18));
-        animation: heroPremiumSparkle 2.8s ease-in-out infinite;
+        opacity: 0;
+        animation: none;
+        filter: none;
+        content: none;
       }
 
       .hero-aura-ripple::before,
@@ -516,7 +512,7 @@
           <span class="hero-mobile-twinkle star-2" aria-hidden="true"></span>
           <span class="hero-mobile-twinkle star-3" aria-hidden="true"></span>
           <h1 id="auraHeading" class="brand-font text-5xl font-black leading-[1.05] tracking-tighter text-kpop-black md:text-7xl lg:text-8xl">
-            <span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent">idol</span><br>
+            <span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent" data-text="idol">idol</span><br>
             <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>
           </h1>
         </div>
