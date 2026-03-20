@@ -670,7 +670,13 @@
     TOP
   </button>
 
-  <script>
+  <script type="module">
+    import { buildFinalGeneratedResult } from "./src/lib/generateKpopResult.js";
+
+    const RESULT_STORAGE_KEY = "generatedKpopResult";
+    const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
+    const CURRENT_RESULT_VERSION = "rating-label-v6";
+
     const uploadZone = document.getElementById("uploadZone");
     const fileInput = document.getElementById("fileInput");
     const transformButton = document.getElementById("transformButton");
@@ -686,6 +692,7 @@
     const demoCards = document.querySelectorAll("[data-demo-card]");
 
     let selectedImageData = "";
+    let generatedResult = null;
 
     function setStatus(message, isError) {
       uploadStatus.textContent = message;
@@ -701,6 +708,7 @@
       const reader = new FileReader();
       reader.onload = function (event) {
         selectedImageData = event.target.result;
+        generatedResult = buildFinalGeneratedResult();
         previewImage.src = selectedImageData;
         previewWrapper.classList.remove("hidden");
         uploadIcon.classList.add("hidden");
@@ -712,6 +720,8 @@
         setStatus("Photo uploaded. Click Transform Now to continue.", false);
         sessionStorage.setItem("uploadedSelfie", selectedImageData);
         sessionStorage.setItem("uploadedSelfieName", file.name);
+        sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(generatedResult));
+        sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
       };
       reader.readAsDataURL(file);
     }
@@ -784,6 +794,12 @@
       if (!selectedImageData) {
         setStatus("Upload a photo first, then click Transform Now.", true);
         return;
+      }
+
+      if (!generatedResult) {
+        generatedResult = buildFinalGeneratedResult();
+        sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(generatedResult));
+        sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
       }
 
       window.location.href = "code.html";
