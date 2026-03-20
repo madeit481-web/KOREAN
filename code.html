@@ -591,22 +591,22 @@
         <div class="character-bg relative overflow-hidden rounded-[10px] shadow-soft">
           <img
             id="resultImage"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+            src=""
             alt="여성 캐릭터 스타일 초상화"
-            class="h-[520px] w-full object-cover object-center"
+            class="h-[520px] w-full bg-slate-100 object-cover object-center"
           >
         </div>
 
         <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 py-5 text-center shadow-card">
           <div class="flex flex-wrap items-center justify-center gap-2">
-            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex min-w-[7.5rem] items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-4 py-1.5 text-[11px] font-black tracking-[0.16em] leading-none text-white shadow-sm">Elite Tier</span>
-            <span id="resultTitle" class="inline-flex min-w-[9rem] items-center justify-center whitespace-nowrap rounded-full border border-fuchsia-200 bg-white/75 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] leading-none text-slate-600">Visual Royalty Mode</span>
+            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex min-w-[7.5rem] items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-4 py-1.5 text-[11px] font-black tracking-[0.16em] leading-none text-white shadow-sm">Ready</span>
+            <span id="resultTitle" class="inline-flex min-w-[9rem] items-center justify-center whitespace-nowrap rounded-full border border-fuchsia-200 bg-white/75 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] leading-none text-slate-600">Uploaded Result</span>
           </div>
           <p id="resultHeadline" class="mt-4 text-[1.75rem] font-extrabold leading-none tracking-[-0.06em] text-fuchsia-500 sm:text-[2.15rem]">
-            당신은 제니입니다!
+            Your uploaded result is loading.
           </p>
           <p id="resultReaction" class="mt-3 text-[11px] font-semibold italic leading-5 text-slate-500">
-            "The Human Chanel" chic &amp; iconic global star
+            "Preparing your styling summary."
           </p>
         </div>
       </section>
@@ -810,7 +810,6 @@
   </button>
   <script type="module">
     import { buildFinalGeneratedResult } from "./src/lib/generateKpopResult.js";
-    import { sampleGeneratedResult } from "./src/lib/sampleGeneratedResult.js";
 
     const RESULT_STORAGE_KEY = "generatedKpopResult";
     const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
@@ -851,13 +850,20 @@
         return parsedStoredResult;
       }
 
-      const refreshedResult = storedSelfie ? buildFinalGeneratedResult() : sampleGeneratedResult;
+      if (!storedSelfie) {
+        return null;
+      }
+
+      const refreshedResult = buildFinalGeneratedResult();
       sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(refreshedResult));
       sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
       return refreshedResult;
     }
 
     const parsedResult = resolveGeneratedResult();
+    if (!storedSelfie) {
+      window.location.replace("index.html");
+    }
     const resultImage = document.getElementById("resultImage");
     const resultHeadline = document.getElementById("resultHeadline");
     const resultRating = document.getElementById("resultRating");
