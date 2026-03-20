@@ -339,6 +339,75 @@
       filter: blur(1.8px);
     }
 
+    .share-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 0.95rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding: 0.8rem 0.9rem;
+      color: #475569;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
+    }
+
+    .share-option:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(148, 163, 184, 0.16);
+    }
+
+    .share-option-icon {
+      display: grid;
+      height: 2.2rem;
+      width: 2.2rem;
+      place-items: center;
+      border-radius: 999px;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+    }
+
+    .share-option-copy {
+      min-width: 0;
+    }
+
+    .share-option-copy strong {
+      display: block;
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+
+    .share-option-copy span {
+      display: block;
+      margin-top: 0.1rem;
+      font-size: 0.625rem;
+      line-height: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .share-option-x {
+      background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    }
+
+    .share-option-facebook {
+      background: linear-gradient(135deg, #1877f2 0%, #60a5fa 100%);
+    }
+
+    .share-option-instagram {
+      background: linear-gradient(135deg, #f58529 0%, #dd2a7b 48%, #8134af 100%);
+    }
+
+    .share-option-tiktok {
+      background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
+    }
+
+    .share-option-whatsapp {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    }
+
+    .share-option-system {
+      background: linear-gradient(135deg, #fb7185 0%, #f59e0b 100%);
+    }
+
     @media (max-width: 767px) {
       body {
         background:
@@ -601,35 +670,110 @@
 
             <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <div class="relative">
-                <button id="shareButton" type="button" class="rounded-[8px] bg-gradient-to-r from-orange-500 to-pink-500 px-8 py-3 text-[11px] font-bold text-white shadow-lg shadow-orange-200/60 transition hover:brightness-105">
-                &lt; 결과 공유하기
+                <button id="shareButton" type="button" class="inline-flex items-center gap-2 rounded-[8px] bg-gradient-to-r from-orange-500 to-pink-500 px-8 py-3 text-[11px] font-bold text-white shadow-lg shadow-orange-200/60 transition hover:brightness-105">
+                  <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M15 8l5-5"></path>
+                    <path d="M20 3h-5v5"></path>
+                    <path d="M10 14L20 4"></path>
+                    <path d="M20 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"></path>
+                  </svg>
+                  <span>결과 공유하기</span>
                 </button>
-                <div id="shareMenu" class="absolute left-1/2 top-full z-20 mt-3 hidden w-48 -translate-x-1/2 rounded-[12px] border border-white/60 bg-white/90 p-2 text-left shadow-xl backdrop-blur-md">
-                  <a class="block rounded-[8px] px-3 py-2 text-[11px] font-bold text-slate-600 transition hover:bg-orange-50 hover:text-orange-500" data-share-target="x" href="#">
-                    X에 공유
+                <div id="shareMenu" class="absolute left-1/2 top-full z-20 mt-3 hidden max-h-[min(24rem,calc(100vh-9rem))] w-[18rem] -translate-x-1/2 overflow-y-auto rounded-[1.15rem] border border-white/70 bg-white/90 p-3 text-left shadow-[0_24px_60px_rgba(236,72,153,0.18)] backdrop-blur-md">
+                  <div class="mb-3 px-1">
+                    <p class="text-[10px] font-black uppercase tracking-[0.28em] text-kpop-rose/70">Share Result</p>
+                    <p class="mt-1 text-[11px] font-medium text-slate-400">Choose where to post your idol moment.</p>
+                  </div>
+                  <div class="grid gap-2">
+                  <a class="share-option bg-slate-50/70 hover:border-slate-300 hover:bg-slate-50" data-share-target="x" href="#">
+                    <span class="share-option-icon share-option-x">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.9 2H22l-6.77 7.74L23 22h-6.1l-4.78-6.6L6.35 22H3.24l7.25-8.29L1 2h6.25l4.32 6.07z"></path>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>X</strong>
+                      <span>Post to timeline</span>
+                    </span>
                   </a>
-                  <a class="block rounded-[8px] px-3 py-2 text-[11px] font-bold text-slate-600 transition hover:bg-blue-50 hover:text-blue-500" data-share-target="facebook" href="#">
-                    Facebook에 공유
+                  <a class="share-option bg-blue-50/70 hover:border-blue-200 hover:bg-blue-50" data-share-target="facebook" href="#">
+                    <span class="share-option-icon share-option-facebook">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H17V4.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.5v3h2.8v8z"></path>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>Facebook</strong>
+                      <span>Share as a link</span>
+                    </span>
                   </a>
-                  <a class="block rounded-[8px] px-3 py-2 text-[11px] font-bold text-slate-600 transition hover:bg-pink-50 hover:text-pink-500" data-share-target="instagram" href="#">
-                    Instagram에 공유
+                  <a class="share-option bg-pink-50/70 hover:border-pink-200 hover:bg-pink-50" data-share-target="instagram" href="#">
+                    <span class="share-option-icon share-option-instagram">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"></circle>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>Instagram</strong>
+                      <span>Download and upload</span>
+                    </span>
                   </a>
-                  <a class="block rounded-[8px] px-3 py-2 text-[11px] font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900" data-share-target="tiktok" href="#">
-                    TikTok에 공유
+                  <a class="share-option bg-slate-100/80 hover:border-slate-300 hover:bg-slate-100" data-share-target="tiktok" href="#">
+                    <span class="share-option-icon share-option-tiktok">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.5 3c.7 1.8 2 3.2 3.8 4 .9.4 1.8.6 2.7.6v3.2c-1.5 0-2.9-.3-4.2-.9v5.6c0 3.4-2.8 6.2-6.2 6.2S4.4 18.9 4.4 15.5s2.8-6.2 6.2-6.2c.3 0 .7 0 1 .1v3.3a3.2 3.2 0 0 0-1-.2 2.9 2.9 0 1 0 2.9 2.9z"></path>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>TikTok</strong>
+                      <span>Download and upload</span>
+                    </span>
                   </a>
-                  <a class="block rounded-[8px] px-3 py-2 text-[11px] font-bold text-slate-600 transition hover:bg-green-50 hover:text-green-600" data-share-target="whatsapp" href="#">
-                    WhatsApp에 공유
+                  <a class="share-option bg-green-50/70 hover:border-green-200 hover:bg-green-50" data-share-target="whatsapp" href="#">
+                    <span class="share-option-icon share-option-whatsapp">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11.9A8 8 0 0 1 8.2 19l-4.2 1 1.1-4A8 8 0 1 1 20 11.9m-4.7 2.3c-.2-.1-1.3-.6-1.5-.6s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.3 0-.4.1-.5l.5-.5c.2-.2.2-.3.3-.5s0-.3 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.6c-.2 0-.5 0-.8.3s-1 1-1 2.3 1 2.7 1.2 2.8 2 3 4.8 4.1c2.7 1 2.7.7 3.2.7s1.6-.7 1.9-1.3.3-1.2.2-1.3-.2-.2-.4-.3"></path>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>WhatsApp</strong>
+                      <span>Send to chat</span>
+                    </span>
                   </a>
-                  <a class="mt-1 block rounded-[8px] border-t border-slate-200 px-3 py-2 pt-3 text-[11px] font-bold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700" data-share-target="system" href="#">
-                    더보기
+                  <a class="share-option mt-1 border-t border-slate-200 bg-gradient-to-r from-rose-50 to-amber-50 pt-3 hover:border-amber-200 hover:bg-amber-50" data-share-target="system" href="#">
+                    <span class="share-option-icon share-option-system">
+                      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <path d="M8.6 13.5l6.8 4"></path>
+                        <path d="M15.4 6.5l-6.8 4"></path>
+                      </svg>
+                    </span>
+                    <span class="share-option-copy">
+                      <strong>더보기</strong>
+                      <span>Open system share</span>
+                    </span>
                   </a>
+                  </div>
                 </div>
               </div>
-              <button id="downloadButton" type="button" class="rounded-[8px] bg-gradient-to-r from-[#7c3aed] to-[#ec4899] px-8 py-3 text-[11px] font-bold text-white shadow-lg shadow-fuchsia-200/60 transition hover:brightness-105">
-                다운로드
+              <button id="downloadButton" type="button" class="inline-flex items-center gap-2 rounded-[8px] bg-gradient-to-r from-[#7c3aed] to-[#ec4899] px-8 py-3 text-[11px] font-bold text-white shadow-lg shadow-fuchsia-200/60 transition hover:brightness-105">
+                <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M12 3v12"></path>
+                  <path d="M7 10l5 5 5-5"></path>
+                  <path d="M5 21h14"></path>
+                </svg>
+                <span>다운로드</span>
               </button>
-              <a href="index.html" class="rounded-[8px] bg-white/70 px-8 py-3 text-[11px] font-bold text-slate-500 shadow">
-                다시 시도하기
+              <a href="index.html" class="inline-flex items-center gap-2 rounded-[8px] bg-white/70 px-8 py-3 text-[11px] font-bold text-slate-500 shadow">
+                <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+                  <path d="M3 3v6h6"></path>
+                </svg>
+                <span>다시 시도하기</span>
               </a>
             </div>
             <p id="downloadStatus" class="mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold text-kpop-rose/80"></p>
