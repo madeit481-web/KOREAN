@@ -822,7 +822,11 @@
       }
 
       downloadStatus.textContent = message;
-      downloadStatus.className = "mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold " + (isError ? "text-red-500" : "text-kpop-rose/80");
+      if (persist) {
+        downloadStatus.className = "mt-3 min-h-[1.5rem] text-center text-[13px] font-bold leading-6 text-red-600";
+      } else {
+        downloadStatus.className = "mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold " + (isError ? "text-red-500" : "text-kpop-rose/80");
+      }
 
       window.clearTimeout(downloadStatusTimer);
       if (message && !persist) {
