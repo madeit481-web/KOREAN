@@ -821,10 +821,18 @@
         return;
       }
 
-      downloadStatus.textContent = message;
       if (persist) {
+        const isDesktop = window.matchMedia("(min-width: 640px)").matches;
+        const formattedMessage = isDesktop
+          ? message.replace(". Please upload it in the app.", ".<br>Please upload it in the app.")
+          : message
+              .replace(" does not support direct web sharing,", " does not support direct web sharing,<br>")
+              .replace(" so the image was downloaded first.", "so the image was downloaded first.<br>")
+              .replace("<br>so", "<br> so");
+        downloadStatus.innerHTML = formattedMessage;
         downloadStatus.className = "mt-3 min-h-[1.5rem] text-center text-[13px] font-bold leading-6 text-red-600";
       } else {
+        downloadStatus.textContent = message;
         downloadStatus.className = "mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold " + (isError ? "text-red-500" : "text-kpop-rose/80");
       }
 
