@@ -601,24 +601,45 @@
         </div>
 
         <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-cyan-100/20 backdrop-blur-sm">
-            <img alt="K-POP Hair Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zyw0LiEjcCwO0GhfGoH_1cthDuDIeLHBYunb3OnOBhaoMWYgMD9BzU9p8r35YAiaQvx6u4dgmE9GRqu3CACTflZrQbLfC0Uy2E709pBO5WExdMZSyTu0VSnzqTkPLGNiZM_-9T3gtpy_CsltrPhEVRclcELK800A7ytA95jO_nWG48fsvsjW1z3PTqyCudOrEtZDLNaPZZOn32ZWrPfazO80QZKSZux3bWQuIGA_HxaRr6wVkD3WbxTV3dKmE11u7OnkQ6y3lvI">
+          <article data-demo-card class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-cyan-100/20 backdrop-blur-sm">
+            <img data-demo-original alt="K-POP Hair Styling original" class="h-full w-full object-cover opacity-90 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-0" src="백인원본.png">
+            <img data-demo-transformed alt="K-POP Hair Styling transformed" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-90" src="백인변환.png">
+            <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center md:hidden">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Touch</span>
+            </div>
+            <div class="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center md:flex">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Tap</span>
+            </div>
             <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
             <div class="absolute inset-x-0 bottom-0 p-10">
               <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Iconic Hair</h3>
             </div>
           </article>
 
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-pink-100/20 backdrop-blur-sm">
-            <img alt="K-POP Makeup Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKUnn30RGEQPlNUgaaIPQpmNw2JCYaAjONSobpw7BCr4p7tUt-f2oVEADTzpEUoeooGcQzLbjCAkk8jcjRs_hl9Z8cqm20MijsV4xMrNnmBND9RV1kW1DzKByWh-y5L_Qj2cDE4JLAOhBRMpuCYkd8gN-PSA3hDvjcGYojBTsLnIlw041DGNkHQ_KCSfwVVrYbJ04X27cA0_4hWdnuv7uKt3WOgsY7m5eA5wzcms4qkmcqQLokfwoSuAjaE4Yl0Dkqf-UPriN2lY">
+          <article data-demo-card class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-pink-100/20 backdrop-blur-sm">
+            <img data-demo-original alt="K-POP Makeup Styling original" class="h-full w-full object-cover opacity-90 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-0" src="흑인원본.png">
+            <img data-demo-transformed alt="K-POP Makeup Styling transformed" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-90" src="흑인변환.png">
+            <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center md:hidden">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Touch</span>
+            </div>
+            <div class="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center md:flex">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Tap</span>
+            </div>
             <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
             <div class="absolute inset-x-0 bottom-0 p-10">
               <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Stage Glow</h3>
             </div>
           </article>
 
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-purple-100/20 backdrop-blur-sm">
-            <img alt="K-POP Fashion Styling" class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsX8eBYEDYyF8h7Eydhtq3u04e0100YKrX2lRiHkNYkehkR_06VrVZMNg76O03iyEWSCs3mppkjeT8KykEltbTyeaXvg_sq5S3681eDtEetwY3leYEH960AXfNS8X8AntXRX87h0fW-KNkTvWO6rKpaVNlxCeEhjGSokPagMcjTkDeWxg5sCchkRQXXdVUzLiaxVMzQCqVgDGaIJGgD3mpcfQTyxmkGVGoMPFPjaK0zWHTLHxiCuDsQhJGfu0k-8txszeAAg7BZB0">
+          <article data-demo-card class="group relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/20 shadow-xl shadow-purple-100/20 backdrop-blur-sm">
+            <img data-demo-original alt="K-POP Fashion Styling original" class="h-full w-full object-cover opacity-90 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-0" src="남미원본.png">
+            <img data-demo-transformed alt="K-POP Fashion Styling transformed" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 md:group-hover:scale-105 md:group-hover:opacity-90" src="남비변환.png">
+            <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center md:hidden">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Touch</span>
+            </div>
+            <div class="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center md:flex">
+              <span class="rounded-full bg-white/16 px-7 py-3 text-[28px] font-black uppercase tracking-[0.34em] text-slate-200/55 backdrop-blur-[2px]">Tap</span>
+            </div>
             <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent"></div>
             <div class="absolute inset-x-0 bottom-0 p-10">
               <h3 class="brand-font mb-3 text-2xl font-black text-kpop-black">Viral Fashion</h3>
@@ -662,6 +683,7 @@
     const seeAuraLink = document.getElementById("seeAuraLink");
     const auraHeading = document.getElementById("auraHeading");
     const topButton = document.getElementById("topButton");
+    const demoCards = document.querySelectorAll("[data-demo-card]");
 
     let selectedImageData = "";
 
@@ -735,6 +757,28 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
+
+    demoCards.forEach(function (card) {
+      const originalImage = card.querySelector("[data-demo-original]");
+      const transformedImage = card.querySelector("[data-demo-transformed]");
+
+      if (!originalImage || !transformedImage) {
+        return;
+      }
+
+      card.addEventListener("click", function () {
+        if (window.matchMedia("(min-width: 768px)").matches) {
+          return;
+        }
+
+        const isTransformedVisible = transformedImage.classList.contains("opacity-90");
+
+        originalImage.classList.toggle("opacity-90", isTransformedVisible);
+        originalImage.classList.toggle("opacity-0", !isTransformedVisible);
+        transformedImage.classList.toggle("opacity-0", isTransformedVisible);
+        transformedImage.classList.toggle("opacity-90", !isTransformedVisible);
+      });
+    });
 
     transformButton.addEventListener("click", function () {
       if (!selectedImageData) {
