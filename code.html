@@ -340,6 +340,57 @@
     }
 
     @media (max-width: 767px) {
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(255, 183, 206, 0.18), transparent 26%),
+          radial-gradient(circle at top right, rgba(216, 180, 254, 0.14), transparent 28%),
+          linear-gradient(180deg, #fffafb 0%, #ffffff 100%);
+      }
+
+      .result-background-effects,
+      .analysis-background-effects {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .result-background-effects .mesh-blob:nth-of-type(n + 3) {
+        display: none;
+      }
+
+      .result-background-effects .mesh-blob {
+        filter: blur(48px);
+        opacity: 0.16;
+      }
+
+      .analysis-background-effects {
+        display: none;
+      }
+
+      .result-background-effects .sparkle-halo,
+      .result-background-effects .sparkle-burst {
+        display: none;
+      }
+
+      .result-background-effects .sparkle:nth-of-type(n + 10),
+      .result-background-effects .sparkle-dot:nth-of-type(n + 8) {
+        display: none;
+      }
+
+      .result-background-effects .sparkle,
+      .result-background-effects .sparkle-dot {
+        animation: none !important;
+        filter: none;
+        opacity: 0.55;
+      }
+
+      .result-card,
+      .analysis-panel,
+      nav,
+      footer,
+      #topButton {
+        backdrop-filter: none;
+      }
+
       .hero-highlight,
       .hero-idol {
         filter: none;
@@ -364,6 +415,10 @@
         content: none;
         animation: none;
         opacity: 0;
+      }
+
+      #resultImage {
+        height: 27rem;
       }
     }
   </style>
