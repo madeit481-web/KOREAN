@@ -811,6 +811,8 @@
     const downloadStatus = document.getElementById("downloadStatus");
 
     let downloadStatusTimer;
+    let sharePayloadPromise = null;
+    let sharePayloadCache = null;
 
     function setDownloadStatus(message, isError) {
       if (!downloadStatus) {
@@ -841,7 +843,7 @@
       };
     }
 
-    async function getSharePayload() {
+    async function buildSharePayload() {
       const shareData = getShareData();
 
       if (!resultImage || !resultImage.src || !navigator.canShare) {
@@ -868,8 +870,43 @@
       return shareData;
     }
 
-    function isMobileSharePreferred() {
-      return window.matchMedia("(max-width: 767px)").matches;
+    function warmSharePayload() {
+      if (sharePayloadCache) {
+        return Promise.resolve(sharePayloadCache);
+      }
+
+      if (!sharePayloadPromise) {
+        sharePayloadPromise = buildSharePayload().then(function (payload) {
+          sharePayloadCache = payload;
+          return payload;
+        }).catch(function () {
+          sharePayloadPromise = null;
+          return getShareData();
+        });
+      }
+
+      return sharePayloadPromise;
+    }
+
+    async function getSharePayload() {
+      return warmSharePayload();
+    }
+
+    function scheduleSharePayloadWarmup() {
+      if (!resultImage || !resultImage.src) {
+        return;
+      }
+
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(function () {
+          warmSharePayload();
+        }, { timeout: 1200 });
+        return;
+      }
+
+      window.setTimeout(function () {
+        warmSharePayload();
+      }, 150);
     }
 
     function openSharePopup(target) {
@@ -926,19 +963,7 @@
     }
 
     if (shareButton) {
-      shareButton.addEventListener("click", async function () {
-        if (isMobileSharePreferred() && navigator.share) {
-          try {
-            const shareData = await getSharePayload();
-            await navigator.share(shareData);
-            return;
-          } catch (error) {
-            if (error && error.name === "AbortError") {
-              return;
-            }
-          }
-        }
-
+      shareButton.addEventListener("click", function () {
         if (shareMenu) {
           shareMenu.classList.toggle("hidden");
         }
@@ -955,10 +980,18 @@
       });
 
       document.addEventListener("click", function (event) {
-        if (!shareMenu.classList.contains("hidden") && !shareMenu.contains(event.target) && event.target !== shareButton) {
+        if (!shareMenu.classList.contains("hidden") && !shareMenu.contains(event.target) && !shareButton.contains(event.target)) {
           shareMenu.classList.add("hidden");
         }
       });
+    }
+
+    if (resultImage) {
+      if (resultImage.complete && resultImage.src) {
+        scheduleSharePayloadWarmup();
+      } else {
+        resultImage.addEventListener("load", scheduleSharePayloadWarmup, { once: true });
+      }
     }
 
     if (downloadButton) {
