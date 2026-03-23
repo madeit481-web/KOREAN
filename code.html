@@ -295,11 +295,19 @@
 
     .analysis-panel {
       background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 27px,
+          rgba(244, 114, 182, 0.22) 27px,
+          rgba(244, 114, 182, 0.22) 28px
+        ),
         linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
         linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
       backdrop-filter: blur(12px);
       border: 3px solid transparent;
       box-shadow: 0 18px 35px rgba(83, 69, 89, 0.12);
+      background-blend-mode: normal, normal, normal;
     }
 
     .result-headline-soft-shadow {
@@ -665,7 +673,7 @@
         </div>
 
         <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 pb-4 pt-2 text-center shadow-card">
-          <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+          <div class="flex flex-col items-center justify-center gap-1 sm:flex-row sm:flex-wrap sm:gap-2">
             <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-2 py-[0.16rem] text-[9px] font-black tracking-[0.16em] leading-none text-white shadow-sm sm:px-3 sm:py-1 sm:text-[11px]">Ready</span>
             <span id="resultTitle" class="inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-fuchsia-300 bg-white/75 px-2 py-[0.16rem] text-[9px] font-black uppercase tracking-[0.14em] leading-none text-slate-700 sm:px-3 sm:py-1 sm:text-[11px]">Uploaded Result</span>
           </div>
@@ -678,7 +686,7 @@
         </div>
       </section>
 
-      <section id="resultAnalysis" class="result-shell relative mt-8 rounded-[18px] bg-white/12 px-0 py-0">
+      <section id="resultAnalysis" class="result-shell relative mt-6 rounded-[18px] bg-white/12 px-0 py-0">
         <div class="analysis-background-effects pointer-events-none absolute inset-0 overflow-hidden rounded-[18px]">
           <span class="sparkle-dot animate-sparkle-pulse absolute left-[4%] top-[8%] h-3 w-3 text-[#ffd66b]"></span>
           <span class="sparkle-dot animate-sparkle-pulse absolute left-[13%] top-[34%] h-2.5 w-2.5 text-kpop-pink"></span>
@@ -741,7 +749,7 @@
               </p>
             </div>
 
-            <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
               <div class="flex w-full items-center justify-center gap-3 sm:w-auto">
                 <div class="relative">
                 <button id="shareButton" type="button" class="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[8px] bg-gradient-to-r from-orange-500 to-pink-500 px-6 py-3 text-[11px] font-bold text-white shadow-lg shadow-orange-200/60 transition hover:brightness-105">
@@ -851,7 +859,7 @@
                 <span id="retryButtonLabel">Try Again</span>
               </a>
             </div>
-            <p id="downloadStatus" class="mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold text-kpop-rose/80"></p>
+            <p id="downloadStatus" class="mt-4 min-h-[1.25rem] text-center text-[11px] font-semibold text-kpop-rose/80"></p>
           </div>
 
         </div>

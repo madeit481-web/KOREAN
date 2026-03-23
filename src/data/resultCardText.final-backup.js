@@ -84,7 +84,7 @@ export const sceneStoryPools = {
     eventOpenings: [
       "Your teaser dropped and the first replies came in like people expected to stay normal about it.",
       "The preview still went up, and the mood shifted before anybody had a proper caption ready.",
-      "Your teaser post went up quietly, and the reaction refused to stay that way.",
+      "Your teaser post appeared quietly, then stopped feeling quiet almost immediately.",
       "One teaser frame hit the timeline and suddenly people were treating the release like it had already started.",
       "The first reveal landed, and the post stopped behaving like something casual right away.",
       "Your teaser went up and people clicked in expecting one pretty frame, then stayed long enough for the mood to change.",
@@ -172,7 +172,7 @@ export const sceneStoryPools = {
     eventOpenings: [
       "Your ending shot landed right before the cut, and that was the frame people got caught on.",
       "The final camera found you, and that last second ended up doing more than the whole song around it.",
-      "One ending frame landed, and suddenly the whole performance made a different kind of sense.",
+      "One ending frame landed, and suddenly everyone was acting like the performance had just explained itself.",
       "Your last shot hit the screen and made the stage feel finished in a way people could not ignore.",
       "The ending close-up went by fast, then refused to leave the timeline quietly.",
       "Your final frame caught the room at exactly the point where people were most likely to keep it.",
@@ -206,7 +206,7 @@ export const sceneStoryPools = {
       "The keeping instinct showed up fast once the printed version made the problem feel real.",
       "That pull turned into the one people imagined holding onto before they had even seen it twice.",
       "The card got treated less like an item and more like something people would quietly guard.",
-      "Before long, your printed version was the one people had already started worrying over.",
+      "Before long, your printed version had become the one people were clearly planning around.",
       "People started talking about the pull like they were already losing out on it.",
       "The card slipped into must-keep territory almost immediately.",
       "Once the printed version appeared, the reaction started sounding a lot less casual and a lot more possessive."
@@ -214,7 +214,7 @@ export const sceneStoryPools = {
   },
   VIRAL_EDIT: {
     eventOpenings: [
-      "Your frame started moving through edits before anyone had figured out how to talk about it cleanly.",
+      "Your frame started spreading through edits before anybody had a clean explanation ready.",
       "One reposted edit found your face and the clip stopped belonging only to the original post.",
       "Your viral frame started circulating like people had already agreed it was the part to keep.",
       "The edit-account version of your moment got out early and changed the scale of the reaction with it.",
@@ -262,7 +262,7 @@ export const toneStoryPools = {
   FIRST_LOVE: {
     attentionShiftLines: [
       "The closer people looked, the less it felt like styling and the more it felt like they had caught the exact version of you they were supposed to remember.",
-      "The moment stayed gentle, which only made the attention settle on your face faster.",
+      "Nothing pushed too hard in the shot, so the attention kept sliding back to your face and staying there.",
       "The frame stayed light, but your expression kept making it feel more personal than anyone planned on.",
       "What should have read as a quick pretty look kept turning into a close-up people sat with longer than they meant to.",
       "The softness held, but the center of the image kept getting more specific the longer anyone stared at it.",
@@ -313,9 +313,9 @@ export const toneStoryPools = {
       "By the time someone said they were overreacting, they had already reopened it again."
     ],
     identityClosings: [
-      "By the end, it was no longer just beautiful. It was the version of you people kept returning to.",
+      "By the end, it was no longer just a beautiful result. It had become the version of you people return to when they want proof something shifted.",
       "What lingered was the sense that your idol version had gotten under people's guard.",
-      "After that, your polished side stopped feeling ornamental and started feeling like the one people trusted first.",
+      "After that, your polished side stopped feeling decorative and started feeling like the version people believed in first.",
       "The moment closed, but it left behind the kind of evidence people attach to the version of you that changed the mood.",
       "It finished as elegance and stayed behind as the version people could not quite leave alone.",
       "By then, the frame had already done its real job: it made your idol version feel settled and believable.",
@@ -383,7 +383,7 @@ export const toneStoryPools = {
       "The moment closed, but your frame kept deciding the scale of everything that came after it.",
       "Later, this is the still people would use when they wanted proof of when your era actually started.",
       "Once that close-up landed, everything after it had to scale up around you.",
-      "By then, the frame was already doing the job people usually leave to the stage.",
+      "By then, the frame had already promoted itself into evidence of your main-stage version.",
       "After that, the rest only made the point feel more real."
     ]
   },
