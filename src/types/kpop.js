@@ -36,10 +36,12 @@
  * @property {string[]} headlines
  * @property {string[]} titles
  * @property {RatingLabel[]=} ratingLabels
- * @property {string[]} novelOpenings
- * @property {string[]} novelVisualLines
- * @property {string[]} novelFandomLines
- * @property {string[]} novelClosings
+ * @property {string[]} storyHooks
+ * @property {string[]} storyVisuals
+ * @property {string[]} storyStageLines
+ * @property {string[]} storyFandomLines
+ * @property {string[]} storyCollectibleLines
+ * @property {string[]} storyClosings
  * @property {string[]} fanReactions
  */
 

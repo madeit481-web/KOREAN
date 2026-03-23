@@ -69,25 +69,29 @@ function buildSourceResultCard(tone, rng = Math.random) {
   const ratingLabel = normalizeRatingLabel(pickWeighted(ratingPool, function (item) {
     return item.weight;
   }, rng).label);
-  const opening = pickLowOverlapLine(toneText.novelOpenings, usedKeywords, rng);
-  const visualLine = pickLowOverlapLine(toneText.novelVisualLines, usedKeywords, rng);
-  const fandomLine = pickLowOverlapLine(toneText.novelFandomLines, usedKeywords, rng);
-  const closing = pickLowOverlapLine(toneText.novelClosings, usedKeywords, rng);
+  const storyHook = pickLowOverlapLine(toneText.storyHooks, usedKeywords, rng);
+  const storyVisual = pickLowOverlapLine(toneText.storyVisuals, usedKeywords, rng);
+  const storyStageLine = pickLowOverlapLine(toneText.storyStageLines, usedKeywords, rng);
+  const storyFandomLine = pickLowOverlapLine(toneText.storyFandomLines, usedKeywords, rng);
+  const storyCollectibleLine = pickLowOverlapLine(toneText.storyCollectibleLines, usedKeywords, rng);
+  const storyClosing = pickLowOverlapLine(toneText.storyClosings, usedKeywords, rng);
   const fanReaction = pickLowOverlapLine(toneText.fanReactions, usedKeywords, rng);
 
   return {
     headline: headline,
     title: title,
     ratingLabel: ratingLabel,
-    microNovel: [opening, visualLine, fandomLine, closing].join(" "),
+    microNovel: [storyHook, storyVisual, storyStageLine, storyFandomLine, storyCollectibleLine, storyClosing].join(" "),
     fanReaction: fanReaction,
     source: {
       headline: headline,
       title: title,
-      opening: opening,
-      visualLine: visualLine,
-      fandomLine: fandomLine,
-      closing: closing,
+      storyHook: storyHook,
+      storyVisual: storyVisual,
+      storyStageLine: storyStageLine,
+      storyFandomLine: storyFandomLine,
+      storyCollectibleLine: storyCollectibleLine,
+      storyClosing: storyClosing,
       fanReaction: fanReaction
     }
   };
@@ -102,10 +106,12 @@ export function localizeResultCardFromSource(tone, sourceCard, locale = "en") {
     title: translateLine(source.title, locale, tone, "titles"),
     ratingLabel: normalizeRatingLabel(ratingLabel),
     microNovel: [
-      translateLine(source.opening, locale, tone, "novelOpenings"),
-      translateLine(source.visualLine, locale, tone, "novelVisualLines"),
-      translateLine(source.fandomLine, locale, tone, "novelFandomLines"),
-      translateLine(source.closing, locale, tone, "novelClosings")
+      translateLine(source.storyHook, locale, tone, "storyHooks"),
+      translateLine(source.storyVisual, locale, tone, "storyVisuals"),
+      translateLine(source.storyStageLine, locale, tone, "storyStageLines"),
+      translateLine(source.storyFandomLine, locale, tone, "storyFandomLines"),
+      translateLine(source.storyCollectibleLine, locale, tone, "storyCollectibleLines"),
+      translateLine(source.storyClosing, locale, tone, "storyClosings")
     ].join(" "),
     fanReaction: translateLine(source.fanReaction, locale, tone, "fanReactions"),
     source: source
