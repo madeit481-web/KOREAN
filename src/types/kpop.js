@@ -70,6 +70,10 @@
  * @property {FinalResultCard} resultCard
  */
 
+/**
+ * @typedef {"en" | "ko" | "es"} SupportedLocale
+ */
+
 export const toneIds = [
   "FIRST_LOVE",
   "SOFT_GLAM",

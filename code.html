@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -581,7 +582,12 @@
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
       <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.24em] text-kpop-rose/70 md:absolute md:left-1/2 md:text-[11px] md:tracking-[0.28em] md:-translate-x-1/2">
-        <a class="transition-colors hover:text-kpop-rose" href="index.html">Home</a>
+        <a id="navHomeLink" class="transition-colors hover:text-kpop-rose" href="index.html">Home</a>
+      </div>
+      <div id="languageSwitcher" class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-kpop-rose/80 md:ml-auto md:text-[11px]">
+        <button data-lang="en" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">EN</button>
+        <button data-lang="ko" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">KO</button>
+        <button data-lang="es" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">ES</button>
       </div>
     </div>
   </nav>
@@ -589,11 +595,11 @@
   <div class="relative mx-auto min-h-screen max-w-[820px] bg-transparent">
     <main class="px-6 pb-20 pt-36 md:pt-28">
       <section class="text-center">
-        <div class="hero-word mx-auto text-[7rem] sm:text-[8.7rem]">POV<span class="ml-2 inline-block">:</span></div>
-        <h1 class="mt-2 brand-font text-[2.35rem] font-black leading-none tracking-[-0.06em] text-ink sm:text-[3.2rem]">
+        <div id="resultPovLabel" class="hero-word mx-auto text-[7rem] sm:text-[8.7rem]">POV<span class="ml-2 inline-block">:</span></div>
+        <h1 id="resultHeroTitle" class="mt-2 brand-font text-[2.35rem] font-black leading-none tracking-[-0.06em] text-ink sm:text-[3.2rem]">
           <span class="hero-premium mr-3 text-[#8b5cf6]">You're the Next</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">Idol</span>
         </h1>
-        <p class="mt-3 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
+        <p id="resultHeroSubline" class="mt-3 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
           Idol-level rizz generator
         </p>
       </section>
@@ -661,7 +667,7 @@
           <div class="relative mx-auto max-w-[650px]">
             <div class="mb-4 flex items-center gap-2 text-[15px] font-bold text-ink">
               <span class="text-pink-400">♡</span>
-              <h2>Detailed Style Analysis</h2>
+              <h2 id="analysisHeading">Detailed Style Analysis</h2>
             </div>
 
             <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-6 py-6 text-[12px] leading-7 text-slate-600 shadow-card">
@@ -694,12 +700,12 @@
                     <path d="M10 14L20 4"></path>
                     <path d="M20 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"></path>
                   </svg>
-                  <span>Share Result</span>
+                  <span id="shareButtonLabel">Share Result</span>
                 </button>
                 <div id="shareMenu" class="absolute left-1/2 top-full z-20 mt-3 hidden max-h-[min(24rem,calc(100vh-9rem))] w-[18rem] -translate-x-1/2 overflow-y-auto rounded-[1.15rem] border border-white/70 bg-white/90 p-3 text-left shadow-[0_24px_60px_rgba(236,72,153,0.18)] backdrop-blur-md">
                   <div class="mb-3 px-1">
-                    <p class="text-[10px] font-black uppercase tracking-[0.28em] text-kpop-rose/70">Share Result</p>
-                    <p class="mt-1 text-[11px] font-medium text-slate-400">Choose where to post your idol moment.</p>
+                    <p id="shareMenuTitle" class="text-[10px] font-black uppercase tracking-[0.28em] text-kpop-rose/70">Share Result</p>
+                    <p id="shareMenuDescription" class="mt-1 text-[11px] font-medium text-slate-400">Choose where to post your idol moment.</p>
                   </div>
                   <div class="grid gap-2">
                   <a class="share-option bg-slate-50/70 hover:border-slate-300 hover:bg-slate-50" data-share-target="x" href="#">
@@ -783,7 +789,7 @@
                   <path d="M7 10l5 5 5-5"></path>
                   <path d="M5 21h14"></path>
                 </svg>
-                <span>Download</span>
+                <span id="downloadButtonLabel">Download</span>
                 </button>
               </div>
               <a href="index.html" class="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[8px] border border-slate-500/90 bg-white/90 px-6 py-3 text-[11px] font-bold text-slate-700 shadow-[0_10px_30px_rgba(100,116,139,0.22)] transition hover:border-slate-700 hover:bg-white">
@@ -791,7 +797,7 @@
                   <path d="M3 12a9 9 0 1 0 3-6.7"></path>
                   <path d="M3 3v6h6"></path>
                 </svg>
-                <span>Try Again</span>
+                <span id="retryButtonLabel">Try Again</span>
               </a>
             </div>
             <p id="downloadStatus" class="mt-3 min-h-[1.25rem] text-center text-[11px] font-semibold text-kpop-rose/80"></p>
@@ -810,9 +816,9 @@
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
       <div class="flex items-center justify-center space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
-        <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
+        <a id="footerPrivacyLink" class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
         <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
-        <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
+        <a id="footerTermsLink" class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
       </div>
     </div>
   </footer>
@@ -820,16 +826,107 @@
     TOP
   </button>
   <script type="module">
-    import { buildFinalGeneratedResult } from "./src/lib/generateKpopResult.js";
+    import { buildFinalGeneratedResult, localizeGeneratedResult } from "./src/lib/generateKpopResult.js";
 
     const RESULT_STORAGE_KEY = "generatedKpopResult";
     const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
-    const CURRENT_RESULT_VERSION = "rating-label-v6";
+    const RESULT_LANGUAGE_KEY = "generatedKpopResultLanguage";
+    const LANGUAGE_STORAGE_KEY = "kIdolifyLanguage";
+    const CURRENT_RESULT_VERSION = "rating-label-v7-i18n";
     const ALLOWED_RATING_LABELS = new Set(["\u2605\u2605\u2605\u2605", "\u2605\u2605\u2605\u2605\u2605", "Top 3%", "Top 1%"]);
+
+    const translations = {
+      en: {
+        title: "Stylish K-POP Star Analysis",
+        home: "Home",
+        heroTitle: '<span class="hero-premium mr-3 text-[#8b5cf6]">You\'re the Next</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">Idol</span>',
+        heroSubline: "Idol-level rizz generator",
+        ready: "Ready",
+        uploadedResult: "Uploaded Result",
+        loadingHeadline: "Your uploaded result is loading.",
+        loadingReaction: '"Preparing your styling summary."',
+        analysisHeading: "Detailed Style Analysis",
+        shareResult: "Share Result",
+        shareDescription: "Choose where to post your idol moment.",
+        download: "Download",
+        tryAgain: "Try Again",
+        privacy: "Privacy",
+        terms: "Terms",
+        top: "TOP",
+        shareTitle: "K-Idolify Result",
+        shareFallback: "Check out my K-POP idol transformation result.",
+        alt: "Uploaded selfie result preview",
+        statusNoSystemShare: "System sharing is not available in this browser.",
+        statusSystemShareFailed: "System sharing could not be completed.",
+        statusDownloadFirstInstagram: "Instagram does not support direct web sharing, so the image was downloaded first. Please upload it in the app.",
+        statusDownloadFirstTikTok: "TikTok does not support direct web sharing, so the image was downloaded first. Please upload it in the app.",
+        statusImageDownloadFailed: "Image download failed.",
+        statusDownloadSuccess: "Image downloaded successfully.",
+        statusDownloadFailed: "Download failed."
+      },
+      ko: {
+        title: "스타일 K-POP 결과 분석",
+        home: "홈",
+        heroTitle: '<span class="hero-premium mr-3 text-[#8b5cf6]">당신은 다음</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">아이돌</span>',
+        heroSubline: "아이돌 무드 결과 리포트",
+        ready: "준비 완료",
+        uploadedResult: "업로드 결과",
+        loadingHeadline: "업로드한 결과를 불러오는 중입니다.",
+        loadingReaction: '"스타일 요약을 준비하고 있습니다."',
+        analysisHeading: "상세 스타일 분석",
+        shareResult: "결과 공유",
+        shareDescription: "아이돌 무드를 어디에 공유할지 선택하세요.",
+        download: "다운로드",
+        tryAgain: "다시 하기",
+        privacy: "개인정보",
+        terms: "약관",
+        top: "TOP",
+        shareTitle: "K-Idolify 결과",
+        shareFallback: "내 K-POP 아이돌 변신 결과를 확인해 보세요.",
+        alt: "업로드한 셀카 결과 미리보기",
+        statusNoSystemShare: "이 브라우저에서는 시스템 공유를 사용할 수 없습니다.",
+        statusSystemShareFailed: "시스템 공유를 완료하지 못했습니다.",
+        statusDownloadFirstInstagram: "Instagram은 웹에서 직접 공유를 지원하지 않아 이미지를 먼저 다운로드했습니다. 앱에서 업로드해 주세요.",
+        statusDownloadFirstTikTok: "TikTok은 웹에서 직접 공유를 지원하지 않아 이미지를 먼저 다운로드했습니다. 앱에서 업로드해 주세요.",
+        statusImageDownloadFailed: "이미지 다운로드에 실패했습니다.",
+        statusDownloadSuccess: "이미지를 다운로드했습니다.",
+        statusDownloadFailed: "다운로드에 실패했습니다."
+      },
+      es: {
+        title: "Analisis de Estilo K-POP",
+        home: "Inicio",
+        heroTitle: '<span class="hero-premium mr-3 text-[#8b5cf6]">Tu Eres la Proxima</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">Idol</span>',
+        heroSubline: "Generador de vibra idol",
+        ready: "Listo",
+        uploadedResult: "Resultado Cargado",
+        loadingHeadline: "Tu resultado cargado se esta preparando.",
+        loadingReaction: '"Preparando tu resumen de estilo."',
+        analysisHeading: "Analisis de Estilo Detallado",
+        shareResult: "Compartir Resultado",
+        shareDescription: "Elige donde publicar tu momento idol.",
+        download: "Descargar",
+        tryAgain: "Intentar Otra Vez",
+        privacy: "Privacidad",
+        terms: "Terminos",
+        top: "TOP",
+        shareTitle: "Resultado K-Idolify",
+        shareFallback: "Mira mi resultado de transformacion K-POP.",
+        alt: "Vista previa del resultado cargado",
+        statusNoSystemShare: "El uso compartido del sistema no esta disponible en este navegador.",
+        statusSystemShareFailed: "No se pudo completar el uso compartido del sistema.",
+        statusDownloadFirstInstagram: "Instagram no admite compartir directamente desde la web, asi que la imagen se descargo primero. Subela en la app.",
+        statusDownloadFirstTikTok: "TikTok no admite compartir directamente desde la web, asi que la imagen se descargo primero. Subela en la app.",
+        statusImageDownloadFailed: "La descarga de la imagen fallo.",
+        statusDownloadSuccess: "La imagen se descargo correctamente.",
+        statusDownloadFailed: "La descarga fallo."
+      }
+    };
 
     const storedSelfie = sessionStorage.getItem("uploadedSelfie");
     const storedResult = sessionStorage.getItem(RESULT_STORAGE_KEY);
     const storedResultVersion = sessionStorage.getItem(RESULT_STORAGE_VERSION_KEY);
+    const storedResultLanguage = sessionStorage.getItem(RESULT_LANGUAGE_KEY);
+    let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || sessionStorage.getItem(LANGUAGE_STORAGE_KEY) || "en";
 
     function isValidStoredResult(result) {
       return Boolean(
@@ -846,6 +943,13 @@
       );
     }
 
+    function persistGeneratedResult(result) {
+      sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(result));
+      sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
+      sessionStorage.setItem(RESULT_LANGUAGE_KEY, currentLanguage);
+      return result;
+    }
+
     function resolveGeneratedResult() {
       let parsedStoredResult = null;
 
@@ -857,21 +961,21 @@
         }
       }
 
-      if (storedResultVersion === CURRENT_RESULT_VERSION && isValidStoredResult(parsedStoredResult)) {
-        return parsedStoredResult;
+      if (
+        storedResultVersion === CURRENT_RESULT_VERSION &&
+        isValidStoredResult(parsedStoredResult)
+      ) {
+        return persistGeneratedResult(localizeGeneratedResult(parsedStoredResult, currentLanguage));
       }
 
       if (!storedSelfie) {
         return null;
       }
 
-      const refreshedResult = buildFinalGeneratedResult();
-      sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(refreshedResult));
-      sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
-      return refreshedResult;
+      return persistGeneratedResult(buildFinalGeneratedResult(currentLanguage));
     }
 
-    const parsedResult = resolveGeneratedResult();
+    let parsedResult = resolveGeneratedResult();
     if (!storedSelfie) {
       window.location.replace("index.html");
     }
@@ -888,10 +992,62 @@
     const shareMenu = document.getElementById("shareMenu");
     const downloadButton = document.getElementById("downloadButton");
     const downloadStatus = document.getElementById("downloadStatus");
+    const navHomeLink = document.getElementById("navHomeLink");
+    const resultHeroTitle = document.getElementById("resultHeroTitle");
+    const resultHeroSubline = document.getElementById("resultHeroSubline");
+    const analysisHeading = document.getElementById("analysisHeading");
+    const shareButtonLabel = document.getElementById("shareButtonLabel");
+    const shareMenuTitle = document.getElementById("shareMenuTitle");
+    const shareMenuDescription = document.getElementById("shareMenuDescription");
+    const downloadButtonLabel = document.getElementById("downloadButtonLabel");
+    const retryButtonLabel = document.getElementById("retryButtonLabel");
+    const footerPrivacyLink = document.getElementById("footerPrivacyLink");
+    const footerTermsLink = document.getElementById("footerTermsLink");
+    const languageButtons = document.querySelectorAll("#languageSwitcher [data-lang]");
 
     let downloadStatusTimer;
     let sharePayloadPromise = null;
     let sharePayloadCache = null;
+
+    function getCopy() {
+      return translations[currentLanguage] || translations.en;
+    }
+
+    function syncLanguageButtons() {
+      languageButtons.forEach(function (button) {
+        const isActive = button.dataset.lang === currentLanguage;
+        button.classList.toggle("bg-kpop-rose", isActive);
+        button.classList.toggle("text-white", isActive);
+        button.classList.toggle("border-kpop-rose", isActive);
+      });
+    }
+
+    function applyLocale() {
+      const copy = getCopy();
+      document.documentElement.lang = currentLanguage;
+      document.title = copy.title;
+      navHomeLink.textContent = copy.home;
+      resultHeroTitle.innerHTML = copy.heroTitle;
+      resultHeroSubline.textContent = copy.heroSubline;
+      analysisHeading.textContent = copy.analysisHeading;
+      shareButtonLabel.textContent = copy.shareResult;
+      shareMenuTitle.textContent = copy.shareResult;
+      shareMenuDescription.textContent = copy.shareDescription;
+      downloadButtonLabel.textContent = copy.download;
+      retryButtonLabel.textContent = copy.tryAgain;
+      footerPrivacyLink.textContent = copy.privacy;
+      footerTermsLink.textContent = copy.terms;
+      topButton.textContent = copy.top;
+
+      shareMenu.querySelector('[data-share-target="x"] .share-option-copy span').textContent = currentLanguage === "ko" ? "타임라인에 게시" : currentLanguage === "es" ? "Publicar en la timeline" : "Post to timeline";
+      shareMenu.querySelector('[data-share-target="facebook"] .share-option-copy span').textContent = currentLanguage === "ko" ? "링크로 공유" : currentLanguage === "es" ? "Compartir como enlace" : "Share as a link";
+      shareMenu.querySelector('[data-share-target="instagram"] .share-option-copy span').textContent = currentLanguage === "ko" ? "다운로드 후 업로드" : currentLanguage === "es" ? "Descargar y subir" : "Download and upload";
+      shareMenu.querySelector('[data-share-target="tiktok"] .share-option-copy span').textContent = currentLanguage === "ko" ? "다운로드 후 업로드" : currentLanguage === "es" ? "Descargar y subir" : "Download and upload";
+      shareMenu.querySelector('[data-share-target="whatsapp"] .share-option-copy span').textContent = currentLanguage === "ko" ? "채팅으로 보내기" : currentLanguage === "es" ? "Enviar al chat" : "Send to chat";
+      shareMenu.querySelector('[data-share-target="system"] strong').textContent = currentLanguage === "ko" ? "더보기" : currentLanguage === "es" ? "Mas" : "More";
+      shareMenu.querySelector('[data-share-target="system"] .share-option-copy span').textContent = currentLanguage === "ko" ? "시스템 공유 열기" : currentLanguage === "es" ? "Abrir compartir del sistema" : "Open system share";
+      syncLanguageButtons();
+    }
 
     function getDownloadFileName() {
       const uploadedName = sessionStorage.getItem("uploadedSelfieName");
@@ -909,12 +1065,17 @@
     }
 
     function renderGeneratedResult() {
+      const copy = getCopy();
       if (storedSelfie && resultImage) {
         resultImage.src = storedSelfie;
-        resultImage.alt = "Uploaded selfie result preview";
+        resultImage.alt = copy.alt;
       }
 
       if (!parsedResult) {
+        resultRating.textContent = copy.ready;
+        resultTitle.textContent = copy.uploadedResult;
+        resultHeadline.textContent = copy.loadingHeadline;
+        resultReaction.textContent = copy.loadingReaction;
         return;
       }
 
@@ -986,9 +1147,10 @@
     }
 
     function getShareData() {
+      const copy = getCopy();
       return {
-        title: "K-Idolify Result",
-        text: parsedResult ? parsedResult.resultCard.headline : "Check out my K-POP idol transformation result.",
+        title: copy.shareTitle,
+        text: parsedResult ? parsedResult.resultCard.headline : copy.shareFallback,
         url: window.location.href
       };
     }
@@ -1130,6 +1292,71 @@
       }
     }
 
+    function openLocalizedSharePopup(target) {
+      const copy = getCopy();
+      const shareData = getShareData();
+      const encodedUrl = encodeURIComponent(shareData.url);
+      const encodedText = encodeURIComponent(shareData.text);
+      const popupMap = {
+        x: "https://twitter.com/intent/tweet?text=" + encodedText + "&url=" + encodedUrl,
+        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl,
+        whatsapp: "https://api.whatsapp.com/send?text=" + encodedText + "%20" + encodedUrl
+      };
+      const popupUrl = popupMap[target];
+
+      if (target === "system") {
+        getSharePayload().then(function (shareDataResult) {
+          if (navigator.share) {
+            return navigator.share(shareDataResult);
+          }
+          setDownloadStatus(copy.statusNoSystemShare, true);
+        }).catch(function (error) {
+          if (!error || error.name !== "AbortError") {
+            setDownloadStatus(copy.statusSystemShareFailed, true);
+          }
+        });
+        return;
+      }
+
+      if (target === "instagram" || target === "tiktok") {
+        try {
+          if (!resultImage || !resultImage.src) {
+            throw new Error("No image available");
+          }
+
+          const link = document.createElement("a");
+          link.href = resultImage.src;
+          link.download = getDownloadFileName();
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          setDownloadStatus(target === "instagram" ? copy.statusDownloadFirstInstagram : copy.statusDownloadFirstTikTok, false, true);
+        } catch (error) {
+          setDownloadStatus(copy.statusImageDownloadFailed, true);
+        }
+        return;
+      }
+
+      if (popupUrl) {
+        window.open(popupUrl, "_blank", "width=640,height=720,noopener,noreferrer");
+      }
+    }
+
+    function setLanguage(nextLanguage) {
+      currentLanguage = translations[nextLanguage] ? nextLanguage : "en";
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+      sessionStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+      if (storedSelfie) {
+        parsedResult = persistGeneratedResult(localizeGeneratedResult(parsedResult, currentLanguage));
+      }
+      sharePayloadCache = null;
+      sharePayloadPromise = null;
+      applyLocale();
+      renderGeneratedResult();
+    }
+
+    applyLocale();
     renderGeneratedResult();
 
     if (shareButton) {
@@ -1145,7 +1372,7 @@
       shareMenu.querySelectorAll("[data-share-target]").forEach(function (link) {
         link.addEventListener("click", function (event) {
           event.preventDefault();
-          openSharePopup(link.getAttribute("data-share-target"));
+          openLocalizedSharePopup(link.getAttribute("data-share-target"));
           shareMenu.classList.add("hidden");
         });
       });
@@ -1174,6 +1401,7 @@
 
     if (downloadButton) {
       downloadButton.addEventListener("click", function () {
+        const copy = getCopy();
         try {
           if (!resultImage || !resultImage.src) {
             throw new Error("No image available");
@@ -1186,12 +1414,18 @@
           link.click();
           document.body.removeChild(link);
 
-          setDownloadStatus("이미지를 다운로드했습니다.", false);
+          setDownloadStatus(copy.statusDownloadSuccess, false);
         } catch (error) {
-          setDownloadStatus("다운로드에 실패했습니다.", true);
+          setDownloadStatus(copy.statusDownloadFailed, true);
         }
       });
     }
+
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        setLanguage(button.dataset.lang);
+      });
+    });
 
     if (topButton) {
       topButton.addEventListener("click", function () {

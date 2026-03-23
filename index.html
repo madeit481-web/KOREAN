@@ -502,7 +502,12 @@
       <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.24em] text-kpop-rose/70 md:absolute md:left-1/2 md:text-[11px] md:tracking-[0.28em] md:-translate-x-1/2">
         <a id="seeAuraLink" class="transition-colors hover:text-kpop-rose" href="#uploadZone">See Your Aura</a>
         <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
-        <a class="transition-colors hover:text-kpop-rose" href="#stylist">Example</a>
+        <a id="navExampleLink" class="transition-colors hover:text-kpop-rose" href="#stylist">Example</a>
+      </div>
+      <div id="languageSwitcher" class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-kpop-rose/80 md:ml-auto md:text-[11px]">
+        <button data-lang="en" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">EN</button>
+        <button data-lang="ko" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">KO</button>
+        <button data-lang="es" type="button" class="rounded-full border border-kpop-rose/20 bg-white/70 px-3 py-1 transition hover:border-kpop-rose hover:text-kpop-rose">ES</button>
       </div>
     </div>
   </nav>
@@ -524,7 +529,7 @@
             <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>
           </h1>
         </div>
-        <p class="mb-10 max-w-[20rem] text-center text-base font-medium leading-relaxed text-[#6f4a57] sm:max-w-xl md:text-lg">
+        <p id="heroDescription" class="mb-10 max-w-[20rem] text-center text-base font-medium leading-relaxed text-[#6f4a57] sm:max-w-xl md:text-lg">
           <span class="md:hidden text-center">
             Let our AI engine redesign<br>
             your hair, makeup, and fashion<br>
@@ -544,7 +549,7 @@
             <div class="relative z-10 flex flex-col items-center gap-6 pt-8">
               <div class="relative flex w-full items-center justify-center">
                 <div id="uploadCallout" class="upload-callout absolute left-[8%] top-[18%] flex -translate-y-1/2 flex-col items-center text-center sm:left-[12%] sm:top-[20%] md:left-[19%]">
-                  <span class="-ml-10 mb-1 text-lg font-black lowercase tracking-[0.06em] sm:-ml-12 sm:text-xl md:-ml-16 md:text-2xl">upload</span>
+                  <span id="uploadCalloutLabel" class="-ml-10 mb-1 text-lg font-black lowercase tracking-[0.06em] sm:-ml-12 sm:text-xl md:-ml-16 md:text-2xl">upload</span>
                   <svg viewBox="0 0 170 120" class="h-12 w-24 text-kpop-rose sm:h-14 sm:w-28 md:h-20 md:w-34" aria-hidden="true">
                     <path d="M32 12C41 38 52 51 68 60C81 67 96 65 105 55C114 45 112 31 103 22C91 10 72 8 58 15C43 23 38 37 40 53C42 69 54 82 72 90C91 98 117 98 148 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
                     <path d="M134 84L148 96L132 108" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
@@ -560,7 +565,7 @@
               </div>
 
               <div class="space-y-2">
-                <p class="brand-font text-2xl font-black text-kpop-black">Drop Your Selfie</p>
+                <p id="dropSelfieTitle" class="brand-font text-2xl font-black text-kpop-black">Drop Your Selfie</p>
                 <p id="uploadHint" class="text-xs font-bold uppercase tracking-[0.28em] text-kpop-rose/70">PNG or JPG • High Resolution</p>
               </div>
 
@@ -576,13 +581,13 @@
 
           <div class="mt-8 flex flex-col items-center gap-3 text-center text-[8px] font-bold uppercase tracking-[0.16em] text-kpop-rose/60 sm:text-[9px] sm:tracking-[0.2em] md:flex-row md:justify-center md:gap-10">
             <div class="flex items-center justify-center gap-4 whitespace-nowrap sm:gap-6">
-              <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-rose"></span> Secure Upload</span>
-              <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-cyan"></span> HD Quality</span>
-              <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-[#ff8fb1]"></span> Fast Results</span>
+              <span id="featureSecure" class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-rose"></span> Secure Upload</span>
+              <span id="featureHd" class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-cyan"></span> HD Quality</span>
+              <span id="featureFast" class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-[#ff8fb1]"></span> Fast Results</span>
             </div>
             <div class="flex items-center justify-center gap-4 whitespace-nowrap sm:gap-6 md:contents">
-              <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-purple"></span> Private Processing</span>
-              <span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-[#ffd66b]"></span> Personalized Styling</span>
+              <span id="featurePrivate" class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-kpop-purple"></span> Private Processing</span>
+              <span id="featurePersonal" class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-[#ffd66b]"></span> Personalized Styling</span>
             </div>
           </div>
         </div>
@@ -592,9 +597,9 @@
     <section class="relative px-6 py-32" id="stylist">
       <div class="mx-auto max-w-7xl">
         <div class="mb-24 space-y-6 text-center">
-          <h2 class="brand-font text-4xl font-black leading-[1.05] tracking-tight text-kpop-black md:text-6xl">It's Giving<br class="md:hidden"><span class="hidden md:inline"> </span><span class="hero-highlight bg-clip-text text-transparent">K-Pop Idol</span></h2>
+          <h2 id="stylistHeading" class="brand-font text-4xl font-black leading-[1.05] tracking-tight text-kpop-black md:text-6xl">It's Giving<br class="md:hidden"><span class="hidden md:inline"> </span><span class="hero-highlight bg-clip-text text-transparent">K-Pop Idol</span></h2>
           <div class="mx-auto h-1 w-24 rounded-full bg-kpop-pink/50"></div>
-          <p class="mx-auto max-w-2xl text-center text-base font-semibold leading-relaxed text-[#6f4a57] sm:text-lg">
+          <p id="stylistDescription" class="mx-auto max-w-2xl text-center text-base font-semibold leading-relaxed text-[#6f4a57] sm:text-lg">
             <span class="md:hidden text-center">
               Our advanced AI recreates the techniques of<br>
               professional K-POP visual directors<br>
@@ -646,9 +651,9 @@
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </a>
       <div class="flex items-center justify-center space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
-        <a class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
+        <a id="footerPrivacyLink" class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
         <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
-        <a class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
+        <a id="footerTermsLink" class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
       </div>
     </div>
   </footer>
@@ -658,11 +663,94 @@
   </button>
 
   <script type="module">
-    import { buildFinalGeneratedResult } from "./src/lib/generateKpopResult.js";
+    import { buildFinalGeneratedResult, localizeGeneratedResult } from "./src/lib/generateKpopResult.js";
 
     const RESULT_STORAGE_KEY = "generatedKpopResult";
     const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
-    const CURRENT_RESULT_VERSION = "rating-label-v6";
+    const RESULT_LANGUAGE_KEY = "generatedKpopResultLanguage";
+    const LANGUAGE_STORAGE_KEY = "kIdolifyLanguage";
+    const CURRENT_RESULT_VERSION = "rating-label-v7-i18n";
+
+    const translations = {
+      en: {
+        title: "AI K-POP Transformation | IDOL.AI",
+        seeAura: "See Your Aura",
+        example: "Example",
+        heroHeading: '<span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent" data-text="idol">idol</span><br><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>',
+        heroDescription: '<span class="md:hidden text-center">Let our AI engine redesign<br>your hair, makeup, and fashion<br>into a global K-POP sensation.<br>Just upload your selfie.</span><span class="hidden md:inline"><span class="md:whitespace-nowrap">Let our AI engine redesign your hair, makeup, and fashion</span><br class="hidden md:block">into a global K-POP sensation. Just upload your selfie.</span>',
+        uploadCallout: "upload",
+        choosePhoto: "Choose photo",
+        dropSelfie: "Drop Your Selfie",
+        uploadHint: "PNG or JPG • High Resolution",
+        transformNow: "Transform Now",
+        featureSecure: "Secure Upload",
+        featureHd: "HD Quality",
+        featureFast: "Fast Results",
+        featurePrivate: "Private Processing",
+        featurePersonal: "Personalized Styling",
+        stylistHeading: 'It\'s Giving<br class="md:hidden"><span class="hidden md:inline"> </span><span class="hero-highlight bg-clip-text text-transparent">K-Pop Idol</span>',
+        stylistDescription: '<span class="md:hidden text-center">Our advanced AI recreates the techniques of<br>professional K-POP visual directors<br>based on three key pillars:<br><span class="text-[#ff5f7a]">hairstyle</span>, <span class="text-[#7c3aed]">makeup</span>, and <span class="text-[#0891b2]">fashion styling</span>.</span><span class="hidden md:inline"><span class="whitespace-nowrap">Our advanced AI recreates the techniques of professional K-POP visual directors</span><br>based on three key pillars: <span class="text-[#ff5f7a]">hairstyle</span>, <span class="text-[#7c3aed]">makeup</span>, and <span class="text-[#0891b2]">fashion styling</span>.</span>',
+        tap: "Tap",
+        privacy: "Privacy",
+        terms: "Terms",
+        top: "TOP",
+        invalidFile: "Please upload a PNG, JPG, or other image file.",
+        uploaded: "Photo uploaded. Click Transform Now to continue.",
+        transformFirst: "Upload a photo first, then click Transform Now."
+      },
+      ko: {
+        title: "AI K-POP 변신 | IDOL.AI",
+        seeAura: "분위기 보기",
+        example: "예시",
+        heroHeading: '<span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent" data-text="idol">idol</span><br><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>',
+        heroDescription: '<span class="md:hidden text-center">AI가 당신의 헤어, 메이크업,<br>패션을 다시 설계해<br>글로벌 K-POP 무드로 바꿔줍니다.<br>셀카만 업로드하세요.</span><span class="hidden md:inline"><span class="md:whitespace-nowrap">AI가 당신의 헤어, 메이크업, 패션을 다시 설계해</span><br class="hidden md:block">글로벌 K-POP 무드로 바꿔줍니다. 셀카만 업로드하세요.</span>',
+        uploadCallout: "업로드",
+        choosePhoto: "사진 선택",
+        dropSelfie: "셀카 업로드",
+        uploadHint: "PNG 또는 JPG • 고해상도 권장",
+        transformNow: "변신 시작",
+        featureSecure: "안전한 업로드",
+        featureHd: "고화질 결과",
+        featureFast: "빠른 결과",
+        featurePrivate: "비공개 처리",
+        featurePersonal: "개인 맞춤 스타일",
+        stylistHeading: '완전 <span class="hero-highlight bg-clip-text text-transparent">K-Pop Idol</span> 무드',
+        stylistDescription: '<span class="md:hidden text-center">AI가 전문 K-POP 비주얼 디렉터의 방식으로<br>세 가지 핵심 요소를 조합합니다.<br><span class="text-[#ff5f7a]">헤어스타일</span>, <span class="text-[#7c3aed]">메이크업</span>, <span class="text-[#0891b2]">패션 스타일링</span>.</span><span class="hidden md:inline">AI가 전문 K-POP 비주얼 디렉터의 방식을 재현해<br><span class="text-[#ff5f7a]">헤어스타일</span>, <span class="text-[#7c3aed]">메이크업</span>, <span class="text-[#0891b2]">패션 스타일링</span> 세 축으로 결과를 완성합니다.</span>',
+        tap: "탭",
+        privacy: "개인정보",
+        terms: "약관",
+        top: "TOP",
+        invalidFile: "PNG, JPG 등 이미지 파일을 업로드해 주세요.",
+        uploaded: "사진 업로드 완료. 변신 시작 버튼을 눌러 계속하세요.",
+        transformFirst: "먼저 사진을 업로드한 뒤 변신 시작을 눌러 주세요."
+      },
+      es: {
+        title: "Transformacion AI K-POP | IDOL.AI",
+        seeAura: "Ver Tu Aura",
+        example: "Ejemplo",
+        heroHeading: '<span class="hero-premium text-kpop-black">k-pop</span> <span class="hero-premium hero-idol bg-clip-text text-transparent" data-text="idol">idol</span><br><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="aura">aura</span> <span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="check">check</span><span class="hero-premium hero-highlight bg-clip-text text-transparent">!</span>',
+        heroDescription: '<span class="md:hidden text-center">Deja que nuestra IA rediseñe<br>tu pelo, maquillaje y moda<br>en una vibra global de K-POP.<br>Solo sube tu selfie.</span><span class="hidden md:inline"><span class="md:whitespace-nowrap">Deja que nuestra IA rediseñe tu pelo, maquillaje y moda</span><br class="hidden md:block">en una vibra global de K-POP. Solo sube tu selfie.</span>',
+        uploadCallout: "subir",
+        choosePhoto: "Elegir foto",
+        dropSelfie: "Sube Tu Selfie",
+        uploadHint: "PNG o JPG • Alta Resolucion",
+        transformNow: "Transformar",
+        featureSecure: "Carga Segura",
+        featureHd: "Calidad HD",
+        featureFast: "Resultados Rapidos",
+        featurePrivate: "Proceso Privado",
+        featurePersonal: "Estilo Personalizado",
+        stylistHeading: 'Totalmente <span class="hero-highlight bg-clip-text text-transparent">K-Pop Idol</span>',
+        stylistDescription: '<span class="md:hidden text-center">Nuestra IA recrea las tecnicas de<br>directores visuales profesionales de K-POP<br>a partir de tres pilares clave:<br><span class="text-[#ff5f7a]">peinado</span>, <span class="text-[#7c3aed]">maquillaje</span> y <span class="text-[#0891b2]">estilo de moda</span>.</span><span class="hidden md:inline"><span class="whitespace-nowrap">Nuestra IA recrea las tecnicas de directores visuales profesionales de K-POP</span><br>a partir de tres pilares clave: <span class="text-[#ff5f7a]">peinado</span>, <span class="text-[#7c3aed]">maquillaje</span> y <span class="text-[#0891b2]">estilo de moda</span>.</span>',
+        tap: "Toca",
+        privacy: "Privacidad",
+        terms: "Terminos",
+        top: "TOP",
+        invalidFile: "Sube un archivo de imagen PNG, JPG u otro formato similar.",
+        uploaded: "Foto cargada. Haz clic en Transformar para continuar.",
+        transformFirst: "Primero sube una foto y luego pulsa Transformar."
+      }
+    };
 
     const uploadZone = document.getElementById("uploadZone");
     const fileInput = document.getElementById("fileInput");
@@ -673,13 +761,76 @@
     const uploadHint = document.getElementById("uploadHint");
     const uploadIcon = document.getElementById("uploadIcon");
     const uploadCallout = document.getElementById("uploadCallout");
+    const uploadCalloutLabel = document.getElementById("uploadCalloutLabel");
+    const dropSelfieTitle = document.getElementById("dropSelfieTitle");
     const seeAuraLink = document.getElementById("seeAuraLink");
+    const navExampleLink = document.getElementById("navExampleLink");
     const auraHeading = document.getElementById("auraHeading");
+    const heroDescription = document.getElementById("heroDescription");
     const topButton = document.getElementById("topButton");
     const demoCards = document.querySelectorAll("[data-demo-card]");
+    const stylistHeading = document.getElementById("stylistHeading");
+    const stylistDescription = document.getElementById("stylistDescription");
+    const footerPrivacyLink = document.getElementById("footerPrivacyLink");
+    const footerTermsLink = document.getElementById("footerTermsLink");
+    const languageButtons = document.querySelectorAll("#languageSwitcher [data-lang]");
 
     let selectedImageData = "";
     let generatedResult = null;
+    let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || "en";
+
+    function getCopy() {
+      return translations[currentLanguage] || translations.en;
+    }
+
+    function syncLanguageButtons() {
+      languageButtons.forEach(function (button) {
+        const isActive = button.dataset.lang === currentLanguage;
+        button.classList.toggle("bg-kpop-rose", isActive);
+        button.classList.toggle("text-white", isActive);
+        button.classList.toggle("border-kpop-rose", isActive);
+      });
+    }
+
+    function applyLocale() {
+      const copy = getCopy();
+      document.documentElement.lang = currentLanguage;
+      document.title = copy.title;
+      seeAuraLink.textContent = copy.seeAura;
+      navExampleLink.textContent = copy.example;
+      auraHeading.innerHTML = copy.heroHeading;
+      heroDescription.innerHTML = copy.heroDescription;
+      if (uploadCalloutLabel) {
+        uploadCalloutLabel.textContent = copy.uploadCallout;
+      }
+      uploadIcon.setAttribute("aria-label", copy.choosePhoto);
+      dropSelfieTitle.textContent = copy.dropSelfie;
+      if (!selectedImageData) {
+        uploadHint.textContent = copy.uploadHint;
+      }
+      transformButton.textContent = copy.transformNow;
+      document.getElementById("featureSecure").lastChild.textContent = " " + copy.featureSecure;
+      document.getElementById("featureHd").lastChild.textContent = " " + copy.featureHd;
+      document.getElementById("featureFast").lastChild.textContent = " " + copy.featureFast;
+      document.getElementById("featurePrivate").lastChild.textContent = " " + copy.featurePrivate;
+      document.getElementById("featurePersonal").lastChild.textContent = " " + copy.featurePersonal;
+      stylistHeading.innerHTML = copy.stylistHeading;
+      stylistDescription.innerHTML = copy.stylistDescription;
+      document.querySelectorAll("[data-demo-hint] span").forEach(function (node) {
+        node.textContent = copy.tap;
+      });
+      footerPrivacyLink.textContent = copy.privacy;
+      footerTermsLink.textContent = copy.terms;
+      topButton.textContent = copy.top;
+      syncLanguageButtons();
+    }
+
+    function persistGeneratedResult(result) {
+      generatedResult = result;
+      sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(result));
+      sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
+      sessionStorage.setItem(RESULT_LANGUAGE_KEY, currentLanguage);
+    }
 
     function setStatus(message, isError) {
       uploadStatus.textContent = message;
@@ -687,15 +838,16 @@
     }
 
     function readFile(file) {
+      const copy = getCopy();
       if (!file || !file.type.startsWith("image/")) {
-        setStatus("Please upload a PNG, JPG, or other image file.", true);
+        setStatus(copy.invalidFile, true);
         return;
       }
 
       const reader = new FileReader();
       reader.onload = function (event) {
         selectedImageData = event.target.result;
-        generatedResult = buildFinalGeneratedResult();
+        persistGeneratedResult(buildFinalGeneratedResult("en"));
         previewImage.src = selectedImageData;
         previewWrapper.classList.remove("hidden");
         uploadIcon.classList.add("hidden");
@@ -704,13 +856,22 @@
           uploadCallout.style.display = "none";
         }
         uploadHint.textContent = file.name;
-        setStatus("Photo uploaded. Click Transform Now to continue.", false);
+        setStatus(copy.uploaded, false);
         sessionStorage.setItem("uploadedSelfie", selectedImageData);
         sessionStorage.setItem("uploadedSelfieName", file.name);
-        sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(generatedResult));
-        sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
+        sessionStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
       };
       reader.readAsDataURL(file);
+    }
+
+    function setLanguage(nextLanguage) {
+      currentLanguage = translations[nextLanguage] ? nextLanguage : "en";
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+      sessionStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+      applyLocale();
+      if (generatedResult) {
+        persistGeneratedResult(localizeGeneratedResult(generatedResult, currentLanguage));
+      }
     }
 
     uploadIcon.addEventListener("click", function () {
@@ -719,6 +880,12 @@
 
     fileInput.addEventListener("change", function () {
       readFile(fileInput.files[0]);
+    });
+
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        setLanguage(button.dataset.lang);
+      });
     });
 
     ["dragenter", "dragover"].forEach(function (eventName) {
@@ -783,19 +950,20 @@
     });
 
     transformButton.addEventListener("click", function () {
+      const copy = getCopy();
       if (!selectedImageData) {
-        setStatus("Upload a photo first, then click Transform Now.", true);
+        setStatus(copy.transformFirst, true);
         return;
       }
 
       if (!generatedResult) {
-        generatedResult = buildFinalGeneratedResult();
-        sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(generatedResult));
-        sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
+        persistGeneratedResult(buildFinalGeneratedResult("en"));
       }
 
       window.location.href = "code.html";
     });
+
+    applyLocale();
   </script>
 </body>
 </html>
