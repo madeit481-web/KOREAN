@@ -5,10 +5,31 @@ export const defaultRatingLabels = [
   { label: "Top 1%", weight: 5 }
 ];
 
+const ultraShortVerdictHeadlines = [
+  "Face card wins.",
+  "This starts eras.",
+  "Camera loves you.",
+  "Center aura only.",
+  "Born for teasers.",
+  "This frame wins.",
+  "Pure teaser energy.",
+  "Main character frame.",
+  "Bias wrecker alert.",
+  "Stage-born visual.",
+  "Visual power on.",
+  "Debut energy only.",
+  "This owns frames.",
+  "Aura speaks first.",
+  "Fancam magnet mode.",
+  "Too good to skip.",
+  "Instant teaser bait.",
+  "Icon energy only."
+];
+
 export const resultCardTextByTone = {
   FIRST_LOVE: {
     tone: "FIRST_LOVE",
-    headlines: ["Soft debut aura in one frame.","This is the kind of visual that starts a first-bias era.","Sweet face card, dangerous replay value.","This looks like a save-worthy debut teaser.","Main character energy, but soft about it.","The camera liked you immediately.","This visual would absolutely start a bias switch.","Airy, polished, and way too memorable.","This is soft legend energy.","A visual this gentle should not hit this hard."],
+    headlines: ultraShortVerdictHeadlines,
     titles: ["Soft Debut Aura","First Bias Energy","Save-Worthy Visual","Sweet Center Mood","Youthful Stage Darling","Clean Idol Glow","Soft Legend Starter","Dreamy Visual Pull","Heart-Stealer Mode","Camera-Loves-You Energy"],
     novelOpenings: ["The first teaser frame would already feel impossible to scroll past.","You would appear on screen once and suddenly nobody would be acting casual anymore.","This would land like the exact screenshot everyone saves first.","The opening image would feel soft at first and dangerous on replay.","One close-up like this would start the era before the chorus even arrives.","The first reveal would look effortless and still steal the whole timeline.","This has the energy of a debut cut people never stop revisiting.","The camera would catch this once and fans would already be asking for the fancam."],
     novelVisualLines: ["The styling stays airy and polished, so the face card gets to do all the work without anything fighting it.","The hair, color, and upper-body styling feel youthful and romantic, but still clean enough to look idol-level.","Everything about the portrait feels soft and approachable while staying camera-ready and sharply composed.","The sweeter details make the image lovable, but the finish stays realistic enough to feel believable.","The visual reads instantly, and the longer you look, the more save-worthy it gets.","The portrait keeps a bright, gentle mood without losing stage presence.","The styling supports the face instead of covering it, which is exactly why it lands.","The result feels like a photocard people would keep in perfect condition forever."],
@@ -18,7 +39,7 @@ export const resultCardTextByTone = {
   },
   SOFT_GLAM: {
     tone: "SOFT_GLAM",
-    headlines: ["This is polished visual power.","Graceful, expensive, and impossible to skip.","Soft glam with elite-tier camera chemistry.","The aura is gentle, but the impact is luxury-grade.","This visual does not raise its voice and still wins.","The face card is glowing in fluent stage presence.","This is a whole elegant era in one frame.","Calm, luminous, and fully in control.","This feels like visual royalty with better lighting.","Soft luxury really is dangerous."],
+    headlines: ultraShortVerdictHeadlines,
     titles: ["Graceful Stage Aura","Soft Glam Icon","Visual Royalty Mode","Polished Face Card","Luxury Mood Holder","Luminous Center Energy","Refined Bias Wrecker","Main Character Grace","Pearl Glow Visual","Elegant Viral Pull"],
     novelOpenings: ["The first teaser frame would feel polished enough to set the visual line of the whole era.","You would appear once and the stage would suddenly look more expensive.","This would hit like the exact close-up everyone saves before they know why.","The reveal would feel calm, but the fandom response would be instant.","The camera would land on this angle and never want to leave.","This would read like the visual centerpiece of the era on first contact.","The opening shot would already feel like a luxury concept photo.","One close-up like this and the timeline would go very quiet, very fast."],
     novelVisualLines: ["The styling is refined from every angle, with enough softness to stay warm and enough structure to keep it elevated.","Hair, outfit, and makeup all meet in the same polished register, so the portrait reads effortlessly premium.","Nothing in the frame is fighting for attention, which lets the face card and aura land with unusual clarity.","The whole image feels graceful instead of flashy, which only makes the stage presence look stronger.","The portrait stays luminous, composed, and fully camera-ready without slipping into anything artificial.","There is enough softness in the texture to feel approachable and enough polish in the styling to feel expensive.","The visual balance makes the portrait look elegant first and iconic second.","This feels like a photocard concept that accidentally became visual royalty."],
@@ -28,7 +49,7 @@ export const resultCardTextByTone = {
   },
   ICE_QUEEN: {
     tone: "ICE_QUEEN",
-    headlines: ["Cold aura, sharp face card, total control.","This visual does not chase attention, it owns it.","The stage did not get quieter, you just took over it.","This is untouchable visual energy.","Cool, composed, and dangerously photogenic.","The camera knew exactly who the frame belonged to.","This is high-fashion aura with idol-level impact.","The expression stayed still and still won everything.","Minimal styling, maximum damage.","This frame has no weak point and knows it."],
+    headlines: ultraShortVerdictHeadlines,
     titles: ["Ice Queen Mode","Face Card Authority","Cool Visual Command","Monochrome Main Character","Sharp Aura Index","Editorial Stage Pull","Untouchable Visual","Camera Magnet Energy","Precision Face Card","High-Fashion Aura"],
     novelOpenings: ["The first close-up would make people sit up before they even knew why.","This would hit like the frame everyone tries to act normal about and fails.","You would not need a smile for the visual to lock the whole scene in place.","The camera would land on this angle once and understand the assignment instantly.","This would feel like the exact teaser frame that starts serious aura discourse.","One reveal like this and the era would suddenly feel sharper.","This would be the frame fans use when they talk about calm domination.","The opening image would be all restraint, which is exactly why it would land so hard."],
     novelVisualLines: ["The styling stays sleek and intentional, so the face structure and eye contact carry most of the weight in the best way.","Cooler tones and cleaner lines give the portrait a high-fashion edge without breaking realism.","Nothing is overly decorative, which lets the face card and aura read with unusual clarity.","The image looks composed enough to feel untouchable and alive enough to stay believable.","Every texture feels deliberate, from the hair finish to the silhouette, and that control translates directly on camera.","The cleaner palette makes the portrait look more expensive and more dangerous at the same time.","This is the rare kind of image where restraint becomes the main dramatic effect.","The styling does not overpower the person in the frame, which is exactly why it hits so hard."],
@@ -38,7 +59,7 @@ export const resultCardTextByTone = {
   },
   COMEBACK_QUEEN: {
     tone: "COMEBACK_QUEEN",
-    headlines: ["This is comeback queen energy in full resolution.","One frame and the stage already belongs to you.","The era headline basically wrote itself here.","The face card is serving full-scale comeback drama.","This image starts iconic era edits immediately.","Stage presence this loud should come with a warning.","This is the kind of visual that turns into fandom history.","The aura says center and the styling agrees.","This is a killing-part visual before the song even starts.","This frame has certified takeover energy."],
+    headlines: ultraShortVerdictHeadlines,
     titles: ["Comeback Queen","Era-Defining Visual","Legendary Stage Energy","Killing Part Aura","Visual Takeover Mode","Main Stage Authority","Impact Queen","Center Shockwave","Fancam Magnet Level","Stage Command Tier"],
     novelOpenings: ["The first reveal would feel like the exact moment the era got serious.","This would drop on the timeline and instantly become the visual everyone uses to explain the comeback.","You would appear in one teaser frame and the whole conversation would reroute in your direction.","This is the kind of image that makes fans say the era arrived before the song even started.","The first close-up would already feel like a killing-part preview in photo form.","One frame like this and the comments would already be talking about legendary energy.","The reveal would not just introduce the mood, it would set the bar for the whole rollout.","The opening shot would already feel like the winning angle."],
     novelVisualLines: ["The styling brings enough structure, shine, and drama to feel performance-heavy, while still keeping the person recognizable and real.","Bold colors, sharper silhouettes, and higher-impact details stack together without letting the portrait collapse into noise.","The upper-body styling reads like it belongs on a real comeback stage, which gives the whole image stronger authority.","The energy is dramatic, but the composition stays clean enough for the face card to remain the main event.","Everything about the portrait feels built for close-ups, center cuts, and that exact frame people replay after the stage ends.","The stronger styling choices make the image feel louder on impact while still staying believable.","There is enough texture and contrast here to make the whole result feel like a real stage still.","It feels dynamic even when still, which is usually the sign the visual is doing its job."],
@@ -48,7 +69,7 @@ export const resultCardTextByTone = {
   },
   Y2K_POPSTAR: {
     tone: "Y2K_POPSTAR",
-    headlines: ["This is peak popstar chaos in the best way.","The visual is cute, viral, and fully aware of it.","This frame already sounds like a trending edit.","A little bratty, very iconic, and impossible not to save.","This is Y2K stage energy when it actually works.","The camera caught a whole photocard set in one shot.","Playful styling, serious star power.","This image has way too much viral pull to stay quiet.","This is not just cute, it is edit-ready.","One look and the era got ten times more fun."],
+    headlines: ultraShortVerdictHeadlines,
     titles: ["Y2K Popstar","Viral Visual Alert","Photocard Candy Mode","Trend Magnet Energy","Playful Main Character","Color Pop Aura","Bratty-Cute Bias Wrecker","Pop-Girl Face Card","Stage Sprite Mode","Screenshot Bait"],
     novelOpenings: ["The first reveal would feel like the exact frame people turn into edits before the official post even settles.","This would show up once and immediately start looking like a trending fancam thumbnail.","The timeline would take one look and decide the era needed more color immediately.","This has the exact energy of a teaser frame that gets screenshotted by instinct.","The first close-up would feel playful enough to be fun and polished enough to stay iconic.","You would appear once and the whole comeback would get lighter, louder, and better.","One frame like this and the edits would start writing themselves.","The opening image would feel like a pop-girl moodboard that accidentally became real."],
     novelVisualLines: ["The styling keeps the playful accessories and colorful tone under control, so the final portrait feels fun without tipping into costume territory.","The hair details and brighter visual language give the image instant personality while still leaving the face card fully visible.","Everything about the portrait feels more energetic because the color story, silhouette, and texture all move in the same direction.","The Y2K-coded elements feel current instead of nostalgic, which makes the whole image read like a real idol concept.","The visual has enough cute detail to be screenshot bait, but enough structure to stay polished on replay.","There is a lot happening in the best way, and still no loss of focus.","The portrait feels playful first, but the actual visual control underneath it is what makes it work.","The image looks like fun, but it is built with enough precision to actually hold the concept."],
