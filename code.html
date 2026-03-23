@@ -334,6 +334,12 @@
       top: -0.09em;
     }
 
+    @media (max-width: 640px) {
+      .rating-star-row {
+        top: -0.05em;
+      }
+    }
+
     .rating-star-empty {
       position: relative;
       top: 0.01em;
@@ -659,14 +665,14 @@
         </div>
 
         <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 pb-4 pt-2 text-center shadow-card">
-          <div class="flex flex-wrap items-center justify-center gap-2">
-            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-3 py-1 text-[11px] font-black tracking-[0.16em] leading-none text-white shadow-sm">Ready</span>
-            <span id="resultTitle" class="inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-fuchsia-300 bg-white/75 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] leading-none text-slate-700">Uploaded Result</span>
+          <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-2 py-[0.16rem] text-[9px] font-black tracking-[0.16em] leading-none text-white shadow-sm sm:px-3 sm:py-1 sm:text-[11px]">Ready</span>
+            <span id="resultTitle" class="inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-fuchsia-300 bg-white/75 px-2 py-[0.16rem] text-[9px] font-black uppercase tracking-[0.14em] leading-none text-slate-700 sm:px-3 sm:py-1 sm:text-[11px]">Uploaded Result</span>
           </div>
-          <p id="resultHeadline" class="result-headline-soft-shadow mt-2 text-[clamp(1.14rem,5.9vw,2.18rem)] font-extrabold leading-[1.05] tracking-[-0.04em] text-fuchsia-500 sm:text-[2.34rem] sm:leading-none">
+          <p id="resultHeadline" class="result-headline-soft-shadow mt-3 whitespace-nowrap text-[clamp(1.08rem,5.4vw,2.18rem)] font-extrabold leading-[1.08] tracking-[-0.04em] text-fuchsia-500 sm:text-[2.34rem] sm:leading-none">
             Your uploaded result is loading.
           </p>
-          <p id="resultReaction" class="relative top-[3px] mt-1.5 text-[11px] font-semibold italic leading-[1.45] text-slate-500">
+          <p id="resultReaction" class="relative top-[3px] mt-2 text-[11px] font-semibold italic leading-[1.45] text-slate-500">
             "Preparing your styling summary."
           </p>
         </div>
@@ -1166,14 +1172,14 @@
         resultRating.removeAttribute("title");
         if (isStarRatingLabel(parsedResult.resultCard.ratingLabel)) {
           resultRating.style.letterSpacing = "0.08em";
-          resultRating.style.fontSize = "14px";
+          resultRating.style.fontSize = window.matchMedia("(max-width: 640px)").matches ? "12px" : "14px";
           resultRating.style.lineHeight = "1";
           resultRating.style.display = "inline-flex";
           resultRating.style.alignItems = "center";
           resultRating.style.justifyContent = "center";
           resultRating.style.textAlign = "center";
-          resultRating.style.paddingTop = "0.25rem";
-          resultRating.style.paddingBottom = "0.25rem";
+          resultRating.style.paddingTop = window.matchMedia("(max-width: 640px)").matches ? "0.16rem" : "0.25rem";
+          resultRating.style.paddingBottom = window.matchMedia("(max-width: 640px)").matches ? "0.16rem" : "0.25rem";
         } else {
           resultRating.style.letterSpacing = "";
           resultRating.style.fontSize = "";
@@ -1187,7 +1193,7 @@
         }
 
         if (isTopRatingLabel(parsedResult.resultCard.ratingLabel)) {
-          resultRating.style.fontSize = "12px";
+          resultRating.style.fontSize = window.matchMedia("(max-width: 640px)").matches ? "10px" : "12px";
           resultRating.style.letterSpacing = "0.04em";
         }
       }

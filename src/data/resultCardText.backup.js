@@ -14,7 +14,7 @@ const headlinePools = {
     "Saved too fast.",
     "Gentle scene stealer.",
     "Too soft to lose.",
-    "Stayed past the first look.",
+    "Bias shift loading.",
     "Sweet frame warning.",
     "First-look favorite."
   ],
@@ -25,10 +25,10 @@ const headlinePools = {
     "Luminous on impact.",
     "Grace lands first.",
     "Too smooth to skip.",
-    "Hard to leave there.",
-    "The close-up stayed.",
+    "Polish wins here.",
+    "Center in bloom.",
     "This lands slowly.",
-    "Grace kept working."
+    "Glow with intent."
   ],
   ICE_QUEEN: [
     "Cold frame warning.",
@@ -61,8 +61,8 @@ const headlinePools = {
     "Bright trouble only.",
     "Pop girl frame.",
     "Made for replays.",
-    "Camera roll pending.",
-    "Cute, then sticky.",
+    "Sticker-pack worthy.",
+    "Save first, gasp later.",
     "This catches fast.",
     "Main pop energy."
   ]
@@ -73,7 +73,6 @@ export const storyScenes = [
   "DEBUT_STAGE",
   "CONCERT_FANCAM",
   "MUSIC_SHOW_CLOSEUP",
-  "ENDING_SHOT",
   "PHOTOCARD_PULL",
   "VIRAL_EDIT",
   "LOCKSCREEN_SAVE"
@@ -148,46 +147,24 @@ export const sceneStoryPools = {
   },
   MUSIC_SHOW_CLOSEUP: {
     eventOpenings: [
-      "Your music-show close-up hit during the broadcast and made the whole stage feel newly important.",
-      "The TV camera found you, and the reaction changed before the next cut could help.",
-      "One music-show close-up landed on screen and immediately stopped behaving like a routine broadcast moment.",
+      "Your music-show close-up hit during the ending shot and made the whole stage feel newly important.",
+      "The broadcast found your ending shot, and the reaction changed before the next camera cut could help.",
+      "One music-show close-up landed on screen and immediately stopped behaving like a throwaway ending frame.",
       "Your broadcast close-up went by in a second, then kept living in everybody's head much longer than that.",
-      "The music-show camera caught your face at exactly the wrong time for anyone trying to stay casual.",
-      "Your broadcast close-up slipped in and somehow became the part nobody moved on from.",
-      "The camera found you mid-stage, and that single second started doing more than the segment around it.",
-      "One close-up from the broadcast was enough to make the whole performance feel newly centered on you."
+      "The ending shot caught your face at exactly the wrong time for anyone trying to stay casual.",
+      "Your final broadcast frame slipped in right before the cut and somehow became the part nobody moved on from.",
+      "The music-show camera found you at the end, and that single second started doing more than the whole segment around it.",
+      "One ending close-up from the broadcast was enough to make the whole performance feel newly centered on you."
     ],
     collectibleOrSpreadLines: [
-      "The screenshot happened fast, like everyone knew the close-up would be the thing they kept.",
-      "People were already saving the broadcast frame before the stage captions caught up.",
-      "That TV close-up turned into the screenshot people used when they wanted the whole point in one frame.",
+      "The screenshot happened fast, like everyone knew the ending shot would be the thing they kept.",
+      "People were already saving the broadcast close-up before the stage captions caught up.",
+      "That ending shot turned into the screenshot people used when they wanted the whole point in one frame.",
       "The broadcast clip kept getting paused at your close-up for reasons nobody really argued with.",
-      "Your broadcast frame got kept the way certain close-ups always do: instantly and a little too personally.",
-      "The pause-and-save behavior started as soon as your close-up hit the screen.",
-      "People treated the broadcast frame like the screenshot had already been chosen for them.",
+      "Your music-show frame got kept the way certain ending shots always do: instantly and a little too personally.",
+      "The pause-and-save behavior started as soon as your ending shot hit the screen.",
+      "People treated the final broadcast frame like the screenshot had already been chosen for them.",
       "Your close-up kept getting frozen at the same second until the post-show reaction started sounding personal."
-    ]
-  },
-  ENDING_SHOT: {
-    eventOpenings: [
-      "Your ending shot landed right before the cut, and that was the frame people got caught on.",
-      "The final camera found you, and that last second ended up doing more than the whole song around it.",
-      "One ending frame landed, and suddenly everyone was acting like the performance had just explained itself.",
-      "Your last shot hit the screen and made the stage feel finished in a way people could not ignore.",
-      "The ending close-up went by fast, then refused to leave the timeline quietly.",
-      "Your final frame caught the room at exactly the point where people were most likely to keep it.",
-      "The stage was already ending when your last shot turned into the thing everyone kept talking around.",
-      "One final close-up was enough to make the rest of the performance feel like it had been building toward you."
-    ],
-    collectibleOrSpreadLines: [
-      "The final screenshot happened instantly, like the last shot had already chosen itself.",
-      "People kept the ending frame the way they keep the one image that explains the whole performance.",
-      "Your last shot started living in saves before the stage had even cleared off the screen.",
-      "The replay usually starts at the ending shot when people already know what they came back for.",
-      "That closing frame turned into the screenshot people sent when they wanted the whole point at once.",
-      "The keep-this behavior started right at the cut and never really backed off.",
-      "Your ending shot kept resurfacing like nobody had actually finished reacting when the stage ended.",
-      "The final frame got saved with the kind of certainty people usually pretend was accidental."
     ]
   },
   PHOTOCARD_PULL: {
@@ -369,7 +346,7 @@ export const toneStoryPools = {
     fandomEscalationLines: [
       "The comments jumped from hype to something closer to alarm almost immediately.",
       "People started typing like the era had officially begun and nobody was really exaggerating.",
-      "One screenshot hit the thread and the replies got noticeably less calm after that.",
+      "One screenshot hit the thread and the replies started sounding like damage control.",
       "The first reactions were loud, then the louder ones showed up right after.",
       "Nobody sounded calm for long once the still made its way through the timeline.",
       "The thread turned into instant proof that everyone had underestimated the scale of your frame.",
@@ -403,7 +380,7 @@ export const toneStoryPools = {
       "The replies stayed playful, but the attachment was obvious by the second round.",
       "Someone joked about making it the lockscreen and half the replies got a little too quiet after that.",
       "The comments started cute and ended with people sounding much more invested than planned.",
-      "Nobody got loud about it; they just kept pretending the save was casual.",
+      "Nobody made a big dramatic scene; they just kept claiming they saved it casually and nobody believed that.",
       "The thread filled with people acting light about it while clearly coming back again.",
       "On the surface, everybody sounded casual. The repeat saves said otherwise.",
       "By the time someone said it was just for the vibe, the post had already become personal."
@@ -413,28 +390,26 @@ export const toneStoryPools = {
       "What stayed behind was the sense that your idol version had quietly taken over everyone's camera roll.",
       "After that, the image stopped reading as just playful and started reading as the frame people kept close.",
       "The moment cooled off, but this was clearly the frame people kept.",
-      "Later, this would be the frame people pull up when they mean your fun side, exactly.",
+      "Later, this would be the still people use when they want the proof that your fun side hits harder than expected.",
       "By then, the frame had already done the real work of making your idol version feel easy to claim and hard to put down.",
       "It leaves behind the feeling that your brightest frame is also the one people get attached to fastest.",
       "Once a still like this shows up, your idol identity starts living a little too comfortably in other people's saves."
     ]
   }
-};
-
-export const resultCardTextByTone = {
+};export const resultCardTextByTone = {
   FIRST_LOVE: {
     tone: "FIRST_LOVE",
     headlines: headlinePools.FIRST_LOVE,
     titles: ["First Bias Energy","Save-Worthy Center","Soft Debut Pull","Soft Camera Pick","Sweet Center Mood","Soft Focus Favorite","Quiet Bias Shift","Debut Day Pull","Saved Too Fast","Gentle Center Pull"],
     ...toneStoryPools.FIRST_LOVE,
-    fanReactions: ["One screenshot and its over.","This one got saved softly.","First-bias material.","This one got personal.","Saved before thinking.","Too gentle to scroll past.","The comments changed fast.","That frame stayed with me.","The photocard panic starts here.","Nobody stayed normal."]
+    fanReactions: ["One screenshot and its over.","The camera loves you.","First-bias material.","This one got personal.","Saved before thinking.","Too gentle to scroll past.","The comments changed fast.","That frame stayed with me.","The photocard panic starts here.","Nobody stayed normal."]
   },
   SOFT_GLAM: {
     tone: "SOFT_GLAM",
     headlines: headlinePools.SOFT_GLAM,
-    titles: ["Visual Royalty","Luminous Center","Stayed in Focus","Soft Glam Favorite","Grace in Focus","Velvet Visual","Camera Favorite","Hard to Leave Alone","Soft Glam Pull","Center in Focus"],
+    titles: ["Visual Royalty","Luminous Center","Stayed in Focus","Soft Glam Favorite","Grace in Focus","Velvet Visual","Camera Favorite","Gloss and Glow","Soft Glam Pull","Center in Focus"],
     ...toneStoryPools.SOFT_GLAM,
-    fanReactions: ["The camera picked a favorite.","Save this immediately.","That still is trouble.","Nobody stayed normal.","Graceful, then dangerous.","One save was never enough.","The comments changed tone.","Too polished to scroll.","That face won quietly.","Reference material, sure."]
+    fanReactions: ["The camera picked a favorite.","Save this immediately.","That still is trouble.","Nobody stayed normal.","Graceful, then dangerous.","This already looks edited.","One save was never enough.","The comments changed tone.","Too polished to scroll.","That face won quietly."]
   },
   ICE_QUEEN: {
     tone: "ICE_QUEEN",
@@ -453,7 +428,7 @@ export const resultCardTextByTone = {
   Y2K_POPSTAR: {
     tone: "Y2K_POPSTAR",
     headlines: headlinePools.Y2K_POPSTAR,
-    titles: ["Trend Magnet","Close-Up Keeper","Camera Roll Favorite","Main Pop Girl","Playful Main Character","Saved on Sight","Lockscreen Pull","Pop Girl Center","Replay Magnet","Too Cute Center"],
+    titles: ["Trend Magnet","Close-Up Keeper","Camera Roll Favorite","Main Pop Girl","Playful Main Character","Screenshot Favorite","Lockscreen Pull","Pop Girl Center","Replay Magnet","Too Cute Center"],
     ...toneStoryPools.Y2K_POPSTAR,
     fanReactions: ["Too cute to scroll.","This already looks edited.","Saved before loading.","The camera had fun here.","That shot is trouble.","The save happened first.","This went straight to saves.","That one stayed open.","Cute, then dangerous.","Already in my camera roll."]
   }
