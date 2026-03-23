@@ -1,16 +1,22 @@
-import { defaultRatingLabels, resultCardTextByTone } from "../data/resultCardText.js";
+import { defaultRatingLabels, resultCardTextByTone, storyScenes, sceneStoryPools } from "../data/resultCardText.js";
 import { sharedHeadlineTranslations, toneLineTranslations } from "../data/resultCardTranslations.js";
 import { pickRandom, pickWeighted } from "./random.js";
 
 const repeatedKeywords = ["center", "visual", "aura", "stage", "era", "fancam", "photocard", "icon", "legend", "bias"];
-export const ALLOWED_RATING_LABELS = new Set(["★★★★", "★★★★★", "Top 3%", "Top 1%"]);
+export const FALLBACK_RATING_LABEL = "\u2605\u2605\u2605\u2605";
+export const ALLOWED_RATING_LABELS = new Set([
+  "\u2605\u2605\u2605\u2605",
+  "\u2605\u2605\u2605\u2605\u2605",
+  "Top 3%",
+  "Top 1%"
+]);
 
 export function normalizeRatingLabel(label) {
   if (ALLOWED_RATING_LABELS.has(label)) {
     return label;
   }
 
-  return "★★★★";
+  return FALLBACK_RATING_LABEL;
 }
 
 function countOverlap(line, usedKeywords) {
@@ -63,35 +69,36 @@ function buildSourceResultCard(tone, rng = Math.random) {
   const toneText = resultCardTextByTone[tone];
   const ratingPool = toneText.ratingLabels || defaultRatingLabels;
   const usedKeywords = new Set();
+  const scene = pickRandom(storyScenes, rng);
+  const sceneText = sceneStoryPools[scene];
 
   const headline = pickLowOverlapLine(toneText.headlines, usedKeywords, rng);
   const title = pickLowOverlapLine(toneText.titles, usedKeywords, rng);
   const ratingLabel = normalizeRatingLabel(pickWeighted(ratingPool, function (item) {
     return item.weight;
   }, rng).label);
-  const storyHook = pickLowOverlapLine(toneText.storyHooks, usedKeywords, rng);
-  const storyVisual = pickLowOverlapLine(toneText.storyVisuals, usedKeywords, rng);
-  const storyStageLine = pickLowOverlapLine(toneText.storyStageLines, usedKeywords, rng);
-  const storyFandomLine = pickLowOverlapLine(toneText.storyFandomLines, usedKeywords, rng);
-  const storyCollectibleLine = pickLowOverlapLine(toneText.storyCollectibleLines, usedKeywords, rng);
-  const storyClosing = pickLowOverlapLine(toneText.storyClosings, usedKeywords, rng);
+  const eventOpening = pickLowOverlapLine(sceneText.eventOpenings, usedKeywords, rng);
+  const attentionShiftLine = pickLowOverlapLine(toneText.attentionShiftLines, usedKeywords, rng);
+  const fandomEscalationLine = pickLowOverlapLine(toneText.fandomEscalationLines, usedKeywords, rng);
+  const collectibleFalloutLine = pickLowOverlapLine(sceneText.collectibleOrSpreadLines, usedKeywords, rng);
+  const identityClosing = pickLowOverlapLine(toneText.identityClosings, usedKeywords, rng);
   const fanReaction = pickLowOverlapLine(toneText.fanReactions, usedKeywords, rng);
 
   return {
     headline: headline,
     title: title,
     ratingLabel: ratingLabel,
-    microNovel: [storyHook, storyVisual, storyStageLine, storyFandomLine, storyCollectibleLine, storyClosing].join(" "),
+    microNovel: [eventOpening, attentionShiftLine, fandomEscalationLine, collectibleFalloutLine, identityClosing].join(" "),
     fanReaction: fanReaction,
     source: {
+      scene: scene,
       headline: headline,
       title: title,
-      storyHook: storyHook,
-      storyVisual: storyVisual,
-      storyStageLine: storyStageLine,
-      storyFandomLine: storyFandomLine,
-      storyCollectibleLine: storyCollectibleLine,
-      storyClosing: storyClosing,
+      eventOpening: eventOpening,
+      attentionShiftLine: attentionShiftLine,
+      fandomEscalationLine: fandomEscalationLine,
+      collectibleFalloutLine: collectibleFalloutLine,
+      identityClosing: identityClosing,
       fanReaction: fanReaction
     }
   };
@@ -99,19 +106,18 @@ function buildSourceResultCard(tone, rng = Math.random) {
 
 export function localizeResultCardFromSource(tone, sourceCard, locale = "en") {
   const source = sourceCard && sourceCard.source ? sourceCard.source : sourceCard;
-  const ratingLabel = sourceCard && sourceCard.ratingLabel ? sourceCard.ratingLabel : "★★★★";
+  const ratingLabel = sourceCard && sourceCard.ratingLabel ? sourceCard.ratingLabel : FALLBACK_RATING_LABEL;
 
   return {
     headline: translateLine(source.headline, locale, tone, "headlines"),
     title: translateLine(source.title, locale, tone, "titles"),
     ratingLabel: normalizeRatingLabel(ratingLabel),
     microNovel: [
-      translateLine(source.storyHook, locale, tone, "storyHooks"),
-      translateLine(source.storyVisual, locale, tone, "storyVisuals"),
-      translateLine(source.storyStageLine, locale, tone, "storyStageLines"),
-      translateLine(source.storyFandomLine, locale, tone, "storyFandomLines"),
-      translateLine(source.storyCollectibleLine, locale, tone, "storyCollectibleLines"),
-      translateLine(source.storyClosing, locale, tone, "storyClosings")
+      translateLine(source.eventOpening, locale, tone, "eventOpenings"),
+      translateLine(source.attentionShiftLine, locale, tone, "attentionShiftLines"),
+      translateLine(source.fandomEscalationLine, locale, tone, "fandomEscalationLines"),
+      translateLine(source.collectibleFalloutLine, locale, tone, "collectibleFalloutLines"),
+      translateLine(source.identityClosing, locale, tone, "identityClosings")
     ].join(" "),
     fanReaction: translateLine(source.fanReaction, locale, tone, "fanReactions"),
     source: source

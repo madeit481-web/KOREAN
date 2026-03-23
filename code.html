@@ -302,6 +302,45 @@
       box-shadow: 0 18px 35px rgba(83, 69, 89, 0.12);
     }
 
+    .result-headline-soft-shadow {
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.42),
+        0 0 14px rgba(244, 114, 182, 0.24),
+        0 4px 18px rgba(244, 114, 182, 0.28),
+        0 12px 34px rgba(217, 70, 239, 0.26),
+        0 0 52px rgba(244, 114, 182, 0.22),
+        0 0 72px rgba(232, 121, 249, 0.12);
+    }
+
+    @media (max-width: 640px) {
+      .result-headline-soft-shadow {
+        text-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.5),
+          0 0 16px rgba(244, 114, 182, 0.3),
+          0 5px 20px rgba(244, 114, 182, 0.34),
+          0 14px 38px rgba(217, 70, 239, 0.32),
+          0 0 62px rgba(244, 114, 182, 0.28),
+          0 0 90px rgba(232, 121, 249, 0.18);
+      }
+    }
+
+    .rating-star-row {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.04em;
+      line-height: 1;
+      position: relative;
+      top: -0.02em;
+    }
+
+    .rating-star-empty {
+      position: relative;
+      top: 0.01em;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: none;
+    }
+
     .sparkle {
       position: absolute;
       border-radius: 999px;
@@ -619,21 +658,21 @@
           >
         </div>
 
-        <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 py-5 text-center shadow-card">
+        <div class="result-card relative z-10 mx-auto -mt-8 w-[78%] rounded-[10px] px-6 pb-4 pt-2 text-center shadow-card">
           <div class="flex flex-wrap items-center justify-center gap-2">
-            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-3 py-1.5 text-[11px] font-black tracking-[0.16em] leading-none text-white shadow-sm">Ready</span>
-            <span id="resultTitle" class="inline-flex min-w-[9rem] items-center justify-center whitespace-nowrap rounded-full border-2 border-fuchsia-200 bg-white/75 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] leading-none text-slate-600">Uploaded Result</span>
+            <span id="resultRating" style="font-family: system-ui, 'Segoe UI', 'Segoe UI Symbol', 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ec4899] px-3 py-1 text-[11px] font-black tracking-[0.16em] leading-none text-white shadow-sm">Ready</span>
+            <span id="resultTitle" class="inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-fuchsia-300 bg-white/75 px-3 py-[0.2rem] text-[11px] font-black uppercase tracking-[0.14em] leading-none text-slate-700">Uploaded Result</span>
           </div>
-          <p id="resultHeadline" class="mt-4 overflow-hidden whitespace-nowrap text-ellipsis text-[clamp(1rem,5.2vw,1.75rem)] font-extrabold leading-none tracking-[-0.04em] text-fuchsia-500 sm:text-[2.15rem]">
+          <p id="resultHeadline" class="result-headline-soft-shadow mt-2 text-[clamp(1.14rem,5.9vw,2.18rem)] font-extrabold leading-[1.05] tracking-[-0.04em] text-fuchsia-500 sm:text-[2.34rem] sm:leading-none">
             Your uploaded result is loading.
           </p>
-          <p id="resultReaction" class="mt-3 text-[11px] font-semibold italic leading-5 text-slate-500">
+          <p id="resultReaction" class="relative top-[3px] mt-1.5 text-[11px] font-semibold italic leading-[1.45] text-slate-500">
             "Preparing your styling summary."
           </p>
         </div>
       </section>
 
-      <section id="resultAnalysis" class="result-shell relative mt-14 rounded-[18px] bg-white/12 px-0 py-0">
+      <section id="resultAnalysis" class="result-shell relative mt-8 rounded-[18px] bg-white/12 px-0 py-0">
         <div class="analysis-background-effects pointer-events-none absolute inset-0 overflow-hidden rounded-[18px]">
           <span class="sparkle-dot animate-sparkle-pulse absolute left-[4%] top-[8%] h-3 w-3 text-[#ffd66b]"></span>
           <span class="sparkle-dot animate-sparkle-pulse absolute left-[13%] top-[34%] h-2.5 w-2.5 text-kpop-pink"></span>
@@ -673,6 +712,7 @@
             <div class="mb-4 flex items-center justify-center gap-2 text-center text-[15px] font-bold text-ink">
               <span class="text-pink-400">♡</span>
               <h2 id="analysisHeading" class="text-[17px] sm:text-[18px]">Your idol story</h2>
+              <span class="text-pink-400">♡</span>
             </div>
 
             <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-6 pb-6 pt-4 text-[12px] leading-7 text-slate-600 shadow-card">
@@ -837,7 +877,7 @@
     const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
     const RESULT_LANGUAGE_KEY = "generatedKpopResultLanguage";
     const LANGUAGE_STORAGE_KEY = "kIdolifyLanguage";
-    const CURRENT_RESULT_VERSION = "rating-label-v7-i18n";
+    const CURRENT_RESULT_VERSION = "rating-label-v8-consistent";
     const ALLOWED_RATING_LABELS = new Set(["\u2605\u2605\u2605\u2605", "\u2605\u2605\u2605\u2605\u2605", "Top 3%", "Top 1%"]);
 
     const translations = {
@@ -953,6 +993,38 @@
       sessionStorage.setItem(RESULT_STORAGE_VERSION_KEY, CURRENT_RESULT_VERSION);
       sessionStorage.setItem(RESULT_LANGUAGE_KEY, currentLanguage);
       return result;
+    }
+
+    function getDisplayRatingLabel(label) {
+      if (label === "★★★★") {
+        return "★★★★☆";
+      }
+
+      if (label === "Top 3%" || label === "Top 1%") {
+        return "👑 " + label + " 👑";
+      }
+
+      return label;
+    }
+
+    function getDisplayRatingMarkup(label) {
+      if (label === "★★★★") {
+        return '<span class="rating-star-row"><span>★★★★</span><span class="rating-star-empty">☆</span></span>';
+      }
+
+      if (label === "★★★★★") {
+        return '<span class="rating-star-row"><span>★★★★★</span></span>';
+      }
+
+      return getDisplayRatingLabel(label);
+    }
+
+    function isStarRatingLabel(label) {
+      return label === "★★★★" || label === "★★★★★";
+    }
+
+    function isTopRatingLabel(label) {
+      return label === "Top 3%" || label === "Top 1%";
     }
 
     function resolveGeneratedResult() {
@@ -1089,11 +1161,35 @@
       }
 
       if (resultRating) {
-        resultRating.textContent = parsedResult.resultCard.ratingLabel;
+        resultRating.innerHTML = getDisplayRatingMarkup(parsedResult.resultCard.ratingLabel);
         resultRating.removeAttribute("data-rating-label");
         resultRating.removeAttribute("title");
-        resultRating.style.letterSpacing = "";
-        resultRating.style.fontSize = "";
+        if (isStarRatingLabel(parsedResult.resultCard.ratingLabel)) {
+          resultRating.style.letterSpacing = "0.08em";
+          resultRating.style.fontSize = "14px";
+          resultRating.style.lineHeight = "1";
+          resultRating.style.display = "inline-flex";
+          resultRating.style.alignItems = "center";
+          resultRating.style.justifyContent = "center";
+          resultRating.style.textAlign = "center";
+          resultRating.style.paddingTop = "0.22rem";
+          resultRating.style.paddingBottom = "0.22rem";
+        } else {
+          resultRating.style.letterSpacing = "";
+          resultRating.style.fontSize = "";
+          resultRating.style.lineHeight = "";
+          resultRating.style.display = "";
+          resultRating.style.alignItems = "";
+          resultRating.style.justifyContent = "";
+          resultRating.style.textAlign = "";
+          resultRating.style.paddingTop = "";
+          resultRating.style.paddingBottom = "";
+        }
+
+        if (isTopRatingLabel(parsedResult.resultCard.ratingLabel)) {
+          resultRating.style.fontSize = "12px";
+          resultRating.style.letterSpacing = "0.04em";
+        }
       }
 
       if (resultTitle) {

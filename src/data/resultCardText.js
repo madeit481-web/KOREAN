@@ -1,378 +1,437 @@
-export const defaultRatingLabels = [
-  { label: "\u2605\u2605\u2605\u2605", weight: 52 },
-  { label: "\u2605\u2605\u2605\u2605\u2605", weight: 34 },
+﻿export const defaultRatingLabels = [
+  { label: "★★★★", weight: 52 },
+  { label: "★★★★★", weight: 34 },
   { label: "Top 3%", weight: 9 },
   { label: "Top 1%", weight: 5 }
 ];
 
-const ultraShortVerdictHeadlines = [
-  "Face card wins.",
-  "This starts eras.",
-  "Camera loves you.",
-  "Center aura only.",
-  "Born for teasers.",
-  "This frame wins.",
-  "Pure teaser energy.",
-  "Main character frame.",
-  "Bias wrecker alert.",
-  "Stage-born visual.",
-  "Visual power on.",
-  "Debut energy only.",
-  "This owns frames.",
-  "Aura speaks first.",
-  "Fancam magnet mode.",
-  "Too good to skip.",
-  "Instant teaser bait.",
-  "Icon energy only."
+const headlinePools = {
+  FIRST_LOVE: [
+    "Soft launch only.",
+    "Camera stays here.",
+    "Quiet center pull.",
+    "This feels personal.",
+    "Saved too fast.",
+    "Gentle scene stealer.",
+    "Too soft to lose.",
+    "Bias shift loading.",
+    "Sweet frame warning.",
+    "First-look favorite."
+  ],
+  SOFT_GLAM: [
+    "Light finds you.",
+    "Grace holds here.",
+    "Camera chose you.",
+    "Luminous on impact.",
+    "Grace lands first.",
+    "Too smooth to skip.",
+    "Polish wins here.",
+    "Center in bloom.",
+    "This lands slowly.",
+    "Glow with intent."
+  ],
+  ICE_QUEEN: [
+    "Cold frame warning.",
+    "Silence looks good.",
+    "The room shifted.",
+    "Sharp from frame one.",
+    "No soft landing.",
+    "Freeze-frame threat.",
+    "Too still to ignore.",
+    "Center under ice.",
+    "This cuts clean.",
+    "Calm but fatal."
+  ],
+  COMEBACK_QUEEN: [
+    "Era starts now.",
+    "Pressure on sight.",
+    "Stage comes next.",
+    "This shifts eras.",
+    "Main-stage warning.",
+    "The room got louder.",
+    "Comeback in frame.",
+    "Trouble before chorus.",
+    "Center takes over.",
+    "Impact before motion."
+  ],
+  Y2K_POPSTAR: [
+    "Too cute to skip.",
+    "Saved on sight.",
+    "Lockscreen incoming.",
+    "Bright trouble only.",
+    "Pop girl frame.",
+    "Made for replays.",
+    "Sticker-pack worthy.",
+    "Save first, gasp later.",
+    "This catches fast.",
+    "Main pop energy."
+  ]
+};
+
+export const storyScenes = [
+  "TEASER_DROP",
+  "DEBUT_STAGE",
+  "CONCERT_FANCAM",
+  "MUSIC_SHOW_CLOSEUP",
+  "PHOTOCARD_PULL",
+  "VIRAL_EDIT",
+  "LOCKSCREEN_SAVE"
 ];
 
-export const storyPools = {
-  FIRST_LOVE: {
-    storyHooks: [
-      "The first look comes in quietly, almost like the frame is trying not to be noticed.",
-      "For a second it feels simple, just soft light and a face the camera refuses to leave alone.",
-      "Nothing arrives loudly here; the pull starts somewhere smaller than that.",
-      "At first glance it feels easy to like, and then a second later that stops feeling like a small thing.",
-      "The reveal opens softly, the way certain teaser stills do when they already know they will be saved.",
-      "It starts with the kind of calm that makes people lean in without realizing they just did.",
-      "The frame does not rush itself, which is probably why it settles in so fast.",
-      "What lands first is not drama but a strange little certainty that this one is staying."
+export const sceneStoryPools = {
+  TEASER_DROP: {
+    eventOpenings: [
+      "Your teaser dropped and the first replies came in like people expected to stay normal about it.",
+      "The preview still went up, and the mood shifted before anybody had a proper caption ready.",
+      "Your teaser post appeared quietly, then stopped feeling quiet almost immediately.",
+      "One teaser frame hit the timeline and suddenly people were treating the release like it had already started.",
+      "The first reveal landed, and the post stopped behaving like something casual right away.",
+      "Your teaser went up and people clicked in expecting one pretty frame, then stayed long enough for the mood to change.",
+      "The first reveal arrived like a small update, then started pulling a much bigger reaction behind it.",
+      "Your teaser hit the feed and the replies changed faster than the caption underneath it."
     ],
-    storyVisuals: [
-      "The styling stays airy and neat, so your eye keeps coming back to the face without any effort at all.",
-      "Soft details gather around the shot without crowding it, and the face card ends up doing the heavy lifting anyway.",
-      "Everything sits lightly in the frame, but nothing feels vague or unfinished.",
-      "The sweetness is there, just enough of it, and then the clean lines underneath start to show.",
-      "Nothing is overworked, which makes the whole still feel closer, almost like it happened on its own.",
-      "The image keeps its edges soft without losing shape, and that balance is what makes it linger.",
-      "A gentler look usually fades fast; this one keeps finding its way back into focus.",
-      "The softer details pull you in first, then the face settles the question before you can move on."
-    ],
-    storyStageLines: [
-      "A little light catches and suddenly the whole shot feels warmer than it did a second ago.",
-      "The camera seems to pause here, not dramatically, just long enough to make the moment feel chosen.",
-      "Nothing in the frame begs for attention, yet the angle holds like the shot already knows it matters.",
-      "It plays like the still right before the teaser music swells and the comments start changing tone.",
-      "The timing feels almost unfair, like the camera met the exact version people keep hoping to see.",
-      "One more beat and the image starts to feel less like a pose and more like something remembered.",
-      "The shot lands softly, but the camera treats it like the center anyway.",
-      "There is a hush in the frame that makes the close-up feel personal before it feels polished."
-    ],
-    storyFandomLines: [
-      "At first the comments stay sweet, then somebody admits they have already saved it twice.",
-      "People would try to keep the reaction casual, but the tone would turn personal almost immediately.",
-      "One reply says pretty, the next one sounds like the start of a bias problem.",
-      "The screenshot count climbs before anyone finds the right words for why.",
-      "It starts off gentle in the comments and ends with people sounding much more attached than planned.",
-      "Somebody would call it harmless, and that would last maybe thirty seconds.",
-      "The first-bias energy would sneak in through the replies instead of arriving all at once.",
-      "By the time someone says they cannot stop looking, everyone else has already caught up."
-    ],
-    storyCollectibleLines: [
-      "Before the post even settles, someone is already talking about the photocard like it is impossible to pull.",
-      "This is the kind of screenshot people save for no reason and keep for much longer than that.",
-      "The collectible version starts to feel real the second the still sinks in.",
-      "It would not take much for this to slip into a lockscreen rotation and stay there.",
-      "By the end of the night, the photocard talk would sound oddly serious for something that does not exist yet.",
-      "The still feels like the one people keep tucked away long after the era moves on.",
-      "A frame like this tends to end up in the favorites folder before anyone thinks to explain it.",
-      "Some images ask to be admired; this one gets quietly kept."
-    ],
-    storyClosings: [
-      "What begins as something sweet leaves with a little more weight than expected.",
-      "It does not hit all at once. It settles in, and that is worse.",
-      "The softness is real, but so is the way it stays with you after.",
-      "This is how first-bias trouble usually starts: small, quiet, and already too late.",
-      "Nothing about it pushes hard, yet the hold it leaves is difficult to shake.",
-      "The first look is gentle. The aftertaste is not.",
-      "It feels light while you are looking at it and heavier once you stop.",
-      "By the time the frame is gone, it has already made room for itself."
+    collectibleOrSpreadLines: [
+      "Before the thread settled, people were already saving your teaser frame like they knew it would matter later.",
+      "The screenshot count started moving before anyone had fully decided what to say about your teaser.",
+      "People kept the teaser close first and explained themselves after.",
+      "The save-first behavior started so early it made the rest of the reaction easier to believe.",
+      "By the time the post cooled off, your teaser was already living in private saves.",
+      "People started keeping the teaser on hand like they already knew it would be the frame they pointed back to.",
+      "The first save happened before the thread had settled on a normal tone.",
+      "Your teaser kept getting reopened like the image had already decided to stay."
     ]
   },
-  SOFT_GLAM: {
-    storyHooks: [
-      "The first impression is soft light, then the still starts holding the room on its own.",
-      "It arrives without noise, but the frame keeps gaining weight the longer you stay with it.",
-      "At first it reads beautiful in a clean, obvious way, and then it becomes harder to name than that.",
-      "The reveal does not rush itself; it simply settles into place and refuses to leave your eye there.",
-      "Nothing about the shot needs to announce itself when the first look already lands this sure.",
-      "The frame opens quietly, but the stillness inside it is doing more than enough.",
-      "For a moment it feels delicate, and then the composure underneath starts to show.",
-      "This is the kind of teaser still people reopen just to check whether it really looked that good."
+  DEBUT_STAGE: {
+    eventOpenings: [
+      "Your debut stage hit one close-up and the whole performance started feeling bigger around it.",
+      "The first stage camera found you early, and that was enough to change the temperature of the set.",
+      "Your debut close-up landed before the song had fully settled, and people reacted like they had just been given the real introduction.",
+      "One shot from your first stage made everything after it feel less theoretical.",
+      "Your debut moment arrived through the camera all at once, like the stage had already picked the frame people would keep.",
+      "The first performance was still finding its balance when your close-up made the whole stage feel decided.",
+      "Your debut frame came in mid-performance and suddenly the rest of the stage had to catch up to it.",
+      "One stage close-up was enough to make your debut stop feeling new and start feeling established."
     ],
-    storyVisuals: [
-      "The details stay controlled, so the face and finish carry the whole shot without strain.",
-      "A soft glow moves across the frame, but the structure underneath keeps it from floating away.",
-      "Everything sits exactly where it should, from the texture to the line of the silhouette.",
-      "The light finds the right places and then stops, which keeps the whole image from feeling overworked.",
-      "There is enough softness to make it luminous and enough shape to keep it grounded.",
-      "The still stays refined without ever turning distant, and that is what makes it easy to return to.",
-      "Nothing in the image fights for space; it all gathers around the same center.",
-      "The beauty lands first, but what keeps you there is how calmly the whole frame holds together."
-    ],
-    storyStageLines: [
-      "The camera catches the light once, and from there the whole mood changes.",
-      "What could have felt posed ends up feeling chosen instead.",
-      "The angle looks too precise to be luck, but too easy to feel planned.",
-      "It plays like the still a teaser editor would hold for one beat longer than expected.",
-      "Nothing moves, yet the shot keeps tightening as if the room has shifted around it.",
-      "The frame carries itself with the kind of calm that usually shows up after the camera has already picked a favorite.",
-      "A different angle might have been pretty; this one knows what it is doing.",
-      "The timing is so clean the shot almost feels like it found itself."
-    ],
-    storyFandomLines: [
-      "People start with stunning, then keep reopening the post like that explained anything.",
-      "The first wave of reactions stays polished, but the second one sounds much less composed.",
-      "An edit account would pick this up fast and barely need a caption.",
-      "Somebody would try to be normal in the replies and fail by the third sentence.",
-      "The save-worthy comments would arrive before the bigger reactions did.",
-      "What starts as admiration turns into attachment without announcing the change.",
-      "The replies get quieter as they get more serious.",
-      "By the time anyone says they are obsessed, everyone else has already read it twice."
-    ],
-    storyCollectibleLines: [
-      "The photocard conversation would start before the first round of compliments was even finished.",
-      "This feels like the kind of image people save as inspiration and then quietly keep for themselves.",
-      "By the time the styling gets mentioned, someone is already imagining the collectible version.",
-      "The still looks like it belongs in a binder long before it becomes one.",
-      "People would start ranking the photocard in their heads before anything physical existed.",
-      "A frame this clean does not need help to feel collectible.",
-      "This would slip into the favorites folder under a respectable excuse and stay there anyway.",
-      "The pull here feels less like hype and more like inevitability."
-    ],
-    storyClosings: [
-      "It lands as elegance first and something harder to shake right after.",
-      "The beauty is immediate. The hold takes a moment longer to admit.",
-      "Nothing here raises its voice, and that only makes the aftereffect stronger.",
-      "What stays with people is not just how lovely it looks but how sure it feels.",
-      "The frame arrives polished and leaves with a little more power than that word can cover.",
-      "It is easy to admire. It is harder to stop returning to.",
-      "At first it feels graceful. Later it feels personal.",
-      "The still closes softly, but it does not leave softly."
+    collectibleOrSpreadLines: [
+      "Before the stage clips were even done circulating, people were already keeping that close-up on hand.",
+      "Replay behavior started with your debut close-up and never really came back down.",
+      "That first stage shot turned into the one people kept for later proof.",
+      "People started clipping your debut moment before the performance had fully finished doing its work.",
+      "The close-up got saved like it was already the part everyone would point back to later.",
+      "The first stage replay happened so quickly it made the rest of the reaction feel inevitable.",
+      "People held onto the debut close-up like it already explained the whole performance.",
+      "Your stage frame started circulating as the proof people wanted ready for later."
     ]
   },
-  ICE_QUEEN: {
-    storyHooks: [
-      "The shot arrives already settled, as if the room had been waiting for it to decide the mood.",
-      "Nothing reaches outward here; the stillness does the work before anyone speaks.",
-      "The first frame looks cold in the cleanest possible way, and suddenly everything around it feels less sharp.",
-      "One look in and the whole image starts closing its distance without giving anything away.",
-      "It does not ask for attention. It simply changes the air around the close-up.",
-      "The reveal comes in quiet, then leaves the rest of the room looking slightly off-balance.",
-      "There is no attempt to charm the viewer first, which is probably why the shot lands so hard.",
-      "From the first second, the frame feels like it has already made up its mind."
+  CONCERT_FANCAM: {
+    eventOpenings: [
+      "Your concert fancam found the exact second the crowd stopped sounding casual.",
+      "One concert clip started moving around, and suddenly your stage energy felt much harder to contain.",
+      "The fancam caught your moment cleanly enough that people started replaying it before the song was even over.",
+      "Your concert angle hit the timeline like the crowd had already chosen what to keep.",
+      "One circulating concert clip was enough to make your presence feel bigger than the whole edit around it.",
+      "The fancam picked up your moment mid-set and the reaction started spreading before the stage had finished.",
+      "Your concert clip landed with crowd noise behind it, and somehow that only made your frame feel more personal.",
+      "One handheld concert shot was enough to make people sound like they had been there even if they had not."
     ],
-    storyVisuals: [
-      "The styling stays sharp and spare, so the face card has to carry the whole cut on its own.",
-      "Every line feels deliberate, and that makes the still look even colder once your eye adjusts.",
-      "Nothing softens the frame for comfort; the image keeps its edges exactly where it wants them.",
-      "The cleaner choices leave the mood exposed, and the face has more than enough to do with that.",
-      "Everything is pared back until only the most dangerous parts of the shot remain.",
-      "The still looks precise without showing off about it, which somehow makes it worse.",
-      "A minimal frame can flatten fast. This one only gets sharper the longer you hold on it.",
-      "The visual stays controlled down to the edges, and that is where the bite comes from."
-    ],
-    storyStageLines: [
-      "The camera finds the angle and gives up on improving it.",
-      "One close-up is enough for the whole shot to lock into place.",
-      "The lighting does not flatter so much as agree.",
-      "There is something final about the angle, like a second take would only make it weaker.",
-      "The shot holds still and somehow keeps tightening anyway.",
-      "No extra movement shows up to help, and none is needed.",
-      "The frame feels like the exact second before the room remembers to breathe again.",
-      "Even the light seems to know better than to overdo it here."
-    ],
-    storyFandomLines: [
-      "The replies would get very short very fast: visual, center, face card, then nothing useful after that.",
-      "Someone would try to type a full reaction, delete it, and come back with one dangerous sentence instead.",
-      "The comments change tone the moment people realize the shot is not getting any softer on a second look.",
-      "Public composure would last exactly as long as it takes to hit save.",
-      "No one would need to overreact here; the still is already doing too much on its own.",
-      "The thread would fill with people pretending they are above it and proving otherwise line by line.",
-      "It is the kind of frame that turns casual viewers into very poor liars.",
-      "Respect comes first in the comments. Panic follows close behind."
-    ],
-    storyCollectibleLines: [
-      "A fancam thumbnail with this exact mood would start arguments nobody wins cleanly.",
-      "The photocard version feels less like merch and more like evidence someone was never going to recover.",
-      "This is the kind of screenshot people save once and keep returning to in private.",
-      "One proper close-up from this set and the pull value conversation starts immediately.",
-      "It already looks like the card people claim they would be normal about and clearly would not.",
-      "The collectible version does not need hype when the still already carries that much weight.",
-      "By the time anyone says photocard, half the room is already picturing the sleeve it goes into.",
-      "Some frames feel made to be printed. This one feels made to be guarded."
-    ],
-    storyClosings: [
-      "It never loses control, and that is exactly why the aftereffect feels worse.",
-      "The quiet frames are usually the ones that stay under the skin.",
-      "Nothing here asks for a reaction. It takes one and leaves with it.",
-      "The still holds its shape the whole time; the viewer does not get to.",
-      "What lands first is composure. What stays is something much harder to manage.",
-      "It ends the same way it began: calm, exact, and impossible to shake loose.",
-      "The frame barely moves, yet the damage keeps spreading after it is gone.",
-      "By the end, the room feels rearranged and the shot is still standing still."
+    collectibleOrSpreadLines: [
+      "The replay count climbed fast once that fancam moment started making the rounds.",
+      "People kept passing the concert clip around like they needed everyone else to see what they had just seen.",
+      "That fancam second got saved the way other people save proof.",
+      "The concert clip kept coming back in chats, folders, and rewatches long after the set moved on.",
+      "By the time the crowd noise faded out, your fancam moment was already the one people kept returning to.",
+      "The saved clip kept resurfacing like nobody had really finished reacting the first time.",
+      "People replayed the same concert second until the reaction stopped sounding accidental.",
+      "That one fancam stretch started living in rewatches almost immediately."
     ]
   },
-  COMEBACK_QUEEN: {
-    storyHooks: [
-      "The first frame does not feel like an introduction so much as the moment the era becomes real.",
-      "One still in, and suddenly the comeback already has a center of gravity.",
-      "Before the song even starts, the image has already raised the stakes around it.",
-      "This is the kind of reveal that makes the rest of the rollout feel like confirmation.",
-      "The opening shot lands with the certainty of something people will point back to later.",
-      "It hits like the second rumor turns into event.",
-      "The whole mood tightens the instant this frame appears.",
-      "What arrives first is not noise but scale; the still already feels larger than itself."
+  MUSIC_SHOW_CLOSEUP: {
+    eventOpenings: [
+      "Your music-show close-up hit during the ending shot and made the whole stage feel newly important.",
+      "The broadcast found your ending shot, and the reaction changed before the next camera cut could help.",
+      "One music-show close-up landed on screen and immediately stopped behaving like a throwaway ending frame.",
+      "Your broadcast close-up went by in a second, then kept living in everybody's head much longer than that.",
+      "The ending shot caught your face at exactly the wrong time for anyone trying to stay casual.",
+      "Your final broadcast frame slipped in right before the cut and somehow became the part nobody moved on from.",
+      "The music-show camera found you at the end, and that single second started doing more than the whole segment around it.",
+      "One ending close-up from the broadcast was enough to make the whole performance feel newly centered on you."
     ],
-    storyVisuals: [
-      "The styling comes in at full scale, but the face is still what owns the frame.",
-      "Everything hits with intent, from the silhouette to the expression, and none of it feels wasted.",
-      "There is enough drama here to fill a stage, yet the close-up keeps all of it under control.",
-      "The details go big, but the image never slips into noise because the center holds.",
-      "This is the kind of visual where the styling sets the size of the moment and the face decides whether it lands.",
-      "The frame looks built for impact, then the expression comes in and sharpens it.",
-      "A shot this large can collapse fast; this one keeps its footing all the way through.",
-      "The still carries stage weight without losing the person inside it."
-    ],
-    storyStageLines: [
-      "You can almost hear the crowd getting louder before anything has moved at all.",
-      "The camera does not just find the shot here; it locks onto the one people replay later.",
-      "The frame already feels like the second before the chorus drops and everyone knows trouble is coming.",
-      "Something about the angle makes the still feel bigger than a still should be allowed to feel.",
-      "The live stage starts to feel inevitable the moment this shot lands.",
-      "Even standing still, the frame carries the pressure of performance.",
-      "The camera treats this like the moment the whole teaser was trying to get to.",
-      "The shot arrives with enough force that motion almost feels optional."
-    ],
-    storyFandomLines: [
-      "The group chat would go to all caps before anyone had time to fake composure.",
-      "Someone would post the screenshot with no caption because the frame already did the talking.",
-      "The first reactions would sound dramatic and still somehow undersell it.",
-      "People would swear their bias is safe and then regret typing that instantly.",
-      "The comments stop being coherent very quickly once the close-up settles in.",
-      "Nobody would be emotionally prepared for the exact visual they had been asking for.",
-      "Half the fandom would be screaming, and the other half would be trying to act above it with no success.",
-      "This is the kind of frame that makes people quote it back to each other for weeks."
-    ],
-    storyCollectibleLines: [
-      "One fancam from this mood and people start speaking in screenshots instead of sentences.",
-      "By the time anyone mentions the photocard, the damage is already past the point of managing.",
-      "The collectible version feels like a rare pull before it even exists.",
-      "Fancam talk would start before the stage clip had finished buffering.",
-      "This is the kind of teaser image that makes people plan their saves before anything drops.",
-      "Within the first hour, the screenshot count would already prove the point for everyone.",
-      "The shot looks like it belongs in an era recap before the era has properly begun.",
-      "Some images become keepsakes later; this one arrives halfway there."
-    ],
-    storyClosings: [
-      "It lands like a comeback visual and lingers like proof that the era had already started.",
-      "Some frames get praise. This kind of frame changes the room.",
-      "Later on, people would point back to this and say that was the shift.",
-      "It hits like a reveal first and a problem right after.",
-      "This is not the kind of frame fandom moves on from quickly once replay enters the picture.",
-      "The stage may be next, but the trouble starts here.",
-      "What arrives as a teaser still leaves like a full era memory.",
-      "By the end of it, the frame is no longer just an image; it has become the moment."
+    collectibleOrSpreadLines: [
+      "The screenshot happened fast, like everyone knew the ending shot would be the thing they kept.",
+      "People were already saving the broadcast close-up before the stage captions caught up.",
+      "That ending shot turned into the screenshot people used when they wanted the whole point in one frame.",
+      "The broadcast clip kept getting paused at your close-up for reasons nobody really argued with.",
+      "Your music-show frame got kept the way certain ending shots always do: instantly and a little too personally.",
+      "The pause-and-save behavior started as soon as your ending shot hit the screen.",
+      "People treated the final broadcast frame like the screenshot had already been chosen for them.",
+      "Your close-up kept getting frozen at the same second until the post-show reaction started sounding personal."
     ]
   },
-  Y2K_POPSTAR: {
-    storyHooks: [
-      "The first frame hits bright and fast, like the edit already started somewhere outside the shot.",
-      "Before the clip can even load, the still has already decided it wants to be saved.",
-      "The reveal comes in playful, but there is nothing throwaway about the way it lands.",
-      "One look and the whole mood gets louder in the best possible way.",
-      "The frame feels like the exact second a teaser turns into a screenshot.",
-      "It arrives with enough color to hook you and enough shape to keep you there.",
-      "This is the kind of first still that makes the rest of the post feel like bonus material.",
-      "The image shows up already halfway to somebody's lockscreen."
+  PHOTOCARD_PULL: {
+    eventOpenings: [
+      "Your printed version showed up and suddenly people were acting like possession had entered the story.",
+      "The photocard pull landed, and the reaction got weirdly personal almost on contact.",
+      "One printed close-up of you was enough to change the whole mood from admiration to keeping.",
+      "The photocard version surfaced and immediately stopped feeling like something people could be normal about.",
+      "Your pulled card hit the light once, and the conversation stopped pretending it was just merch.",
+      "The printed version appeared and the reaction shifted from praise into people quietly wanting it for themselves.",
+      "Your card pull showed up like a small collector moment and instantly became something much less casual.",
+      "One printed frame of you was enough to make the whole conversation feel oddly possessive."
     ],
-    storyVisuals: [
-      "The styling stays playful, but the face keeps the whole shot from tipping into chaos.",
-      "Bright details hit first, then the frame proves it actually knows what it is doing.",
-      "Everything feels fun on impact and somehow cleaner on the second look.",
-      "Color, shape, and timing line up here in a way that makes the whole still feel alive.",
-      "Nothing in the styling is shy, but the visual still knows exactly where to stop.",
-      "The playful choices pull you in fast, and the stronger features make sure the shot sticks.",
-      "A frame this busy should fall apart; instead it clicks into place.",
-      "The image looks sugar-bright at first, then the polish underneath catches up."
+    collectibleOrSpreadLines: [
+      "People were already talking like your card would never stay in stock for long.",
+      "The keeping instinct showed up fast once the printed version made the problem feel real.",
+      "That pull turned into the one people imagined holding onto before they had even seen it twice.",
+      "The card got treated less like an item and more like something people would quietly guard.",
+      "Before long, your printed version had become the one people were clearly planning around.",
+      "People started talking about the pull like they were already losing out on it.",
+      "The card slipped into must-keep territory almost immediately.",
+      "Once the printed version appeared, the reaction started sounding a lot less casual and a lot more possessive."
+    ]
+  },
+  VIRAL_EDIT: {
+    eventOpenings: [
+      "Your frame started spreading through edits before anybody had a clean explanation ready.",
+      "One reposted edit found your face and the clip stopped belonging only to the original post.",
+      "Your viral frame started circulating like people had already agreed it was the part to keep.",
+      "The edit-account version of your moment got out early and changed the scale of the reaction with it.",
+      "Your face hit one good repost and the whole thing started moving faster than the caption could.",
+      "The first repost picked up your frame and suddenly it was everywhere people save the good parts.",
+      "Your moment got clipped into a viral edit and the reaction started outrunning the original post.",
+      "One spread-out edit was enough to make your frame feel like shared property on the timeline."
     ],
-    storyStageLines: [
-      "The camera catches the chaos in the right order and suddenly it looks effortless.",
-      "Even standing still, the frame already feels in motion.",
-      "The angle lands like something an edit account would pick before the song even starts.",
-      "One close-up like this and you can already see the sparkle overlays forming in somebody's head.",
-      "The shot feels a little unruly in the best way, like the camera knew exactly how much to keep.",
-      "It does not need movement to feel like it already has momentum.",
-      "The still holds just enough mess to feel alive and just enough control to stay sharp.",
-      "Everything in the frame seems one beat ahead of where it should be, and that is why it works."
+    collectibleOrSpreadLines: [
+      "The reposts started fast, and your frame kept looking like the reason people were opening the post again.",
+      "People were already cropping around your moment like the edit had only confirmed what they wanted to keep.",
+      "That one spread-out frame kept showing up in saves, shares, and somebody else's version of the story.",
+      "The viral clip made your frame feel pre-saved, like the internet had already decided to keep it.",
+      "By the time the edit settled, your moment had already become the one people passed around.",
+      "Your frame kept showing up in reposts like the internet had chosen it before anyone said so out loud.",
+      "People started keeping the edited version close while pretending it was just for the crop.",
+      "The spread happened quickly enough that your moment felt familiar before it had time to get old."
+    ]
+  },
+  LOCKSCREEN_SAVE: {
+    eventOpenings: [
+      "Your image had the exact kind of hold that makes a lockscreen decision happen too early.",
+      "The camera-roll version of your frame started feeling real before anyone was ready to admit it.",
+      "One look at your image and people were already acting like they knew where it would end up on their phone.",
+      "Your frame showed up with the kind of pull that usually ends in a screenshot nobody deletes.",
+      "The save happened so fast it barely left room for people to pretend it was casual.",
+      "Your frame landed like the kind of image people pretend is temporary on their phone and never actually move on from.",
+      "The first reaction had barely finished when your image was already behaving like somebody's next lockscreen.",
+      "One glance at your frame and the camera-roll instinct kicked in before the comments caught up."
     ],
-    storyFandomLines: [
-      "The group chat would turn this into edits before the hour was done.",
-      "Somebody would call it lockscreen material and the room would move on like that was obvious.",
-      "The reaction order would be immediate: screenshot first, feelings later.",
-      "People would stop using full sentences and start speaking in reaction images instead.",
-      "Nobody keeps a normal tone for long when the shot is this fun to look at.",
-      "The comments stay playful, but the speed of the saving tells the real story.",
-      "Half the replies would be heart eyes and the rest would be people denying how much they love it.",
-      "The mood in the comments would flip from cute to obsessed before anyone noticed it happening."
-    ],
-    storyCollectibleLines: [
-      "This is the kind of image that ends up in the screenshots, the edits, and the lockscreen rotation all at once.",
-      "One teaser still like this and the screenshot count starts climbing immediately.",
-      "The photocard version would be the one people swear they are normal about while proving the opposite.",
-      "It already looks like something that would get printed, sleeved, and shown off before the day ends.",
-      "The collectible talk starts fast because the frame already feels halfway there.",
-      "By the time someone says they only saved it for the vibe, nobody believes them anymore.",
-      "Some shots feel made for replay. This one feels made to be kept.",
-      "The still looks like it belongs to three different folders before the post is even over."
-    ],
-    storyClosings: [
-      "It feels playful first and then, almost rudely, becomes hard to skip.",
-      "The fun lands on contact. The hold shows up a second later.",
-      "What starts as a bright little rush turns into the shot people keep coming back for.",
-      "It looks like the easy one at first, then ends up being the one that sticks.",
-      "The whole frame feels built for edits, screenshots, and accidental attachment.",
-      "It arrives loud, but the reason it lasts is much quieter than that.",
-      "By the end, the shot is no longer just fun; it has settled in.",
-      "The brightness is what hooks people. The replay is what keeps them there."
+    collectibleOrSpreadLines: [
+      "Your frame kept slipping toward lockscreen status while people were still calling it a casual save.",
+      "The camera roll made room for your image before the comments had finished with it.",
+      "People kept your frame close in the way they usually save for things they do not plan to outgrow.",
+      "The screenshot turned into a keep-this file almost immediately.",
+      "What started as one save kept behaving like the image people wanted within reach.",
+      "People started acting like your frame belonged on the front page of their phone before they had a good reason ready.",
+      "The save happened quickly, then settled into the kind of keep-close habit nobody talks around honestly.",
+      "Your image made its way into camera rolls with the sort of certainty people usually pretend is accidental."
     ]
   }
 };
 
-export const resultCardTextByTone = {
+export const toneStoryPools = {
+  FIRST_LOVE: {
+    attentionShiftLines: [
+      "The closer people looked, the less it felt like styling and the more it felt like they had caught the exact version of you they were supposed to remember.",
+      "Nothing pushed too hard in the shot, so the attention kept sliding back to your face and staying there.",
+      "The frame stayed light, but your expression kept making it feel more personal than anyone planned on.",
+      "What should have read as a quick pretty look kept turning into a close-up people sat with longer than they meant to.",
+      "The softness held, but the center of the image kept getting more specific the longer anyone stared at it.",
+      "People went in for the mood and ended up fixed on the part of the shot that looked unmistakably yours.",
+      "The details stayed delicate, but the eye kept landing on you like the rest of the frame had already done its job.",
+      "It never got louder than it needed to; it just made your face the only part anyone could follow."
+    ],
+    fandomEscalationLines: [
+      "The comments started polite, then somebody admitted they had already come back three times.",
+      "People tried to keep the replies light, but the tone shifted the second someone called it first-bias behavior.",
+      "At first everyone sounded normal. A few replies later they were clearly talking like this meant something.",
+      "Nobody overreacted right away; they just kept reopening the post until the comments got more honest.",
+      "The thread stayed sweet for a minute, then turned into people admitting they had stayed longer than they meant to.",
+      "One person called it harmless and the rest of the comments quietly proved otherwise.",
+      "The reaction never got loud. It just got personal, very fast.",
+      "People started with compliments and ended up sounding like they had taken it a little too personally."
+    ],
+    identityClosings: [
+      "By the time the moment passed, it no longer felt like a result image. It felt like the start of the version of you people would get attached to first.",
+      "After that, the frame stopped reading as just pretty and started reading like the start of a first-bias story.",
+      "When the moment cooled down, what stayed was the feeling that this was the frame people would use when they talked about where your idol version really began.",
+      "It left behind the kind of quiet evidence that turns one saved image into the way people remember your idol version.",
+      "By the end, the softness was still there, but so was the feeling that your idol version had already become real to other people.",
+      "Later, this would be the still people point to when they swear that was the moment you became personal.",
+      "It finished softly, but the aftermath felt like your name had already settled into somebody's bias list.",
+      "After one moment like this, the idol version of you stops sounding hypothetical."
+    ]
+  },
+  SOFT_GLAM: {
+    attentionShiftLines: [
+      "The light held where it needed to, but the part people kept returning to was how fully your face anchored the whole image.",
+      "Nothing in the frame overreached, which made the attention settle on you with almost no resistance.",
+      "The shot stayed controlled, and somehow that only made the close-up feel more personal.",
+      "People came for the glow, then realized they were staying for you specifically.",
+      "Every detail sat in place so neatly that the eye had nowhere to go except back to your expression.",
+      "The styling made the image easy to praise, but your face is what made people keep hovering there.",
+      "The close-up never chased attention; it just kept collecting it anyway.",
+      "What looked smooth at first kept turning into a frame that felt strangely final around you."
+    ],
+    fandomEscalationLines: [
+      "The comments started with stunning and quickly drifted into people sounding much more affected than they meant to.",
+      "At first the replies were all visual praise, then the same people kept coming back sounding less composed each time.",
+      "Nobody said much at first beyond beautiful, which made the second round of reactions tell on them.",
+      "The thread stayed elegant for about thirty seconds before people started admitting they had reopened your close-up again.",
+      "A few replies tried to keep it tasteful, then somebody wrote save this immediately and the tone changed for good.",
+      "People began with compliments and ended up sounding much more invested than that should have required.",
+      "The reaction looked polished on the surface, but the repeat views made the real story obvious.",
+      "By the time someone said they were overreacting, they had already reopened it again."
+    ],
+    identityClosings: [
+      "By the end, it was no longer just a beautiful result. It had become the version of you people return to when they want proof something shifted.",
+      "What lingered was the sense that your idol version had gotten under people's guard.",
+      "After that, your polished side stopped feeling decorative and started feeling like the version people believed in first.",
+      "The moment closed, but it left behind the kind of evidence people attach to the version of you that changed the mood.",
+      "It finished as elegance and stayed behind as the version people could not quite leave alone.",
+      "By then, the frame had already done its real job: it made your idol version feel settled and believable.",
+      "Later, this is the version people reopen when they want the one that still works on them.",
+      "It leaves the feeling that your idol identity did not just appear here. It quietly locked in."
+    ]
+  },
+  ICE_QUEEN: {
+    attentionShiftLines: [
+      "The shot gave the eye nowhere safe to wander, so it kept coming back to you and finding the same answer.",
+      "Everything unnecessary had been stripped away, which made your face feel less like part of the image and more like the ruling fact of it.",
+      "The angle cornered attention fast, then made a second look feel like a worse idea in the best way.",
+      "The visual stayed exact enough that every softer detail around it stopped mattering.",
+      "Nothing in the frame tried to soften the effect, and that is why your presence landed so cleanly.",
+      "The closer people looked, the more the image felt arranged around your expression rather than the other way around.",
+      "The styling kept out of the way, leaving your close-up to do the part nobody could talk around.",
+      "The frame held still, but your face kept making the whole mood feel more decided."
+    ],
+    fandomEscalationLines: [
+      "The comments did not explode. They thinned out into shorter, stranger reactions.",
+      "People tried to write full reactions, deleted half of them, and came back with one line instead.",
+      "Publicly, everyone sounded composed. Privately, nobody was doing that well.",
+      "The thread filled with people acting normal in public and clearly failing somewhere offscreen.",
+      "Nobody needed to overreact; the second look was already doing enough damage quietly.",
+      "The first replies were respectful. The next ones sounded like vocabulary had become a limited resource.",
+      "The more the moment sat there, the less language the comments seemed to have for it.",
+      "One calm message would appear, then every reply after that would sound a little less believable."
+    ],
+    identityClosings: [
+      "By the end, it no longer felt like a result. It felt like proof that your idol version could change a room without raising its voice.",
+      "What stayed behind was not noise but certainty: this was the frame people would remember when they talked about your coldest era.",
+      "After that, your idol version felt less like a concept and more like something settled in place for good.",
+      "The moment ended, but the silence around your frame kept doing the work.",
+      "It left behind the kind of evidence people revisit when they want to remember exactly when your image turned untouchable.",
+      "By then, your close-up had already become the version of you people fail to explain and keep anyway.",
+      "The aftermath was simple: the frame held still, and your idol identity did not need to move to become unmistakable.",
+      "Later, this would be the still people reopen when they want to feel the room change again."
+    ]
+  },
+  COMEBACK_QUEEN: {
+    attentionShiftLines: [
+      "The shot scaled up around you so fast that the rest of the styling started reading like support material.",
+      "Everything in the frame pushed in the same direction, and it all ended with your face holding the center of the pressure.",
+      "The close-up carried enough stage weight to make a still image feel like part of the performance already.",
+      "Nothing looked wasted in the frame; every detail kept steering the eye back to you like the chorus had already started.",
+      "The image felt built for a larger moment, but your expression is what made it land as one.",
+      "The frame opened wide, then kept narrowing toward you until the whole moment felt personal and huge at once.",
+      "Even before motion, the shot treated you like the part the crowd was waiting for.",
+      "What made the image feel large was not the styling alone; it was the way everything kept resolving into your face."
+    ],
+    fandomEscalationLines: [
+      "The comments jumped from hype to something closer to alarm almost immediately.",
+      "People started typing like the era had officially begun and nobody was really exaggerating.",
+      "One screenshot hit the thread and the replies started sounding like damage control.",
+      "The first reactions were loud, then the louder ones showed up right after.",
+      "Nobody sounded calm for long once the still made its way through the timeline.",
+      "The thread turned into instant proof that everyone had underestimated the scale of your frame.",
+      "People kept pretending their bias was safe, then deleted that idea in real time.",
+      "By the second wave of replies, the whole comment section was talking like the comeback had already claimed them."
+    ],
+    identityClosings: [
+      "By the end, it felt less like a result card and more like the frame your idol era would be measured against.",
+      "What stayed behind was the sense that your idol version had already arrived carrying consequences.",
+      "After that, the comeback stopped sounding like anticipation and started sounding like your name attached to it.",
+      "The moment closed, but your frame kept deciding the scale of everything that came after it.",
+      "Later, this is the still people would use when they wanted proof of when your era actually started.",
+      "The aftermath felt simple: once your close-up landed, the rollout stopped feeling smaller than you.",
+      "By then, the frame had already promoted itself into evidence of your main-stage version.",
+      "It leaves behind the kind of proof that makes everything after it feel like confirmation."
+    ]
+  },
+  Y2K_POPSTAR: {
+    attentionShiftLines: [
+      "The bright details pulled people in, but the part that kept them there was how cleanly the whole shot kept landing on you.",
+      "Nothing in the frame was shy, yet your face kept the whole image from turning into noise.",
+      "The closer people looked, the more the playful styling started feeling like a way into your close-up.",
+      "The image stayed lively, but the attention kept circling back to you like the rest had already done its job.",
+      "The color hit first, then your face made the whole post feel worth staying in.",
+      "The shot looked fun on impact, then kept getting more specific around you on the second look.",
+      "Everything clicked into place fast enough to feel easy, which made it harder to forget.",
+      "The frame had plenty going on, but it still made your face feel like the one part people remembered clearly."
+    ],
+    fandomEscalationLines: [
+      "People saved it fast and only started justifying it after.",
+      "The replies stayed playful, but the attachment was obvious by the second round.",
+      "Someone joked about making it the lockscreen and half the replies got a little too quiet after that.",
+      "The comments started cute and ended with people sounding much more invested than planned.",
+      "Nobody made a big dramatic scene; they just kept claiming they saved it casually and nobody believed that.",
+      "The thread filled with people acting light about it while clearly coming back again.",
+      "On the surface, everybody sounded casual. The repeat saves said otherwise.",
+      "By the time someone said it was just for the vibe, the post had already become personal."
+    ],
+    identityClosings: [
+      "By the time the moment cooled off, it felt less like a result and more like the frame people would remember your idol version through.",
+      "What stayed behind was the sense that your idol version had quietly taken over everyone's camera roll.",
+      "After that, the image stopped reading as just playful and started reading as the frame people kept close.",
+      "The moment cooled off, but this was clearly the frame people kept.",
+      "Later, this would be the still people use when they want the proof that your fun side hits harder than expected.",
+      "By then, the frame had already done the real work of making your idol version feel easy to claim and hard to put down.",
+      "It leaves behind the feeling that your brightest frame is also the one people get attached to fastest.",
+      "Once a still like this shows up, your idol identity starts living a little too comfortably in other people's saves."
+    ]
+  }
+};export const resultCardTextByTone = {
   FIRST_LOVE: {
     tone: "FIRST_LOVE",
-    headlines: ultraShortVerdictHeadlines,
-    titles: ["Soft Debut Aura","First Bias Energy","Save-Worthy Visual","Sweet Center Mood","Youthful Stage Darling","Clean Idol Glow","Soft Legend Starter","Dreamy Visual Pull","Heart-Stealer Mode","Camera-Loves-You Energy"],
-    ...storyPools.FIRST_LOVE,
-    fanReactions: ["Save-worthy on sight.","The camera loves you.","Soft launch, big impact.","First-bias material.","The photocard panic starts here.","Face card, no notes.","This belongs in a teaser.","Bias wrecker in soft focus.","Main character, but gentle.","Replay value is rude."]
+    headlines: headlinePools.FIRST_LOVE,
+    titles: ["First Bias Energy","Save-Worthy Center","Soft Debut Pull","Soft Camera Pick","Sweet Center Mood","Soft Focus Favorite","Quiet Bias Shift","Debut Day Pull","Saved Too Fast","Gentle Center Pull"],
+    ...toneStoryPools.FIRST_LOVE,
+    fanReactions: ["One screenshot and its over.","The camera loves you.","First-bias material.","This one got personal.","Saved before thinking.","Too gentle to scroll past.","The comments changed fast.","That frame stayed with me.","The photocard panic starts here.","Nobody stayed normal."]
   },
   SOFT_GLAM: {
     tone: "SOFT_GLAM",
-    headlines: ultraShortVerdictHeadlines,
-    titles: ["Graceful Stage Aura","Soft Glam Icon","Visual Royalty Mode","Polished Face Card","Luxury Mood Holder","Luminous Center Energy","Refined Bias Wrecker","Main Character Grace","Pearl Glow Visual","Elegant Viral Pull"],
-    ...storyPools.SOFT_GLAM,
-    fanReactions: ["This looks expensive.","Visual royalty, easily.","Save this immediately.","Graceful and dangerous.","The camera picked a favorite.","Photocard value is unreal.","Too polished to lose.","This would do numbers.","Aura with receipts.","Face card in silk gloves."]
+    headlines: headlinePools.SOFT_GLAM,
+    titles: ["Visual Royalty","Luminous Center","Stayed in Focus","Soft Glam Favorite","Grace in Focus","Velvet Visual","Camera Favorite","Gloss and Glow","Soft Glam Pull","Center in Focus"],
+    ...toneStoryPools.SOFT_GLAM,
+    fanReactions: ["The camera picked a favorite.","Save this immediately.","That still is trouble.","Nobody stayed normal.","Graceful, then dangerous.","This already looks edited.","One save was never enough.","The comments changed tone.","Too polished to scroll.","That face won quietly."]
   },
   ICE_QUEEN: {
     tone: "ICE_QUEEN",
-    headlines: ultraShortVerdictHeadlines,
-    titles: ["Ice Queen Mode","Face Card Authority","Cool Visual Command","Monochrome Main Character","Sharp Aura Index","Editorial Stage Pull","Untouchable Visual","Camera Magnet Energy","Precision Face Card","High-Fashion Aura"],
-    ...storyPools.ICE_QUEEN,
-    fanReactions: ["The face card is enough.","Aura too strong.","Cold visual, bad for me.","This frame is dangerous.","The camera already picked a favorite.","Minimal look, max impact.","This would wreck biases.","That stare did enough.","Edit favorite, easily.","Untouchable in 4K."]
+    headlines: headlinePools.ICE_QUEEN,
+    titles: ["Center Aura","Cold Visual","Face Card Warning","Silent Damage","Clean-Cut Threat","Frozen Favorite","Sharp Close-Up","Quiet Threat","Ice Visual","No-Words Frame"],
+    ...toneStoryPools.ICE_QUEEN,
+    fanReactions: ["That frame is dangerous.","The camera already picked a favorite.","Cold visual, bad for me.","One look was enough.","That stare did enough.","Nobody stayed composed.","Visual too severe.","Saved in silence.","No one had words.","The room shifted first."]
   },
   COMEBACK_QUEEN: {
     tone: "COMEBACK_QUEEN",
-    headlines: ultraShortVerdictHeadlines,
-    titles: ["Comeback Queen","Era-Defining Visual","Legendary Stage Energy","Killing Part Aura","Visual Takeover Mode","Main Stage Authority","Impact Queen","Center Shockwave","Fancam Magnet Level","Stage Command Tier"],
-    ...storyPools.COMEBACK_QUEEN,
-    fanReactions: ["The era starts here.","Main stage behavior.","This frame did numbers.","Killing part in photo form.","Center aura on lock.","Fancam thumbnail certified.","Comeback queen confirmed.","Replay value is insane.","Every edit needs this.","This belongs in the teaser."]
+    headlines: headlinePools.COMEBACK_QUEEN,
+    titles: ["Era Starter","Stage Takeover","Comeback Pressure","Visual Detonation","Main Stage Pull","Killing Part","Era Shift","Center Takeover","Teaser Trouble","Stage Alarm"],
+    ...toneStoryPools.COMEBACK_QUEEN,
+    fanReactions: ["The era starts here.","Main stage behavior.","That frame changed the room.","Killing part in photo form.","Nobody was ready for that.","This belongs in the teaser.","That frame was the thumbnail.","One screenshot and its over.","The comments broke first.","That close-up did damage."]
   },
   Y2K_POPSTAR: {
     tone: "Y2K_POPSTAR",
-    headlines: ultraShortVerdictHeadlines,
-    titles: ["Y2K Popstar","Viral Visual Alert","Photocard Candy Mode","Trend Magnet Energy","Playful Main Character","Color Pop Aura","Bratty-Cute Bias Wrecker","Pop-Girl Face Card","Stage Sprite Mode","Screenshot Bait"],
-    ...storyPools.Y2K_POPSTAR,
-    fanReactions: ["This would break TikTok.","Too cute to scroll.","This frame is pure fun.","Bias wrecker with glitter.","Main character behavior.","Save-worthy and loud.","Edit folder material.","This belongs on a lockscreen.","The camera had fun here.","Replay this immediately."]
+    headlines: headlinePools.Y2K_POPSTAR,
+    titles: ["Trend Magnet","Close-Up Keeper","Camera Roll Favorite","Main Pop Girl","Playful Main Character","Screenshot Favorite","Lockscreen Pull","Pop Girl Center","Replay Magnet","Too Cute Center"],
+    ...toneStoryPools.Y2K_POPSTAR,
+    fanReactions: ["Too cute to scroll.","This already looks edited.","Saved before loading.","The camera had fun here.","That shot is trouble.","The save happened first.","This went straight to saves.","That one stayed open.","Cute, then dangerous.","Already in my camera roll."]
   }
 };
+
+
