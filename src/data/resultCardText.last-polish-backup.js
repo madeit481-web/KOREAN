@@ -82,7 +82,7 @@ export const storyScenes = [
 export const sceneStoryPools = {
   TEASER_DROP: {
     eventOpenings: [
-      "Your teaser dropped into the feed looking small enough to skim, and then nobody treated it that way.",
+      "Your teaser dropped into the feed looking manageable, and then nobody really kept it there.",
       "The preview still went up, and the mood shifted before anybody had a proper caption ready.",
       "Your teaser post went up quietly, and the reaction refused to stay that way.",
       "A single teaser frame showed up, and people started treating the release like it had already begun.",
@@ -129,7 +129,7 @@ export const sceneStoryPools = {
       "Your concert fancam found the exact second the crowd stopped sounding casual.",
       "One concert clip started moving around, and suddenly your stage energy felt much harder to contain.",
       "The fancam caught your moment cleanly enough that people started replaying it before the song was even over.",
-      "Your concert angle became the clip people passed around like the crowd had already settled it.",
+      "Your concert angle was the clip people passed around as if the crowd had chosen it for them.",
       "One circulating concert clip was enough to make your presence feel bigger than the whole edit around it.",
       "The fancam picked up your moment mid-set and the reaction started spreading before the stage had finished.",
       "Your concert clip landed with crowd noise behind it, and somehow that only made your frame feel more personal.",
@@ -238,7 +238,7 @@ export const sceneStoryPools = {
     eventOpenings: [
       "Your image had the exact kind of hold that makes a lockscreen decision happen too early.",
       "The camera-roll version of your frame started feeling real before anyone was ready to admit it.",
-      "One look at your image and people were already treating it like it had a place on their phone.",
+      "One look at your image and people were already acting like they knew where it would end up on their phone.",
       "Your frame showed up with the kind of pull that usually ends in a screenshot nobody deletes.",
       "The save happened so fast it barely left room for people to pretend it was casual.",
       "Your frame landed like the kind of image people pretend is temporary on their phone and never actually move on from.",
@@ -313,9 +313,9 @@ export const toneStoryPools = {
       "By the time someone said they were overreacting, they had already reopened it again."
     ],
     identityClosings: [
-      "By the end, it was no longer just beautiful. It was the one people kept finding their way back to.",
+      "By the end, it was no longer just beautiful. It was the version of you people kept returning to.",
       "What lingered was the sense that your idol version had gotten under people's guard.",
-      "After that, your polished side stopped feeling decorative and started feeling strangely dependable.",
+      "After that, your polished side stopped feeling ornamental and started feeling like the one people trusted first.",
       "The moment closed, but it left behind the kind of evidence people attach to the version of you that changed the mood.",
       "It finished as elegance and stayed behind as the version people could not quite leave alone.",
       "By then, the frame had already done its real job: it made your idol version feel settled and believable.",
@@ -370,7 +370,7 @@ export const toneStoryPools = {
       "The comments jumped from hype to something closer to alarm almost immediately.",
       "People started typing like the era had officially begun and nobody was really exaggerating.",
       "One screenshot reached the thread, and the whole reaction tilted almost instantly.",
-      "The first reactions came in fast, and the next round sounded even less contained.",
+      "The first reactions were loud, then the louder ones showed up right after.",
       "Nobody sounded calm for long once the still made its way through the timeline.",
       "The thread turned into instant proof that everyone had underestimated the scale of your frame.",
       "People kept pretending their bias was safe, then deleted that idea in real time.",
@@ -384,7 +384,7 @@ export const toneStoryPools = {
       "Later, this is the still people would reach for when they talked about where your era really began.",
       "Once that close-up landed, everything after it had to scale up around you.",
       "By then, the frame was already doing the job people usually leave to the stage.",
-      "After that, everything else just made the shift harder to argue with."
+      "After that, the rest only made the point feel more real."
     ]
   },
   Y2K_POPSTAR: {
@@ -402,7 +402,7 @@ export const toneStoryPools = {
       "The save happened before anyone had a story ready for it.",
       "The replies kept joking for a minute, and then it was obvious people were attached.",
       "Someone joked about making it the lockscreen and half the replies got a little too quiet after that.",
-      "The comments started playful, then gave away how attached people had gotten.",
+      "The comments started cute and ended with people sounding much more invested than planned.",
       "Nobody got loud about it; they just kept pretending the save was casual.",
       "The thread filled with people acting light about it while clearly coming back again.",
       "On the surface, everybody sounded casual. The repeat saves said otherwise.",

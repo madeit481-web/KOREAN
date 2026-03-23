@@ -82,10 +82,10 @@ export const storyScenes = [
 export const sceneStoryPools = {
   TEASER_DROP: {
     eventOpenings: [
-      "Your teaser dropped into the feed looking small enough to skim, and then nobody treated it that way.",
+      "Your teaser dropped and the first replies came in like people expected to stay normal about it.",
       "The preview still went up, and the mood shifted before anybody had a proper caption ready.",
       "Your teaser post went up quietly, and the reaction refused to stay that way.",
-      "A single teaser frame showed up, and people started treating the release like it had already begun.",
+      "One teaser frame hit the timeline and suddenly people were treating the release like it had already started.",
       "The first reveal landed, and the post stopped behaving like something casual right away.",
       "Your teaser went up and people clicked in expecting one pretty frame, then stayed long enough for the mood to change.",
       "The first reveal arrived like a small update, then started pulling a much bigger reaction behind it.",
@@ -104,7 +104,7 @@ export const sceneStoryPools = {
   },
   DEBUT_STAGE: {
     eventOpenings: [
-      "Your debut stage found one close-up and the whole performance started taking its shape from there.",
+      "Your debut stage hit one close-up and the whole performance started feeling bigger around it.",
       "The first stage camera found you early, and that was enough to change the temperature of the set.",
       "Your debut close-up landed before the song had fully settled, and people reacted like they had just been given the real introduction.",
       "One shot from your first stage made everything after it feel less theoretical.",
@@ -129,7 +129,7 @@ export const sceneStoryPools = {
       "Your concert fancam found the exact second the crowd stopped sounding casual.",
       "One concert clip started moving around, and suddenly your stage energy felt much harder to contain.",
       "The fancam caught your moment cleanly enough that people started replaying it before the song was even over.",
-      "Your concert angle became the clip people passed around like the crowd had already settled it.",
+      "Your concert angle hit the timeline like the crowd had already chosen what to keep.",
       "One circulating concert clip was enough to make your presence feel bigger than the whole edit around it.",
       "The fancam picked up your moment mid-set and the reaction started spreading before the stage had finished.",
       "Your concert clip landed with crowd noise behind it, and somehow that only made your frame feel more personal.",
@@ -181,7 +181,7 @@ export const sceneStoryPools = {
     ],
     collectibleOrSpreadLines: [
       "The final screenshot happened instantly, like the last shot had already chosen itself.",
-      "People kept the ending frame like it was the part that let the whole performance stay with them.",
+      "People kept the ending frame the way they keep the one image that explains the whole performance.",
       "Your last shot started living in saves before the stage had even cleared off the screen.",
       "The replay usually starts at the ending shot when people already know what they came back for.",
       "That closing frame turned into the screenshot people sent when they wanted the whole point at once.",
@@ -238,7 +238,7 @@ export const sceneStoryPools = {
     eventOpenings: [
       "Your image had the exact kind of hold that makes a lockscreen decision happen too early.",
       "The camera-roll version of your frame started feeling real before anyone was ready to admit it.",
-      "One look at your image and people were already treating it like it had a place on their phone.",
+      "One look at your image and people were already acting like they knew where it would end up on their phone.",
       "Your frame showed up with the kind of pull that usually ends in a screenshot nobody deletes.",
       "The save happened so fast it barely left room for people to pretend it was casual.",
       "Your frame landed like the kind of image people pretend is temporary on their phone and never actually move on from.",
@@ -283,8 +283,8 @@ export const toneStoryPools = {
     identityClosings: [
       "By the time the moment passed, it no longer felt like a result image. It felt like the start of the version of you people would get attached to first.",
       "After that, the frame stopped reading as just pretty and started reading like the start of a first-bias story.",
-      "When the moment cooled down, this was the frame people kept returning to when they talked about where it started.",
-      "It stayed behind the way certain saved images do, until people started remembering you through it.",
+      "When the moment cooled down, what stayed was the feeling that this was the frame people would use when they talked about where your idol version really began.",
+      "It left behind the kind of quiet evidence that turns one saved image into the way people remember your idol version.",
       "By the end, the softness was still there, but so was the feeling that your idol version had already become real to other people.",
       "Later, this would be the still people point to when they swear that was the moment you became personal.",
       "It finished softly, but the aftermath felt like your name had already settled into somebody's bias list.",
@@ -303,19 +303,19 @@ export const toneStoryPools = {
       "What looked smooth at first kept turning into a frame that felt strangely final around you."
     ],
     fandomEscalationLines: [
-      "The first compliments stayed polished, then the replies got much more revealing.",
+      "The comments started with stunning and quickly drifted into people sounding much more affected than they meant to.",
       "At first the replies were all visual praise, then the same people kept coming back sounding less composed each time.",
       "The first replies stayed very polite, which only made the second round more revealing.",
       "The thread stayed elegant for about thirty seconds before people started admitting they had reopened your close-up again.",
-      "A few replies tried to keep it tasteful, then somebody said that close-up was staying, and the tone changed for good.",
+      "A few replies tried to keep it tasteful, then somebody wrote save this immediately and the tone changed for good.",
       "People began with compliments and ended up sounding much more invested than that should have required.",
       "The reaction looked polished on the surface, but the repeat views made the real story obvious.",
       "By the time someone said they were overreacting, they had already reopened it again."
     ],
     identityClosings: [
-      "By the end, it was no longer just beautiful. It was the one people kept finding their way back to.",
+      "By the end, it was no longer just beautiful. It was the version of you people kept returning to.",
       "What lingered was the sense that your idol version had gotten under people's guard.",
-      "After that, your polished side stopped feeling decorative and started feeling strangely dependable.",
+      "After that, your polished side stopped feeling ornamental and started feeling like the one people trusted first.",
       "The moment closed, but it left behind the kind of evidence people attach to the version of you that changed the mood.",
       "It finished as elegance and stayed behind as the version people could not quite leave alone.",
       "By then, the frame had already done its real job: it made your idol version feel settled and believable.",
@@ -357,7 +357,7 @@ export const toneStoryPools = {
   },
   COMEBACK_QUEEN: {
     attentionShiftLines: [
-      "The frame opened wide, and then everything in it started pointing back to you.",
+      "The shot scaled up around you so fast that the rest of the styling started reading like support material.",
       "Everything in the frame pushed in the same direction, and it all ended with your face holding the center of the pressure.",
       "The close-up carried enough stage weight to make a still image feel like part of the performance already.",
       "Nothing looked wasted in the frame; every detail kept steering the eye back to you like the chorus had already started.",
@@ -369,8 +369,8 @@ export const toneStoryPools = {
     fandomEscalationLines: [
       "The comments jumped from hype to something closer to alarm almost immediately.",
       "People started typing like the era had officially begun and nobody was really exaggerating.",
-      "One screenshot reached the thread, and the whole reaction tilted almost instantly.",
-      "The first reactions came in fast, and the next round sounded even less contained.",
+      "One screenshot reached the thread, and the whole reaction tightened almost immediately.",
+      "The first reactions were loud, then the louder ones showed up right after.",
       "Nobody sounded calm for long once the still made its way through the timeline.",
       "The thread turned into instant proof that everyone had underestimated the scale of your frame.",
       "People kept pretending their bias was safe, then deleted that idea in real time.",
@@ -378,43 +378,43 @@ export const toneStoryPools = {
     ],
     identityClosings: [
       "By the end, it felt less like a result card and more like the frame your idol era would be measured against.",
-      "After that, people talked about the moment like it had already changed what came next.",
+      "What stayed behind was the sense that your idol version had already arrived carrying consequences.",
       "After that, the comeback stopped sounding like anticipation and started sounding like your name attached to it.",
       "The moment closed, but your frame kept deciding the scale of everything that came after it.",
-      "Later, this is the still people would reach for when they talked about where your era really began.",
+      "Later, this is the still people would use when they wanted proof of when your era actually started.",
       "Once that close-up landed, everything after it had to scale up around you.",
       "By then, the frame was already doing the job people usually leave to the stage.",
-      "After that, everything else just made the shift harder to argue with."
+      "After that, the rest only made the point feel more real."
     ]
   },
   Y2K_POPSTAR: {
     attentionShiftLines: [
-      "The brighter details hit first, but the second look kept ending with you.",
+      "The bright details pulled people in, but the part that kept them there was how cleanly the whole shot kept landing on you.",
       "Nothing in the frame was shy, yet your face kept the whole image from turning into noise.",
       "The closer people looked, the more the playful styling started feeling like a way into your close-up.",
-      "Everything around it stayed in motion, but the attention kept landing back on you.",
+      "The image stayed lively, but the attention kept circling back to you like the rest had already done its job.",
       "The color hit first, then your face made the whole post feel worth staying in.",
       "The shot looked fun on impact, then kept getting more specific around you on the second look.",
       "Everything clicked into place fast enough to feel easy, which made it harder to forget.",
       "The frame had plenty going on, but it still made your face feel like the one part people remembered clearly."
     ],
     fandomEscalationLines: [
-      "The save happened before anyone had a story ready for it.",
-      "The replies kept joking for a minute, and then it was obvious people were attached.",
+      "People saved it fast and only started justifying it after.",
+      "The replies stayed playful, but the attachment was obvious by the second round.",
       "Someone joked about making it the lockscreen and half the replies got a little too quiet after that.",
-      "The comments started playful, then gave away how attached people had gotten.",
+      "The comments started cute and ended with people sounding much more invested than planned.",
       "Nobody got loud about it; they just kept pretending the save was casual.",
       "The thread filled with people acting light about it while clearly coming back again.",
       "On the surface, everybody sounded casual. The repeat saves said otherwise.",
       "By the time someone said it was just for the vibe, the post had already become personal."
     ],
     identityClosings: [
-      "By the time the moment cooled off, this was already the frame people kept coming back to.",
+      "By the time the moment cooled off, it felt less like a result and more like the frame people would remember your idol version through.",
       "What stayed behind was the sense that your idol version had quietly taken over everyone's camera roll.",
       "After that, the image stopped reading as just playful and started reading as the frame people kept close.",
-      "Even after the moment passed, this was the frame people kept closest.",
+      "The moment cooled off, but this was clearly the frame people kept.",
       "Later, this became the frame people kept reaching for when they wanted your playful side in one shot.",
-      "By then, the frame was already the one people kept around without needing to explain why.",
+      "By then, the frame had already done the real work of making your idol version feel easy to claim and hard to put down.",
       "It leaves behind the feeling that your brightest frame is also the one people get attached to fastest.",
       "Once a still like this shows up, your idol identity starts living a little too comfortably in other people's saves."
     ]
