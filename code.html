@@ -343,7 +343,10 @@
       padding-top: 0;
       padding-bottom: 0;
       margin-bottom: 0;
-      transform: translateY(5px);
+      min-height: calc(var(--story-rule-height) * 2);
+      display: block;
+      text-align: center;
+      transform: translateY(4px);
     }
 
     .story-preview-sentence,
@@ -476,7 +479,8 @@
         letter-spacing: -0.015em;
         padding-top: 0;
         padding-bottom: 0;
-        transform: translateY(5px);
+        min-height: calc(var(--story-rule-height) * 2);
+        transform: translateY(4px);
       }
 
       .story-preview-body,
