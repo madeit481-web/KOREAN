@@ -59,6 +59,10 @@
  * @property {string} title
  * @property {string} ratingLabel
  * @property {string} microNovel
+ * @property {string[]=} storySentences
+ * @property {string=} storyLeadSentence
+ * @property {string[]=} storyPreviewSentences
+ * @property {string[]=} storyRemainingSentences
  * @property {string} fanReaction
  */
 

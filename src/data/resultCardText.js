@@ -421,6 +421,76 @@ export const toneStoryPools = {
   }
 };
 
+export const englishStoryLineReplacements = [
+  {
+    from: "Your printed version showed up and suddenly people were acting like possession had entered the story.",
+    to: "Your printed version showed up and people stopped acting normal about it."
+  },
+  {
+    from: "That first stage shot turned into the one people kept for later proof.",
+    to: "That first stage shot became the one people kept."
+  },
+  {
+    from: "That fancam second got saved the way other people save proof.",
+    to: "That fancam second got saved like it mattered."
+  },
+  {
+    from: "That TV close-up turned into the screenshot people used when they wanted the whole point in one frame.",
+    to: "That TV close-up became the screenshot people kept sending around."
+  },
+  {
+    from: "That one spread-out frame kept showing up in saves, shares, and somebody else's version of the story.",
+    to: "That frame kept turning up in saves, shares, and someone else's edits."
+  },
+  {
+    from: "By the time the moment passed, it no longer felt like a result image. It felt like the start of the version of you people would get attached to first.",
+    to: "By the time it passed, it felt like the start of the side people would get attached to first."
+  },
+  {
+    from: "By the end, it no longer felt like a result. It felt like proof that your idol version could change a room without raising its voice.",
+    to: "By the end, it no longer felt like a result. It felt like the kind of frame that could change a room without raising its voice."
+  },
+  {
+    from: "By the end, it felt less like a result card and more like the frame your idol era would be measured against.",
+    to: "By the end, it felt less like a result card and more like the frame the era would be measured against."
+  }
+];
+
+export const englishHookSentenceReplacements = [
+  {
+    from: "Your teaser dropped into the feed looking small enough to skim, and then nobody treated it that way.",
+    to: "Your teaser dropped small, and nobody treated it that way."
+  },
+  {
+    from: "The preview still went up, and the mood shifted before anybody had a proper caption ready.",
+    to: "The preview went up, and the mood changed before the caption did."
+  },
+  {
+    from: "Your teaser post went up quietly, and the reaction refused to stay that way.",
+    to: "Your teaser went up quietly, and the reaction didn't stay there."
+  },
+  {
+    from: "Your debut stage found one close-up and the whole performance started taking its shape from there.",
+    to: "One debut close-up was enough to set the whole stage."
+  },
+  {
+    from: "Your concert fancam found the exact second the crowd stopped sounding casual.",
+    to: "One concert clip was enough to change the temperature."
+  },
+  {
+    from: "Your music-show close-up hit during the broadcast and made the whole stage feel newly important.",
+    to: "Your music-show close-up hit, and the whole stage felt different."
+  },
+  {
+    from: "Your ending shot landed right before the cut, and that was the frame people got caught on.",
+    to: "Your last shot landed, and nobody stayed casual after that."
+  },
+  {
+    from: "Your image had the exact kind of hold that makes a lockscreen decision happen too early.",
+    to: "Your image had people making the lockscreen decision too early."
+  }
+];
+
 export const resultCardTextByTone = {
   FIRST_LOVE: {
     tone: "FIRST_LOVE",

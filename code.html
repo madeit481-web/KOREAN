@@ -294,13 +294,14 @@
     }
 
     .analysis-panel {
+      --story-rule-height: 30px;
       background:
         repeating-linear-gradient(
           to bottom,
           transparent 0,
-          transparent 27px,
-          rgba(244, 114, 182, 0.22) 27px,
-          rgba(244, 114, 182, 0.22) 28px
+          transparent calc(var(--story-rule-height) - 1px),
+          rgba(244, 114, 182, 0.22) calc(var(--story-rule-height) - 1px),
+          rgba(244, 114, 182, 0.22) var(--story-rule-height)
         ),
         linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
         linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
@@ -308,6 +309,115 @@
       border: 3px solid transparent;
       box-shadow: 0 18px 35px rgba(83, 69, 89, 0.12);
       background-blend-mode: normal, normal, normal;
+    }
+
+    .story-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .story-lead {
+      margin: 0;
+      font-size: clamp(0.94rem, 3.2vw, 1.08rem);
+      font-weight: 800;
+      line-height: var(--story-rule-height);
+      letter-spacing: -0.02em;
+      color: #B14EDB;
+      text-wrap: pretty;
+      max-width: 29ch;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      transform: translateY(5px);
+    }
+
+    .story-preview-sentence,
+    .story-extra-sentence,
+    .story-loading-sentence {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: var(--story-rule-height);
+      color: #55505F;
+      text-wrap: pretty;
+      padding-top: 0;
+      padding-bottom: 0;
+      transform: translateY(5px);
+    }
+
+    .story-preview-body,
+    .story-extra-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .story-extra-inner {
+      padding-top: 0;
+    }
+
+    .story-extra {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: max-height 240ms ease, opacity 220ms ease, transform 220ms ease;
+      will-change: max-height, opacity, transform;
+    }
+
+    .story-extra.is-expanded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      align-self: flex-start;
+      border: 0;
+      background: transparent;
+      padding: calc(var(--story-rule-height) / 2) 0 0;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #c73f86;
+      text-shadow:
+        0 0 0.01px currentColor,
+        0 0 12px rgba(199, 63, 134, 0.56),
+        0 0 26px rgba(199, 63, 134, 0.4),
+        0 0 42px rgba(199, 63, 134, 0.28),
+        0 0 56px rgba(199, 63, 134, 0.18);
+      transition: color 160ms ease, transform 160ms ease;
+    }
+
+    .story-toggle:hover {
+      color: #ad2f6e;
+      text-shadow:
+        0 0 0.01px currentColor,
+        0 0 14px rgba(173, 47, 110, 0.64),
+        0 0 30px rgba(173, 47, 110, 0.46),
+        0 0 46px rgba(173, 47, 110, 0.3),
+        0 0 62px rgba(173, 47, 110, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .story-toggle:focus-visible {
+      outline: 2px solid rgba(225, 92, 146, 0.35);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+
+    .story-toggle-caret {
+      display: inline-block;
+      font-size: 0.95rem;
+      line-height: 1;
+      transition: transform 220ms ease;
+    }
+
+    .story-toggle[aria-expanded="true"] .story-toggle-caret {
+      transform: rotate(180deg);
     }
 
     .result-headline-soft-shadow {
@@ -729,7 +839,7 @@
               <span class="text-pink-400">♡</span>
             </div>
 
-            <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-6 pb-6 pt-4 text-[12px] leading-7 text-slate-600 shadow-card">
+            <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-6 pb-7 pt-6 text-[12px] leading-7 text-slate-600 shadow-card">
               <p>
                 당신의 스타일 분석 결과, 제니의 독보적인 시크한 무드와 현대적인 도회미가 인상적으로 드러났습니다.
                 맑고 선명한 이목구비와 세련된 분위기 덕분에 무대 위에서도 시선을 끄는 강한 존재감을 자연스럽게 연출할 수 있습니다.
@@ -891,7 +1001,7 @@
     const RESULT_STORAGE_VERSION_KEY = "generatedKpopResultVersion";
     const RESULT_LANGUAGE_KEY = "generatedKpopResultLanguage";
     const LANGUAGE_STORAGE_KEY = "kIdolifyLanguage";
-    const CURRENT_RESULT_VERSION = "rating-label-v8-consistent";
+    const CURRENT_RESULT_VERSION = "rating-label-v10-hook-first";
     const ALLOWED_RATING_LABELS = new Set(["\u2605\u2605\u2605\u2605", "\u2605\u2605\u2605\u2605\u2605", "Top 3%", "Top 1%"]);
 
     const translations = {
@@ -1155,6 +1265,113 @@
       }
     }
 
+    function splitStorySentences(text) {
+      if (!text || typeof text !== "string") {
+        return [];
+      }
+
+      const matches = text.match(/[^.!?]+[.!?]+["']?|[^.!?]+$/g);
+      return (matches || []).map(function (sentence) {
+        return sentence.trim();
+      }).filter(Boolean);
+    }
+
+    function getStoryPreviewParts(resultCard) {
+      const allSentences = Array.isArray(resultCard.storySentences) && resultCard.storySentences.length
+        ? resultCard.storySentences.filter(Boolean)
+        : splitStorySentences(resultCard.microNovel);
+      const leadSentence = resultCard.storyLeadSentence || allSentences[0] || "";
+      const previewSentences = Array.isArray(resultCard.storyPreviewSentences) && resultCard.storyPreviewSentences.length
+        ? resultCard.storyPreviewSentences.filter(Boolean)
+        : [];
+      const remainingSentences = Array.isArray(resultCard.storyRemainingSentences) && resultCard.storyRemainingSentences.length
+        ? resultCard.storyRemainingSentences.filter(Boolean)
+        : allSentences.slice(1);
+
+      return {
+        leadSentence: leadSentence,
+        previewSentences: previewSentences,
+        remainingSentences: remainingSentences
+      };
+    }
+
+    function getStoryToggleLabel(expanded) {
+      return expanded ? "Show less" : "Read more";
+    }
+
+    function buildStorySentence(text, className) {
+      const paragraph = document.createElement("p");
+      paragraph.className = className;
+      paragraph.textContent = text;
+      return paragraph;
+    }
+
+    function renderStoryPanel(resultCard) {
+      if (!analysisPanel || !resultCard) {
+        return;
+      }
+
+      const storyParts = getStoryPreviewParts(resultCard);
+      const storyPreview = document.createElement("div");
+      storyPreview.className = "story-preview";
+
+      storyPreview.appendChild(buildStorySentence(storyParts.leadSentence || resultCard.microNovel, "story-lead"));
+
+      const previewBody = document.createElement("div");
+      previewBody.className = "story-preview-body";
+      storyParts.previewSentences.forEach(function (sentence) {
+        previewBody.appendChild(buildStorySentence(sentence, "story-preview-sentence"));
+      });
+      if (previewBody.childElementCount) {
+        storyPreview.appendChild(previewBody);
+      }
+
+      if (storyParts.remainingSentences.length) {
+        const extra = document.createElement("div");
+        extra.className = "story-extra";
+
+        const extraInner = document.createElement("div");
+        extraInner.className = "story-extra-inner";
+        storyParts.remainingSentences.forEach(function (sentence) {
+          extraInner.appendChild(buildStorySentence(sentence, "story-extra-sentence"));
+        });
+        extra.appendChild(extraInner);
+        storyPreview.appendChild(extra);
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "story-toggle";
+        toggle.setAttribute("aria-expanded", "false");
+
+        const toggleLabel = document.createElement("span");
+        toggleLabel.textContent = getStoryToggleLabel(false);
+        const toggleCaret = document.createElement("span");
+        toggleCaret.className = "story-toggle-caret";
+        toggleCaret.textContent = "▾";
+
+        toggle.appendChild(toggleLabel);
+        toggle.appendChild(toggleCaret);
+
+        function syncStoryExpansion(expanded) {
+          toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+          toggleLabel.textContent = getStoryToggleLabel(expanded);
+          extra.classList.toggle("is-expanded", expanded);
+          extra.style.maxHeight = expanded ? extraInner.scrollHeight + "px" : "0px";
+        }
+
+        toggle.addEventListener("click", function () {
+          syncStoryExpansion(toggle.getAttribute("aria-expanded") !== "true");
+        });
+
+        storyPreview.appendChild(toggle);
+        window.requestAnimationFrame(function () {
+          syncStoryExpansion(false);
+        });
+      }
+
+      analysisPanel.replaceChildren(storyPreview);
+    }
+
     function renderGeneratedResult() {
       const copy = getCopy();
       if (storedSelfie && resultImage) {
@@ -1167,6 +1384,9 @@
         resultTitle.textContent = copy.uploadedResult;
         resultHeadline.textContent = copy.loadingHeadline;
         resultReaction.textContent = copy.loadingReaction;
+        renderStoryPanel({
+          microNovel: "Your idol story is loading. The rest of the story will open inline here."
+        });
         return;
       }
 
@@ -1214,10 +1434,7 @@
         resultReaction.textContent = '"' + parsedResult.resultCard.fanReaction + '"';
       }
 
-      if (analysisPanel) {
-        analysisPanel.innerHTML =
-          '<p class="mt-4">' + parsedResult.resultCard.microNovel + '</p>';
-      }
+      renderStoryPanel(parsedResult.resultCard);
 
       window.__kIdolifyResultDebug = {
         storageKey: RESULT_STORAGE_KEY,
