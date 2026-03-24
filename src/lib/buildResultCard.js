@@ -1,4 +1,4 @@
-import { defaultRatingLabels, englishHookSentenceReplacements, englishStoryLineReplacements, resultCardTextByTone, storyScenes, sceneStoryPools } from "../data/resultCardText.js";
+import { defaultRatingLabels, englishHookSentenceReplacements, englishSceneHookPools, englishStoryLineReplacements, resultCardTextByTone, storyScenes, sceneStoryPools } from "../data/resultCardText.js";
 import { sharedHeadlineTranslations, toneLineTranslations } from "../data/resultCardTranslations.js";
 import { pickRandom, pickWeighted } from "./random.js";
 
@@ -81,6 +81,16 @@ function applyPhraseReplacement(text, from, to) {
   return text.split(from).join(to);
 }
 
+function countWords(text) {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function hashString(text) {
+  return text.split("").reduce(function (hash, character) {
+    return ((hash * 31) + character.charCodeAt(0)) >>> 0;
+  }, 0);
+}
+
 function polishEnglishStoryLine(line) {
   if (!line) {
     return line;
@@ -145,6 +155,24 @@ function polishEnglishHookSentence(line) {
     .replace("One look at your image and people were already treating it like it had a place on their phone.", "One look at your image and people were already making room for it.")
     .replace(/\s{2,}/g, " ")
     .trim();
+}
+
+function getSceneHook(scene, seedText, fallbackLine) {
+  const pool = englishSceneHookPools[scene];
+  if (!pool || !pool.length) {
+    return polishEnglishHookSentence(fallbackLine);
+  }
+
+  return pool[hashString(seedText || fallbackLine || scene) % pool.length];
+}
+
+function finalizeEnglishHookSentence(scene, line) {
+  const sceneHook = getSceneHook(scene, line, line);
+  if (countWords(sceneHook) <= 18) {
+    return sceneHook;
+  }
+
+  return polishEnglishHookSentence(sceneHook);
 }
 
 function buildEnglishReactionLine(attentionShiftLine, fandomEscalationLine) {
@@ -220,7 +248,7 @@ function buildLocalizedStory(tone, source, locale) {
   }
 
   return [
-    polishEnglishHookSentence(eventOpening),
+    finalizeEnglishHookSentence(source.scene, eventOpening),
     buildEnglishReactionLine(attentionShiftLine, fandomEscalationLine),
     buildEnglishCollectibleLine(collectibleFalloutLine),
     buildEnglishAftermathLine(identityClosing)

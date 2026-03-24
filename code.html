@@ -294,38 +294,52 @@
     }
 
     .analysis-panel {
-      --story-rule-height: 30px;
+      --story-rule-height: clamp(30px, 5.8vw, 33px);
+      --story-rule-offset: 0px;
       background:
         repeating-linear-gradient(
           to bottom,
           transparent 0,
           transparent calc(var(--story-rule-height) - 1px),
-          rgba(244, 114, 182, 0.22) calc(var(--story-rule-height) - 1px),
-          rgba(244, 114, 182, 0.22) var(--story-rule-height)
+          rgba(244, 114, 182, 0.1) calc(var(--story-rule-height) - 1px),
+          rgba(244, 114, 182, 0.1) var(--story-rule-height)
         ),
         linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
         linear-gradient(135deg, rgba(255, 183, 206, 1), rgba(216, 180, 254, 1)) border-box;
+      background-position:
+        0 var(--story-rule-offset),
+        0 0,
+        0 0;
       backdrop-filter: blur(12px);
       border: 3px solid transparent;
       box-shadow: 0 18px 35px rgba(83, 69, 89, 0.12);
       background-blend-mode: normal, normal, normal;
+      isolation: isolate;
+      overflow-wrap: normal;
     }
 
     .story-preview {
       display: flex;
       flex-direction: column;
       gap: 0;
+      width: 100%;
+      max-width: 42rem;
+      margin: 0 auto;
     }
 
     .story-lead {
       margin: 0;
-      font-size: clamp(0.94rem, 3.2vw, 1.08rem);
+      font-size: clamp(0.92rem, 2.4vw + 0.16rem, 1.08rem);
       font-weight: 800;
       line-height: var(--story-rule-height);
       letter-spacing: -0.02em;
       color: #B14EDB;
-      text-wrap: pretty;
-      max-width: 29ch;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: keep-all;
+      hyphens: none;
+      width: 100%;
+      max-width: 100%;
       padding-top: 0;
       padding-bottom: 0;
       margin-bottom: 0;
@@ -334,15 +348,25 @@
 
     .story-preview-sentence,
     .story-extra-sentence,
-    .story-loading-sentence {
+    .story-loading-sentence,
+    .story-body-copy {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: clamp(0.9rem, 2.2vw, 0.98rem);
       line-height: var(--story-rule-height);
       color: #55505F;
       text-wrap: pretty;
+      overflow-wrap: normal;
+      word-break: keep-all;
+      hyphens: none;
+      width: 100%;
+      max-width: 100%;
       padding-top: 0;
       padding-bottom: 0;
       transform: translateY(5px);
+    }
+
+    .story-body-copy {
+      max-width: none;
     }
 
     .story-preview-body,
@@ -361,6 +385,7 @@
       max-height: 0;
       opacity: 0;
       transform: translateY(-6px);
+      margin-top: 0;
       transition: max-height 240ms ease, opacity 220ms ease, transform 220ms ease;
       will-change: max-height, opacity, transform;
     }
@@ -377,8 +402,9 @@
       align-self: flex-start;
       border: 0;
       background: transparent;
-      padding: calc(var(--story-rule-height) / 2) 0 0;
-      font-size: 0.76rem;
+      margin-top: calc(var(--story-rule-height) * 0.5);
+      padding: 0;
+      font-size: clamp(0.74rem, 1.8vw, 0.8rem);
       font-weight: 900;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -418,6 +444,80 @@
 
     .story-toggle[aria-expanded="true"] .story-toggle-caret {
       transform: rotate(180deg);
+    }
+
+    @supports not (text-wrap: balance) {
+      .story-lead {
+        text-wrap: pretty;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .analysis-panel {
+        backdrop-filter: blur(10px);
+        --story-rule-height: 31px;
+        --story-rule-offset: 0px;
+      }
+
+      .story-preview {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      .story-lead {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.94rem;
+        line-height: var(--story-rule-height);
+        text-wrap: pretty;
+        letter-spacing: -0.015em;
+        padding-top: 0;
+        padding-bottom: 0;
+        transform: translateY(5px);
+      }
+
+      .story-preview-body,
+      .story-extra,
+      .story-extra-inner {
+        width: 100%;
+      }
+
+      .story-preview-sentence,
+      .story-extra-sentence,
+      .story-loading-sentence,
+      .story-body-copy {
+        width: 100%;
+        max-width: 100%;
+        line-height: var(--story-rule-height);
+        padding-top: 0;
+        padding-bottom: 0;
+        transform: translateY(5px);
+      }
+
+      .analysis-background-effects .sparkle-halo,
+      .analysis-background-effects .sparkle-burst {
+        display: none;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .story-preview {
+        max-width: 100%;
+      }
+
+      .story-lead {
+        max-width: 100%;
+      }
+
+      .story-preview-sentence,
+      .story-extra-sentence,
+      .story-loading-sentence,
+      .story-body-copy {
+        max-width: 100%;
+      }
     }
 
     .result-headline-soft-shadow {
@@ -839,7 +939,7 @@
               <span class="text-pink-400">♡</span>
             </div>
 
-            <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-6 pb-7 pt-6 text-[12px] leading-7 text-slate-600 shadow-card">
+            <div id="analysisPanel" class="analysis-panel relative rounded-[14px] px-[0.85rem] pb-8 pt-6 text-[12px] leading-7 text-slate-600 shadow-card sm:px-6 sm:pt-7">
               <p>
                 당신의 스타일 분석 결과, 제니의 독보적인 시크한 무드와 현대적인 도회미가 인상적으로 드러났습니다.
                 맑고 선명한 이목구비와 세련된 분위기 덕분에 무대 위에서도 시선을 끄는 강한 존재감을 자연스럽게 연출할 수 있습니다.
@@ -1332,9 +1432,7 @@
 
         const extraInner = document.createElement("div");
         extraInner.className = "story-extra-inner";
-        storyParts.remainingSentences.forEach(function (sentence) {
-          extraInner.appendChild(buildStorySentence(sentence, "story-extra-sentence"));
-        });
+        extraInner.appendChild(buildStorySentence(storyParts.remainingSentences.join(" "), "story-body-copy"));
         extra.appendChild(extraInner);
         storyPreview.appendChild(extra);
 

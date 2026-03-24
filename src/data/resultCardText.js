@@ -491,6 +491,57 @@ export const englishHookSentenceReplacements = [
   }
 ];
 
+export const englishSceneHookPools = {
+  TEASER_DROP: [
+    "Your teaser dropped small, and nobody treated it that way.",
+    "The first reveal landed, and it stopped feeling casual.",
+    "Your teaser went up, and the reaction changed first.",
+    "One teaser frame was enough to shift the mood."
+  ],
+  DEBUT_STAGE: [
+    "One debut close-up was enough to set the whole stage.",
+    "The stage found you early, and everything shifted.",
+    "One debut shot made the whole stage feel decided.",
+    "Your debut close-up landed, and the stage changed shape."
+  ],
+  CONCERT_FANCAM: [
+    "One concert clip was enough to change the temperature.",
+    "Your concert clip landed, and nobody sounded casual after that.",
+    "One fancam moment was enough to move the whole crowd.",
+    "Your concert angle hit, and the reaction spread fast."
+  ],
+  MUSIC_SHOW_CLOSEUP: [
+    "Your music-show close-up hit, and the stage felt different.",
+    "One broadcast close-up was enough to stop the scroll.",
+    "The camera found you, and nobody moved on quickly.",
+    "One TV close-up changed the whole moment."
+  ],
+  ENDING_SHOT: [
+    "Your last shot landed, and nobody stayed casual after that.",
+    "One final close-up was enough to end the stage your way.",
+    "Your ending shot hit, and that was the frame people kept.",
+    "The final camera found you, and that changed the ending."
+  ],
+  PHOTOCARD_PULL: [
+    "The photocard pull landed, and people got personal fast.",
+    "One card pull was enough to make it feel real.",
+    "Your printed version showed up, and nobody stayed normal.",
+    "The pull hit the light, and people wanted it immediately."
+  ],
+  VIRAL_EDIT: [
+    "Your frame hit one good edit, and then it was everywhere.",
+    "One repost was enough to send your frame everywhere.",
+    "Your clip got edited once, and the reaction got bigger.",
+    "Your frame started moving fast, and nobody looked away."
+  ],
+  LOCKSCREEN_SAVE: [
+    "Your image had people making the lockscreen decision too early.",
+    "One look at your image, and people were saving it.",
+    "Your frame landed, and the keep-this instinct hit fast.",
+    "Your image showed up, and people made room for it."
+  ]
+};
+
 export const resultCardTextByTone = {
   FIRST_LOVE: {
     tone: "FIRST_LOVE",
