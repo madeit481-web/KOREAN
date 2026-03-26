@@ -402,7 +402,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      align-self: flex-start;
+      align-self: center;
       border: 0;
       background: transparent;
       margin-top: calc(var(--story-rule-height) * 0.5);
@@ -525,6 +525,8 @@
     }
 
     .result-headline-soft-shadow {
+      font-family: "Montserrat", "Noto Sans KR", sans-serif;
+      font-kerning: normal;
       text-shadow:
         0 1px 0 rgba(255, 255, 255, 0.42),
         0 0 14px rgba(244, 114, 182, 0.24),
@@ -853,7 +855,7 @@
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
-      <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.24em] text-kpop-rose/70 md:absolute md:left-1/2 md:text-[11px] md:tracking-[0.28em] md:-translate-x-1/2">
+      <div class="flex items-center gap-4 text-[13px] font-bold uppercase tracking-[0.24em] text-kpop-rose/70 md:absolute md:left-1/2 md:text-[14px] md:tracking-[0.28em] md:-translate-x-1/2">
         <a id="navHomeLink" class="transition-colors hover:text-kpop-rose" href="index.html">Home</a>
       </div>
       <div id="languageSwitcher" class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-kpop-rose/80 md:ml-auto md:text-[11px]">
@@ -1088,7 +1090,7 @@
         </div>
         <span class="brand-font text-lg font-black text-kpop-black">K-Idolify</span>
       </div>
-      <div class="flex items-center justify-center space-x-10 text-[10px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50">
+      <div class="flex items-center justify-center space-x-10 text-[13px] font-bold uppercase tracking-[0.3em] text-kpop-rose/50 md:text-[14px]">
         <a id="footerPrivacyLink" class="transition-colors hover:text-kpop-rose" href="#">Privacy</a>
         <span aria-hidden="true" class="h-4 w-px bg-kpop-rose/30"></span>
         <a id="footerTermsLink" class="transition-colors hover:text-kpop-rose" href="#">Terms</a>
@@ -1141,7 +1143,7 @@
         title: "스타일 K-POP 결과 분석",
         home: "홈",
         heroTitle: '<span class="hero-premium mr-3 text-[#8b5cf6]">당신은 다음</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">아이돌</span>',
-        heroSubline: "아이돌 무드 결과 리포트",
+        heroSubline: "Idol-level rizz generator",
         ready: "준비 완료",
         uploadedResult: "업로드 결과",
         loadingHeadline: "업로드한 결과를 불러오는 중입니다.",
@@ -1169,7 +1171,7 @@
         title: "Analisis de Estilo K-POP",
         home: "Inicio",
         heroTitle: '<span class="hero-premium mr-3 text-[#8b5cf6]">Tu Eres la Proxima</span><span class="hero-premium hero-highlight hero-aura-ripple bg-clip-text text-transparent" data-text="K-POP">K-POP</span> <span class="hero-premium hero-idol hero-aura-ripple bg-clip-text text-transparent" data-text="Idol">Idol</span>',
-        heroSubline: "Generador de vibra idol",
+        heroSubline: "Idol-level rizz generator",
         ready: "Listo",
         uploadedResult: "Resultado Cargado",
         loadingHeadline: "Tu resultado cargado se esta preparando.",
@@ -1474,6 +1476,26 @@
       analysisPanel.replaceChildren(storyPreview);
     }
 
+    function fitResultHeadline() {
+      if (!resultHeadline) {
+        return;
+      }
+
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      const maxSize = isMobile ? 34.56 : 37.44;
+      const minSize = isMobile ? 17 : 20;
+      let nextSize = maxSize;
+
+      resultHeadline.style.fontSize = "";
+      resultHeadline.style.lineHeight = "";
+
+      while (resultHeadline.scrollWidth > resultHeadline.clientWidth && nextSize > minSize) {
+        nextSize -= 0.5;
+        resultHeadline.style.fontSize = nextSize + "px";
+        resultHeadline.style.lineHeight = isMobile ? "1.08" : "1";
+      }
+    }
+
     function renderGeneratedResult() {
       const copy = getCopy();
       if (storedSelfie && resultImage) {
@@ -1485,6 +1507,7 @@
         resultRating.textContent = copy.ready;
         resultTitle.textContent = copy.uploadedResult;
         resultHeadline.textContent = copy.loadingHeadline;
+        fitResultHeadline();
         resultReaction.textContent = copy.loadingReaction;
         renderStoryPanel({
           microNovel: "Your idol story is loading. The rest of the story will open inline here."
@@ -1494,6 +1517,7 @@
 
       if (resultHeadline) {
         resultHeadline.textContent = parsedResult.resultCard.headline;
+        fitResultHeadline();
       }
 
       if (resultRating) {
@@ -1781,7 +1805,7 @@
       currentLanguage = translations[nextLanguage] ? nextLanguage : "en";
       localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
       sessionStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
-      if (storedSelfie) {
+      if (storedSelfie && parsedResult) {
         parsedResult = persistGeneratedResult(localizeGeneratedResult(parsedResult, currentLanguage));
       }
       sharePayloadCache = null;
@@ -1866,6 +1890,8 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
+
+    window.addEventListener("resize", fitResultHeadline);
   </script>
 </body>
 </html>

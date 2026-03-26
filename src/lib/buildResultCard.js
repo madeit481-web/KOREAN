@@ -1,5 +1,5 @@
 import { defaultRatingLabels, englishHookSentenceReplacements, englishSceneHookPools, englishStoryLineReplacements, resultCardTextByTone, storyScenes, sceneStoryPools } from "../data/resultCardText.js";
-import { sharedHeadlineTranslations, toneLineTranslations } from "../data/resultCardTranslations.js";
+import { sharedHeadlineTranslations, sharedSceneLineTranslations, toneLineTranslations } from "../data/resultCardTranslations.js";
 import { pickRandom, pickWeighted } from "./random.js";
 
 const repeatedKeywords = ["center", "visual", "aura", "stage", "era", "fancam", "photocard", "icon", "legend", "bias"];
@@ -56,6 +56,11 @@ function translateLine(line, locale, tone, group) {
     if (shared && shared[locale]) {
       return shared[locale];
     }
+  }
+
+  const sharedSceneGroup = sharedSceneLineTranslations[group];
+  if (sharedSceneGroup && sharedSceneGroup[line] && sharedSceneGroup[line][locale]) {
+    return sharedSceneGroup[line][locale];
   }
 
   const toneTranslations = toneLineTranslations[tone];
